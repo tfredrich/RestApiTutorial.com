@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>http://www.restapitutorial.com/</loc>
+  <lastmod>2012-05-01T22:56:57+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.restapitutorial.com/restquicktips.html</loc>
+  <lastmod>2012-05-01T22:56:54+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.restapitutorial.com/httpmethods.html</loc>
+  <lastmod>2012-05-01T22:56:58+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.restapitutorial.com/httpstatuscodes.html</loc>
+  <lastmod>2012-05-01T22:56:57+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.restapitutorial.com/resources.html</loc>
+  <lastmod>2012-05-01T22:56:56+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.restapitutorial.com/index.html</loc>
+  <lastmod>2012-05-01T22:56:57+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.restapitutorial.com/media/RESTful_Best_Practices-v1_0.pdf</loc>
+  <lastmod>2012-04-24T15:48:57+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+</urlset>
