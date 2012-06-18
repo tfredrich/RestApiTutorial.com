@@ -36,8 +36,22 @@
 	<body>
 		<div class="container">
 			<div class="row">
-				<div class="span12">
+				<div class="span8">
 					<h1>REST API Quick Tips</h1>
+				</div>
+				<div class="span4">
+					<ul class="pager">
+						<li>
+							<a href="whatisrest.html"><i class="icon-step-backward"></i> Previous</a>
+						</li>
+						<li>
+							<a href="httpmethods.html">Next <i class="icon-step-forward"></i></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="span12">
 					<p>Whether it's technically RESTful or not (according to the six constraints mentioned above), here are a few recommended REST-like concepts that will result in better, more usable services:</p>
 					<h2>Use HTTP Verbs to Mean Something</h2>
 					<p>Any API consumer is capable of sending GET, POST, PUT, and DELETE verbs, and they greatly enhance the clarity of what a given request does. Also, GET requests must not change any underlying resource data.  Measurements and tracking may still occur, which updates data, but not resource data identified by the URI.</p>
