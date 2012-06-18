@@ -8,57 +8,30 @@
 
 <url>
   <loc>http://www.restapitutorial.com/</loc>
-  <lastmod>2012-05-01T22:56:57+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-</url>
-<url>
-  <loc>http://www.restapitutorial.com/restquicktips.html</loc>
-  <lastmod>2012-05-01T22:56:54+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-</url>
-<url>
-  <loc>http://www.restapitutorial.com/httpstatuscodes.html</loc>
-  <lastmod>2012-05-01T22:56:57+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-</url>
-<url>
-  <loc>http://www.restapitutorial.com/resources.html</loc>
-  <lastmod>2012-05-01T22:56:56+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-</url>
-<url>
-  <loc>http://www.restapitutorial.com/index.html</loc>
-  <lastmod>2012-05-01T22:56:57+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-</url>
-<url>
-  <loc>http://www.restapitutorial.com/media/RESTful_Best_Practices-v1_0.pdf</loc>
-  <lastmod>2012-04-24T15:48:57+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-</url>
-<url>
-  <loc>https://github.com/tfredrich/RestApiTutorial.com/raw/master/media/RESTful%20Best%20Practices-v1_1.pdf</loc>
-  <lastmod>2012-05-30T15:48:57+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-</url>
-<url>
-  <loc>https://github.com/tfredrich/RestApiTutorial.com/raw/master/media/RESTful%20Best%20Practices-v1_1.epub</loc>
-  <lastmod>2012-05-30T15:48:57+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-</url>
-<url>
-  <loc>https://github.com/tfredrich/RestApiTutorial.com/raw/master/media/RESTful%20Best%20Practices-v1_1.odt</loc>
-  <lastmod>2012-05-30T15:48:57+00:00</lastmod>
-  <changefreq>monthly</changefreq>
+  <lastmod>2012-06-18T17:42:02+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.restapitutorial.com/lessons/whatisrest.html</loc>
-  <lastmod>2012-05-30T14:27:58+00:00</lastmod>
-  <changefreq>monthly</changefreq>
+  <lastmod>2012-06-18T18:39:08+00:00</lastmod>
+</url>
+<url>
+  <loc>http://www.restapitutorial.com/lessons/restquicktips.html</loc>
+  <lastmod>2012-06-18T17:55:38+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.restapitutorial.com/lessons/httpmethods.html</loc>
-  <lastmod>2012-05-30T14:27:58+00:00</lastmod>
-  <changefreq>monthly</changefreq>
+  <lastmod>2012-06-18T17:55:39+00:00</lastmod>
+</url>
+<url>
+  <loc>http://www.restapitutorial.com/httpstatuscodes.html</loc>
+  <lastmod>2012-06-18T19:22:41+00:00</lastmod>
+</url>
+<url>
+  <loc>http://www.restapitutorial.com/resources.html</loc>
+  <lastmod>2012-06-18T18:44:40+00:00</lastmod>
+</url>
+<url>
+  <loc>http://www.restapitutorial.com/index.html</loc>
+  <lastmod>2012-06-18T17:42:02+00:00</lastmod>
 </url>
 </urlset>
