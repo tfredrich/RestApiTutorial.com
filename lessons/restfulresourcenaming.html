@@ -52,16 +52,96 @@
 			</div>
 			<div class="row">
 				<div class="span12">
-					<i class="icon-film"></i> <a href="#" data-toggle="collapse" data-target="#video1">Hide/Show Video</a>
-				</div>
-			</div>
-			<div id="video1" class="row collapse in">
-				<div class="span12">
-					<iframe width="853" height="480" src="http://www.youtube.com/embed/llpr5924N7E" frameborder="0" allowfullscreen></iframe>
+					<p>In addition to utilizing the HTTP verbs appropriately, resource naming is arguably the most debated and most important concept to grasp when creating an understandable, easily leveraged Web service API. When resources are named well, an API is intuitive and easy to use. Done poorly, that same API can feel klutzy and be difficult to use and understand. Below are a few tips to get you going when creating the resource URIs for your new API.</p>
+					<p>Essentially, a RESTFul API ends up being simply a collection of URIs, HTTP calls to those URIs and some JSON and/or XML representations of resources, many of which will contain relational links. The RESTful principal of addressability is covered by the URIs. Each resource has its own address or URI—every interesting piece of information the server can provide is exposed as a resource. The constraint of uniform interface is partially addressed by the combination of URIs and HTTP verbs, and using them in line with the standards and conventions.</p>
+					<p>In deciding what resources are within your system, name them as nouns as opposed to verbs or actions. In other words, a RESTful URI should refer to a resource that is a thing instead of referring to an action. Nouns have properties as verbs do not, just another distinguishing factor.</p>
+					<p>Some example resources are:</p>
+					<ul>
+						<li>Users of the system.</li>
+						<li>Courses in which a student is enrolled.</li>
+						<li>A user's timeline of posts.</li>
+						<li>The users that follow another user.</li>
+						<li>An article about horseback riding.</li>
+					</ul>
+					<p>Each resource in a service suite will have at least one URI identifying it. And it's best when that URI makes sense and adequately describes the resource. URIs should follow a predictable, hierarchical structure to enhance understandability and, therefore, usability: predictable in the sense that they're consistent, hierarchical in the sense that data has structure—relationships. This is not a REST rule or constraint, but it enhances the API.</p>
+					<p>RESTful APIs are written for consumers. The name and structure of URIs should convey meaning to those consumers. It's often difficult to know what the data boundaries should be, but with understanding of your data, you most-likely are equipped to take a stab and what makes sense to return as a representation to your clients. Design for your clients, not for your data.</p>
+					<p>Let's say we're describing an order system with customers, orders, line items, products, etc. Consider the URIs involved in describing the resources in this service suite:</p>
 				</div>
 			</div>
 			<div class="row">
 				<div class="span12">
+					<ul class="nav nav-tabs">
+						<li class="active"><a href="#examples" data-toggle="tab">Resource URI Examples</a></li>
+						<li><a href="#antipatterns" data-toggle="tab">Resource Naming Anti-Patterns</a></li>
+						<li><a href="#pluralization" data-toggle="tab">Pluralization</a></li>
+					</ul>
+					<div id="namingTabContent" class="tab-content">
+						<div class="tab-pane fade in active" id="examples">
+							<p>To insert (create) a new customer in the system, we might use:<br/>
+							<em>POST http://www.example.com/customers</em></p>
+							<p>To read a customer with Customer ID# 33245:<br/>
+							<em>GET http://www.example.com/customers/33245</em>
+							The same URI would be used for PUT and DELETE, to update and delete, respectively.</p>
+							<p>Here are proposed URIs for products:<br/>
+							<em>POST http://www.example.com/products</em>
+							for creating a new product.</p>
+							<p><em>GET|PUT|DELETE http://www.example.com/products/66432</em><br/>
+							for reading, updating, deleting product 66432, respectively.</p>
+							<p>Now, here is where it gets fun... What about creating a new order for a customer? One option might be: POST http://www.example.com/orders And that could work to create an order, but it's arguably outside the context of a customer.</p>
+							<p>Because we want to create an order for a customer (note the relationship), this URI perhaps is not as intuitive as it could be. It could be argued that the following URI would offer better clarity: <em>POST http://www.example.com/customers/33245/orders</em> Now we know we're creating an order for customer ID# 33245.</p>
+							<p>Now what would the following return?<br/>
+							<em>GET http://www.example.com/customers/33245/orders</em><br/>
+							Probably a list of orders that customer #33245 has created or owns. Note: we may choose to not support DELETE or PUT for that url since it's operating on a collection.</p>
+							<p>Now, to continue the hierarchical concept, what about the following URI?<br/>
+							<em>POST http://www.example.com/customers/33245/orders/8769/lineitems</em><br/>
+							That might add a line item to order #8769 (which is for customer #33245). Right! GET for that URI might return all the line items for that order. However, if line items don't make sense only in customer context or also make sense outside the context of a customer, we would offer a POST www.example.com/orders/8769/lineitems URI.</p>
+							<p>Along those lines, because there may be multiple URIs for a given resource, we might also offer a GET http://www.example.com/orders/8769 URI that supports retrieving an order by number without having to know the customer number.</p>
+							<p>To go one layer deeper in the hierarchy:<br/>
+							<em>GET http://www.example.com/customers/33245/orders/8769/lineitems/1</em><br/>
+							Might return only the first line item in that same order.</p>
+							<p>By now you can see how the hierarchy concept works. There aren't any hard and fast rules, only make sure the imposed structure makes sense to consumers of your services. As with everything in the craft of Software Development, naming is critical to success.</p>
+							<p>Look at some widely used APIs to get the hang of this and leverage the intuition of your teammates to refine your API resource URIs. Some example APIs are:</p>
+							<ul>
+								<li>Twitter: https://dev.twitter.com/docs/api</li>
+								<li>Facebook: http://developers.facebook.com/docs/reference/api/</li>
+								<li>LinkedIn: https://developer.linkedin.com/apis</li>
+							</ul>
+						</div>
+
+						<div class="tab-pane fade" id="antipatterns">
+							<p>While we've discussed some examples of appropriate resource names, sometimes it's informative to see some anti-patterns. Below are some examples of poor RESTful resource URIs seen in the &quot;wild.&quot; These are examples of what not to do!</p>
+							<p>First up, often services use a single URI to specify the service interface, using query-string parameters to specify the requested operation and/or HTTP verb. For example to update customer with ID 12345, the request for a JSON body might be:</p>
+							<p><em>GET http://api.example.com/services?op=update_customer&id=12345&format=json</em></p>
+							<p>By now, you're above doing this. Even though the 'services' URL node is a noun, this URL is not self- descriptive as the URI hierarchy is the same for all requests. Plus, it uses GET as the HTTP verb even though we're performing an update. This is counter-intuitive and is painful (even dangerous) to use as a client.</p>
+							<p>Here's another example following the same operation of updating a customer:</p>
+							<p><em>GET http://api.example.com/update_customer/12345</em></p>
+							<p>And its evil twin:</p>
+							<p><em>GET http://api.example.com/customers/12345/update</em></p>
+							<p>You'll see this one a lot as you visit other developer's service suites. Note that the developer is attempting to create RESTful resource names and has made some progress. But you're better than this —able to identify the verb phrase in the URL. Notice that we don't need to use the 'update' verb phrase in the URL because we can rely on the HTTP verb to inform that operation. Just to clarify, the following resource URL is redundant:</p>
+							<p><em>PUT http://api.example.com/customers/12345/update</em></p>
+							<p>With both PUT and 'update' in the request, we're offering to confuse our service consumers! Is 'update' the resource? So, we've spent some time beating the horse at this point. I'm certain you understand...</p>
+						</div>
+						<div class="tab-pane fade" id="pluralization">
+							<p>Let's talk about the debate between the pluralizers and the &quot;singularizers&quot;... Haven't heard of that debate? It does exist. Essentially, it boils down to this question...</p>
+							<p>Should URI nodes in your hierarchy be named using singular or plural nouns? For example, should your URI for retrieving a representation of a customer resource look like this:</p>
+							<p><em>GET http://www.example.com/customer/33245</em> or:
+							<em>GET http://www.example.com/customers/33245</em></p>
+							<p>There are good arguments on both sides, but the commonly-accepted practice is to always use plurals in node names to keep your API URIs consistent across all HTTP methods. The reasoning is based on the concept that customers are a collection within the service suite and the ID (e.g. 33245) refers to one of those customers in the collection.</p>
+							<p>Using this rule, an example multi-node URI using pluralization would look like (emphasis added):</p>
+							<p><em>GET http://www.example.com/<strong>customers</strong>/33245/<strong>orders</strong>/8769/<strong>lineitems</strong>/1</em></p>
+							<p>with 'customers', 'orders', and 'lineitems' URI nodes all being their plural forms.</p>
+							<p>This implies that you only really need two base URLs for each root resource. One for creation of the resource within a collection and the second for reading, updating and deleting the resource by its identifier. For example the creation case, using customers as the example, is handled by the following URL:</p>
+							<p><em>POST http://www.example.com/customers</em></p>
+							<p>And the read, update and delete cases are handled by the following:</p>
+							<p><em>GET|PUT|DELETE http://www.example.com/customers/{id}</em></p>
+							<p>As mentioned earlier, there may be multiple URIs for a given resource, but as a minimum full CRUD capabilities are aptly handled with two simple URIs.</p>
+							<p>You ask if there is a case where pluralization doesn't make sense. Well, yes, in fact there is. When there isn't a collection concept in play. In other words, it's acceptable to use a singularized resource name when there can only be one of the resource—it's a singleton resource. For example, if there was a single, overarching configuration resource, you might use a singularized noun to represent that:</p>
+							<p><em>GET|PUT|DELETE http://www.example.com/configuration</em></p>
+							<p>Note the lack of a configuration ID and usage of POST verb. And say that there was only one configuration per customer, then the URL might be:</p>
+							<p><em>GET|PUT|DELETE http://www.example.com/customers/12345/configuration</em></p>
+							<p>Again, no ID for the configuration and no POST verb usage. Although, I'm sure that in both of these cases POST usage might be argued to be valid. Well... OK.</p>
+						</div>
+					</div>
 				</div>
 			</div>
 			<hr>
