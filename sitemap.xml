@@ -4,8 +4,6 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
 <url>
   <loc>http://www.restapitutorial.com/</loc>
   <lastmod>2012-06-18T17:42:02+00:00</lastmod>
@@ -21,6 +19,10 @@
 <url>
   <loc>http://www.restapitutorial.com/lessons/httpmethods.html</loc>
   <lastmod>2012-06-18T17:55:39+00:00</lastmod>
+</url>
+<url>
+  <loc>http://www.restapitutorial.com/lessons/restfulresourcenaming.html</loc>
+  <lastmod>2012-06-19T17:55:39+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.restapitutorial.com/httpstatuscodes.html</loc>
