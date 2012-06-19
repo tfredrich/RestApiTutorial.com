@@ -1,0 +1,13 @@
+<html>
+<head>
+  <title>Redirecting to new URL: http://www.restapitutorial.com/resources.html</title>
+  <meta http-equiv=refresh content="0; url=http://www.restapitutorial.com/resources.html" />
+  <meta name="robots" content="noindex,follow" />
+</head>
+<body>
+  <h1>This page does not exist and you are being redirected to http://www.restapitutorial.com/resources.html</h1>
+  <p>If your browser doesn't redirect you to that location please
+    <a href="http://www.restapitutorial.com/resources.html"><strong>click here</strong></a>,
+    sorry for the hassles!</p>
+</body>
+</html>
