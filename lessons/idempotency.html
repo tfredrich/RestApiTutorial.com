@@ -2,9 +2,9 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>RESTful Web Services Resources</title>
+		<title>What is REST?</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="REST API eBook for Best Practices and other resources, such as open-source REST Service frameworks, etc.">
+		<meta name="description" content="Idempotency or Idempotence, definition in a non-academic way, specifically in REST APIs">
 		<meta name="author" content="Todd Fredrich, Pearson eCollege">
 		<!-- Le styles -->
 		<link href="https://d7im4lln3lvbg.cloudfront.net/bootstrap/2.0.1/css/bootstrap.min.css" rel="stylesheet">
@@ -20,6 +20,7 @@
 		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		<script type="text/javascript">
+		
 		  var _gaq = _gaq || [];
 		  _gaq.push(['_setAccount', 'UA-31328878-1']);
 		  _gaq.push(['_trackPageview']);
@@ -35,28 +36,42 @@
 	<body>
 		<div class="container">
 			<div class="row">
+				<div class="span7">
+					<h1>What Is Idempotence?</h1>
+				</div>
+				<div class="span5">
+					<ul class="pager">
+						<li>
+							<a href="restfulresourcenaming.html"><i class="icon-step-backward"></i> Resource Naming</a>
+						</li>
+						<li>
+							<a href="../httpstatuscodes.html">HTTP Status Codes <i class="icon-step-forward"></i></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
 				<div class="span12">
-					<h1>REST API Resources</h1>
-					<h2>RESTful Best Practices</h2>
-					<p>Get the Pearson eCollege <em>RESTful Best Practices</em> guide (choose your format). This guide reduces the world of RESTful services into easy-to-follow principles. It also provides several cookbook type recipes in critical areas to increase service usability, reduce confusion during implemenation, as well as improve consistency.</p>
-					<ul>
-						<li><a href="https://github.com/tfredrich/RestApiTutorial.com/raw/master/media/RESTful%20Best%20Practices-v1_2.pdf">PDF</a> (~306KB)</li>
-						<li><a href="https://github.com/tfredrich/RestApiTutorial.com/raw/master/media/RESTful%20Best%20Practices-v1_2.epub">ePub</a> (~46KB). Works on iPad, iPhone, B&amp;N Nook and most other readers.</li>
-						<li><a href="https://github.com/tfredrich/RestApiTutorial.com/raw/master/media/RESTful_Best_Practices_v1_2.mobi">Mobi</a> (~86KB). Works on Kindle, Kindle Reader Apps</li>
-						<li><a href="https://github.com/tfredrich/RestApiTutorial.com/raw/master/media/RESTful%20Best%20Practices-v1_2.odt">Source Document in Libre/Open Office format</a> (~48KB)</li>
-					</ul>
-					<h2>REST Services in Java</h2>
-					<p><a href="https://github.com/RestExpress/RestExpress">RestExpress</a> (GitHub). Create fast, scalable, stand-alone RESTful Web services in Java quickly.</p>
-					<h2>Web Resources</h2>
-					<ul>
-						<li><a href="http://www.youtube.com/user/restapitutorial">REST API Tutorial YouTube Channel</a></li>
-						<li><a href="http://www.toddfredrich.com">Todd Fredrich's API Blog</a></li>
-					</ul>
+					<i class="icon-film"></i> <a href="#" data-toggle="collapse" data-target="#video1">Hide/Show Video</a>
+				</div>
+			</div>
+			<div id="video1" class="row collapse in">
+				<div class="span12">
+					<iframe width="853" height="480" src="http://www.youtube.com/embed/6dVNdFwqeKs" frameborder="0" allowfullscreen></iframe>
+				</div>
+			</div>
+			<div class="row">
+				<div class="span12">
+					<p>Idempotence is a funky word that often hooks people. Idempotence is sometimes a confusing concept, at least from the academic definition.</p>
+					<p>Turns out, with respect to a REST API, idempotency just means that you can make one call to an API or many calls to that API and have the same end result. For instance, calling update (via PUT, say) with the same data will result in the same data being stored on the server.</p>
+					<p>That&sbquo;s all there is to it. Watch the video to take a humorous deeper-look at idempotence.</p>
 				</div>
 			</div>
 			<hr>
 			<footer>
-				<p>&copy;Pearson eCollege, 2012. All rights reserved.</p>
+				<p>
+					&copy;Pearson eCollege, 2012-2013. All rights reserved.
+				</p>
 			</footer>
 		</div> <!-- /container -->
 		<div class="navbar navbar-fixed-top">
@@ -66,18 +81,18 @@
 					<a class="brand" href="http://www.restapitutorial.com">REST API Tutorial</a>
 					<div class="nav-collapse">
 						<ul class="nav">
-							<li><a href="http://www.restapitutorial.com">Home</a></li>
-							<li class="dropdown" id="api-school"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Tutorials<b class="caret"></b></a>
+							<li><a href="../index.html">Home</a></li>
+							<li class="dropdown active" id="api-school"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Tutorials<b class="caret"></b></a>
 								<ul class="dropdown-menu">
-									<li><a href="lessons/whatisrest.html">What Is REST?</a></li>
-									<li><a href="lessons/restquicktips.html">REST Quick Tips</a></li>
-									<li><a href="lessons/httpmethods.html">HTTP Methods</a></li>
-									<li><a href="lessons/restfulresourcenaming.html">Resource Naming</a></li>
-									<li><a href="idempotency.html">Idempotence</a></li>
+									<li><a href="whatisrest.html">What Is REST?</a></li>
+									<li><a href="restquicktips.html">REST Quick Tips</a></li>
+									<li><a href="httpmethods.html">HTTP Methods</a></li>
+									<li><a href="restfulresourcenaming.html">Resource Naming</a></li>
+									<li class="active"><a href="idempotency.html">Idempotence</a></li>
 								</ul>
 							</li>
-							<li><a href="httpstatuscodes.html">HTTP Status Codes</a></li>
-							<li class="active"><a href="resources.html">Resources</a></li>
+							<li><a href="../httpstatuscodes.html">HTTP Status Codes</a></li>
+							<li><a href="../resources.html">Resources</a></li>
 						</ul>
 					</div><!--/.nav-collapse -->
 				</div>
