@@ -6,7 +6,7 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <url>
   <loc>http://www.restapitutorial.com/</loc>
-  <lastmod>2013-09-04T14:55:39+00:00</lastmod>
+  <lastmod>2013-09-21T14:55:39+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.restapitutorial.com/lessons/whatisrest.html</loc>
@@ -26,7 +26,7 @@
 </url>
 <url>
   <loc>http://www.restapitutorial.com/lessons/idempotency.html</loc>
-  <lastmod>2013-09-04T14:55:39+00:00</lastmod>
+  <lastmod>2013-09-21T14:55:39+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.restapitutorial.com/httpstatuscodes.html</loc>
@@ -34,10 +34,10 @@
 </url>
 <url>
   <loc>http://www.restapitutorial.com/resources.html</loc>
-  <lastmod>2013-09-04T14:55:39+00:00</lastmod>
+  <lastmod>2013-09-21T14:55:39+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.restapitutorial.com/index.html</loc>
-  <lastmod>2013-09-04T14:55:39+00:00</lastmod>
+  <lastmod>2013-09-21T14:55:39+00:00</lastmod>
 </url>
 </urlset>
