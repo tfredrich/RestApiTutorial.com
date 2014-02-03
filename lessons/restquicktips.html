@@ -52,21 +52,87 @@
 			</div>
 			<div class="row">
 				<div class="span12">
-					<p>Whether it's technically RESTful or not (according to the six constraints mentioned above), here are a few recommended REST-like concepts that will result in better, more usable services:</p>
+					<p>Whether it's technically RESTful or not (according to the six constraints mentioned previously), here are a few recommended REST-like concepts. These six quick tips will result in better, more usable services.</p>
 					<h2>Use HTTP Verbs to Mean Something</h2>
-					<p>Any API consumer is capable of sending GET, POST, PUT, and DELETE verbs, and they greatly enhance the clarity of what a given request does. Also, GET requests must not change any underlying resource data.  Measurements and tracking may still occur, which updates data, but not resource data identified by the URI.</p>
-					<h2>Sensible Resource Names</h2>
-					<p>Having sensible resource names or paths (e.g., /posts/23 instead of /api?type=posts&amp;id=23) improves the clarity of what a given request does. Using URL query-string parameters is fantastic for filtering, but not for resource names.</p>
-					<p>Appropriate resource names provide context for a service request, increasing understandability of the service API.  Resources are viewed hierarchically via their URI names, offering consumers a friendly, easily-understood hierarchy of resources to leverage in their applications.</p>
-					<p>Resource names should be nouns—avoid verbs as resource names.  It makes things more clear.  Use the HTTP methods to specify the verb portion of the request.</p>
-					<h2>XML and JSON</h2>
-					<p>Favor JSON support, but unless the costs of offering both JSON and XML are staggering, offer them both. Ideally, let consumers switch between them by just changing an extension from .xml to .json.  In addition, for supporting AJAX-style user interfaces, a wrapped response is very helpful.  Provide a wrapped response, either by default or for separate extensions, such as .wjson and .wxml to indicate the client is requesting a wrapped JSON or XML response.</p>
-					<p>JSON in regards to a "standard" has very few requirements.  And those requirements are only syntactical in nature, not about content format or layout.  In other words, the JSON response to a REST service call is very much part of the contract—not described in a standard.  More about the JSON data format can be found at <a href="http://www.json.org/">http://www.json.org/</a>.</p>
-					<p>Regarding XML use in REST services, XML standards and conventions are really not in play other than to utilize syntactically correct tags and text.  In particular, namespaces are not, nor should they be use in a RESTful service context.  XML that is returned is more JSON like—simple and easy to read, without the schema and namespace details present—just data and links.  If it ends up being more complex than this, see the first paragraph for this tip&mdash;the cost of XML will be staggering.  In our experience nobody uses the XML responses anyway.  It's just too expensive to process.</p>
+					<p>API consumers are capable of sending GET, POST, PUT, and DELETE verbs, and these verbs greatly enhance the clarity of what a given request does. Also, GET requests must not change any underlying resource data.  Measurements and tracking may still occur, which updates data, but not resource data identified by the URI.</p>
+                    <p>Generally, the four primary HTTP verb are used as follows:
+                    <dl>
+                        <dt>GET</dt>
+                            <dd>Read a specific resource (by an identifier) or a collection of resources.</dd>
+                        <dt>PUT</dt>
+                            <dd>Update a specific resource (by an identifier) or a collection of resources. Can also be used to create a specific resource if the resource identifier is know before-hand.</dd>
+                        <dt>DELETE</dt>
+                            <dd>Remove/delete a specific resource by an identifier.</dd>
+                        <dt>POST</dt>
+                            <dd>Create a new resource. Also a catch-all verb for operations that don't fit into the other categories.</dd>
+                    </dl>
+                    </p>
+					<h2>Provide Sensible Resource Names</h2>
+					<p>Producing a great API is 80% art and 20% science. Creating a URL hierarchy representing sensible resources is the art part. Having sensible resource names (which are just URL paths, such as /customers/12345/orders) improves the clarity of what a given request does.</p>
+					<p>Appropriate resource names provide context for a service request, increasing understandability of the API.  Resources are viewed hierarchically via their URI names, offering consumers a friendly, easily-understood hierarchy of resources to leverage in their applications.</p>
+                    <p>Here are some quick-hit rules for URL path (resource name) design:
+                        <ul>
+                            <li>Use identifiers in your URLs instead of in the query-string. Using URL query-string parameters is fantastic for filtering, but not for resource names.
+                            <ul><li><strong>Good:</strong> /users/12345</li><li><strong>Poor:</strong> /api?type=user&amp;id=23</li></ul></li>
+                            <li>Leverage the hierarchical nature of the URL to imply structure.</li>
+                            <li>Design for your clients, not for your data.</li>
+                            <li>Resource names should be nouns. Avoid verbs as resource names.  It makes things more clear.  Use the HTTP methods to specify the verb portion of the request.</li>
+                            <li>Use plurals in URL segments to keep your API URIs consistent across all HTTP methods, using the collection metaphor.
+                            <ul><li><strong>Recommended:</strong> /customers/33245/orders/8769/lineitems/1</li><li><strong>Not:</strong> /customer/33245/order/8769/lineitem/1</li></ul></li>
+                            <li>Avoid using collection verbage in URLs. For example 'customer_list' as a resource. Use pluralization to indicate the collection metaphor (e.g. customers vs. customer_list).</li>
+                            <li>Use lower-case in URL segments, separating words with underscores ('_') or hyphens ('-'). Some servers ignore case so it's best to be clear.</li>
+                            <li>Keep URLs as short as possible, with as few segments as makes sense.</li>
+                        </ul>
+                    </p>
+                    <h2>Use HTTP Response Codes to Indicate Status</h2>
+                    <p>Response status codes are part of the HTTP specification. There are quite a number of them to address the most common situations. In the spirit of having our RESTful services embrace the HTTP specification, our Web APIs should return relevant HTTP status codes. For example, when a resource is successfully created (e.g. from a POST request), the API should return HTTP status code 201.  A list of valid <a href="http://www.restapitutorial.com/httpstatuscodes.html">HTTP status codes</a> is available <a href="http://www.restapitutorial.com/httpstatuscodes.html">here</a> which lists detailed descriptions of each.</p>
+                    <p>Suggested usages for the &quot;Top 10&quot; HTTP Response Status Codes are as follows:
+                        <dl>
+                            <dt>200 OK</dt>
+                                <dd>General status code. Most common code used to indicate success.</dd>
+                            <dt>201 CREATED</dt>
+                                <dd>Successful creation occurred (via either POST or PUT). Set the Location header to contain a link to the newly-created resource (on POST). Response body content may or may not be present.</dd>
+                            <dt>204 NO CONTENT</dt>
+                                <dd>Indicates success but nothing is in the response body, often used for DELETE and UPDATE operations.</dd>
+                            <dt>400 BAD REQUEST</dt>
+                                <dd>General error when fulfilling the request would cause an invalid state. Domain validation errors, missing data, etc. are some examples.</dd>
+                            <dt>401 UNAUTHORIZED</dt>
+                                <dd>Error code response for missing or invalid authentication token.</dd>
+                            <dt>403 FORBIDDEN</dt>
+                                <dd>Error code for user not authorized to perform the operation or the resource is unavailable for some reason (e.g. time constraints, etc.).</dd>
+                            <dt>404 NOT FOUND</dt>
+                                <dd>Used when the requested resource is not found, whether it doesn't exist or if there was a 401 or 403 that, for security reasons, the service wants to mask.</dd>
+                            <dt>405 METHOD NOT ALLOWED</dt>
+                                <dd>Used to indicate that the requested URL exists, but the requested HTTP method is not applicable. For example, POST <em>/users/12345</em> where the API doesn't support creation of resources this way (with a provided ID). The Allow HTTP header must be set when returning a 405 to indicate the HTTP methods that are supported. In the previous case, the header would look like "Allow: GET, PUT, DELETE"</dd>
+                            <dt>409 CONFLICT</dt>
+                                <dd>Whenever a resource conflict would be caused by fulfilling the request. Duplicate entries, such as trying to create two customers with the same information, and deleting root objects when cascade-delete is not supported are a couple of examples.</dd>
+                            <dt>500 INTERNAL SERVER ERROR</dt>
+                                <dd>Never return this intentionally. The general catch-all error when the server-side throws an exception. Use this only for errors that the consumer cannot address from their end.</dd>
+                        </dl>
+                    </p>
+					<h2>Offer Both JSON and XML</h2>
+					<p>Favor JSON support unless you're in a highly-standardize and regulated industry that requires XML, Schema validation and namespaces. And unless the costs of offering both JSON and XML are staggering, however, offer them both. Ideally, let consumers switch between using the HTTP Accept header, or by just changing an extension from .xml to .json on the URL.</p>
+					<p>Be warned though, as soon as we start talking about XML support, we start talking about schemas for validation, namespaces, etc. Unless required by your industry, avoid supporting all that complexity initially, if ever. JSON is designed to be simple, terse and functional. Create your XML to look like that if you can.</p>
+                    <p>In other words, make the XML that is returned more JSON-like: simple and easy to read, without the schema and namespace details present&mdash;just data and links.  If it ends up being more complex than this, the cost of XML will be staggering. In my experience nobody uses the XML responses anyway over the last several years.  It's just too expensive to consume.</p>
+                    <p>Note that <a href="http://json-schema.org/">JSON-Schema</a> offers schema-style validation capabilities, if you need that sort of thing.</p>
 					<h2>Create Fine-Grained Resources</h2>
-					<p>When starting out, it's much easier to create APIs that mimic the underlying application domain or database architecture of your system.  Eventually, you'll want aggregate services—services that utilize multiple underlying resources to reduce chattiness.  But it's much easier to create larger resources later from individual resources than it is to create fine-grained or individual resources from larger aggregates.  Make it easy on yourself and start with small, easily defined resources, providing CRUD functionality on those.  You can create those use-case-oriented, chattiness-reducing resources later.</p>
+					<p>When starting out, it's much easier to create APIs that mimic the underlying application domain or database architecture of your system.  Eventually, you'll want aggregate services&mdash;services that utilize multiple underlying resources to reduce chattiness.  But it's much easier to create larger resources later from individual resources than it is to create fine-grained or individual resources from larger aggregates.  Make it easy on yourself and start with small, easily defined resources, providing CRUD functionality on those.  You can create those use-case-oriented, chattiness-reducing resources later.</p>
 					<h2>Consider Connectedness</h2>
-					<p>One of the principles of REST is connectedness—via hypermedia links.  While services are still useful without them, APIs become more self-descriptive when links are returned in the response.  At the very least, a 'self' reference informs clients how the data was or can be retrieved.  Additionally, utilize the Location header to contain a link on resource creation via POST.  For collections returned in a response that support pagination, 'first', 'last', 'next' and 'prev' links at a minimum are very helpful.</p>
+					<p>One of the principles of REST is connectedness—via hypermedia links (search HATEOAS).  While services are still useful without them, APIs become more self-descriptive and discoverable when links are returned in the response.  At the very least, a 'self' link reference informs clients how the data was or can be retrieved.  Additionally, utilize the HTTP Location header to contain a link on resource creation via POST (or PUT).  For collections returned in a response that support pagination, 'first', 'last', 'next' and 'prev' links at a minimum are very helpful.</p>
+                    <p>Regarding linking formats, there are many. The HTTP Web Linking Specification (<a href="http://tools.ietf.org/search/rfc5988">RFC5988</a>) explains a link as follows:
+                <blockquote>a link is a typed connection between two
+   resources that are identified by Internationalised Resource
+   Identifiers (IRIs) [<a href="http://tools.ietf.org/search/rfc3987">RFC3987</a>], and is comprised of:
+                    <ul>
+                        <li>A context IRI,</li>
+                        <li>a link relation type</li>
+                        <li>a target IRI, and</li>
+                        <li>optionally, target attributes.</li>
+                    </ul>
+   A link can be viewed as a statement of the form &quot;{context IRI} has a
+   {relation type} resource at {target IRI}, which has {target
+   attributes}.&quot;</blockquote></p>
+                    <p>At the very least, place links in the HTTP Link header as recommended in the specification.  Or embrace a JSON representation of this HTTP link style (such as Atom-style links, see: <a href="http://tools.ietf.org/search/rfc4287#section-4.2.7">RFC4287</a>) in your JSON representations. Later, you can layer in more complex linking styles such as <a href="http://stateless.co/hal_specification.html">HAL+JSON</a>, <a href="https://github.com/kevinswiber/siren">Siren</a>, <a href="http://amundsen.com/media-types/collection/">Collection+JSON</a>, and/or <a href="http://json-ld.org/">JSON-LD</a>, etc. as your REST APIs become more mature.</p>
 				</div>
 			</div>
 			<hr>
