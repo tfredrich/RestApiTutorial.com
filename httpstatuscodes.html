@@ -569,37 +569,37 @@
 					</div>
 				</div>
 				<div class="span4">
-					<a data-toggle="collapse" data-target="#precondition_required">428 Precondition Required (draft)</a>
+					<a data-toggle="collapse" data-target="#precondition_required">428 Precondition Required</a>
 					<div id="precondition_required" class="collapse">
 						<p>The 428 status code indicates that the origin server requires the request to be conditional.</p>
 						<p>Its typical use is to avoid the "lost update" problem, where a client GETs a resource's state, modifies it, and PUTs it back to the server, when meanwhile a third party has modified the state on the server, leading to a conflict.  By requiring requests to be conditional, the server can assure that clients are working with the correct copies.</p>
 						<p>Responses using this status code SHOULD explain how to resubmit the request successfully.</p>
 						<p>The 428 status code is optional; clients cannot rely upon its use to prevent &quot;lost update&quot; conflicts.</p>
 						<h3>Wikipedia</h3>
-						<p>The origin server requires the request to be conditional. Intended to prevent &quot;the 'lost update' problem, where a client GETs a resource's state, modifies it, and PUTs it back to the server, when meanwhile a third party has modified the state on the server, leading to a conflict.&quot; Specified in an Internet-Draft which is approved for publication as RFC.</p>
+						<p>The origin server requires the request to be conditional. Intended to prevent "the &quot;lost update&quot; problem, where a client GETs a resource's state, modifies it, and PUTs it back to the server, when meanwhile a third party has modified the state on the server, leading to a conflict.</p>
 					</div>
 				</div>
 				<div class="span4">
-					<a data-toggle="collapse" data-target="#too_many_requests">429 Too Many Requests (draft)</a>
+					<a data-toggle="collapse" data-target="#too_many_requests">429 Too Many Requests</a>
 					<div id="too_many_requests" class="collapse">
 						<p>The 429 status code indicates that the user has sent too many requests in a given amount of time ("rate limiting").</p>
 						<p>The response representations SHOULD include details explaining the condition, and MAY include a Retry-After header indicating how long to wait before making a new request.</p>
 						<p>When a server is under attack or just receiving a very large number of requests from a single party, responding to each with a 429 status code will consume resources.</p>
 						<p>Therefore, servers are not required to use the 429 status code; when limiting resource usage, it may be more appropriate to just drop connections, or take other steps.</p>
 						<h3>Wikipedia</h3>
-						<p>The user has sent too many requests in a given amount of time. Intended for use with rate limiting schemes. Specified in an Internet-Draft which is approved for publication as RFC.</p>
+						<p>The user has sent too many requests in a given amount of time. Intended for use with rate limiting schemes.</p>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="span4">
-					<a data-toggle="collapse" data-target="#request_header_fields_too_large">431 Request Header Fields Too Large (draft)</a>
+					<a data-toggle="collapse" data-target="#request_header_fields_too_large">431 Request Header Fields Too Large</a>
 					<div id="request_header_fields_too_large" class="collapse">
 						<p>The 431 status code indicates that the server is unwilling to process the request because its header fields are too large.  The request MAY be resubmitted after reducing the size of the request header fields.</p>
 						<p>It can be used both when the set of request header fields in total are too large, and when a single header field is at fault.  In the latter case, the response representation SHOULD specify which header field was too large.</p>
 						<p>Servers are not required to use the 431 status code; when under attack, it may be more appropriate to just drop connections, or take other steps.</p>
 						<h3>Wikipedia</h3>
-						<p>The server is unwilling to process the request because either an individual header field, or all the header fields collectively, are too large. Specified in an Internet-Draft which is approved for publication as RFC.</p>
+						<p>The server is unwilling to process the request because either an individual header field, or all the header fields collectively, are too large.</p>
 					</div>
 				</div>
 				<div class="span4">
@@ -746,7 +746,7 @@
 					</div>
 				</div>
 				<div class="span4">
-					<a data-toggle="collapse" data-target="#net_authn_required">511 Network Authentication Required (draft)</a>
+					<a data-toggle="collapse" data-target="#net_authn_required">511 Network Authentication Required</a>
 					<div id="net_authn_required" class="collapse">
 						<p>The 511 status code indicates that the client needs to authenticate to gain network access.</p>
 						<p>The response representation SHOULD contain a link to a resource that allows the user to submit credentials (e.g. with a HTML form).</p>
@@ -760,7 +760,7 @@
 						<p>However, these risks are not unique to the 511 status code; in other words, a captive portal that is not using this status code introduces the same issues.</p>
 						<p>Also, note that captive portals using this status code on an SSL or TLS connection (commonly, port 443) will generate a certificate error on the client.</p>
 						<h3>Wikipedia</h3>
-						<p>The client needs to authenticate to gain network access. Intended for use by intercepting proxies used to control access to the network (e.g. &quot;captive portals&quot; used to require agreement to Terms of Service before granting full Internet access via a Wi-Fi hotspot). Specified in an Internet-Draft which is approved for publication as RFC.</p>
+						<p>The client needs to authenticate to gain network access. Intended for use by intercepting proxies used to control access to the network (e.g., &quot;captive portals&quot; used to require agreement to Terms of Service before granting full Internet access via a Wi-Fi hotspot).</p>
 					</div>
 				</div>
 			</div>
