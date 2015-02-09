@@ -58,28 +58,33 @@
 						<thead>
 							<tr>
 								<th>HTTP Verb</th>
+								<th>CRUD</th>
 								<th>Entire Collection (e.g. /customers)</th>
 								<th>Specific Item (e.g. /customers/{id})</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
+								<td>POST</td>
+								<td>Create</td>
+								<td>201 (Created), 'Location' header with link to /customers/{id} containing new ID.</td>
+								<td>404 (Not Found), 409 (Conflict) if resource already exists..</td>
+							</tr>
+							<tr>
 								<td>GET</td>
+								<td>Read</td>
 								<td>200 (OK), list of customers. Use pagination, sorting and filtering to navigate big lists.</td>
 								<td>200 (OK), single customer. 404 (Not Found), if ID not found or invalid.</td>
 							</tr>
 							<tr>
 								<td>PUT</td>
+								<td>Update</td>
 								<td>404 (Not Found), unless you want to update/replace every resource in the entire collection.</td>
 								<td>200 (OK) or 204 (No Content).  404 (Not Found), if ID not found or invalid.</td>
 							</tr>
 							<tr>
-								<td>POST</td>
-								<td>201 (Created), 'Location' header with link to /customers/{id} containing new ID.</td>
-								<td>404 (Not Found), 409 (Conflict) if resource already exists..</td>
-							</tr>
-							<tr>
 								<td>DELETE</td>
+								<td>Delete</td>
 								<td>404 (Not Found), unless you want to delete the whole collection—not often desirable.</td>
 								<td>200 (OK).  404 (Not Found), if ID not found or invalid.</td>
 							</tr>
@@ -91,14 +96,24 @@
 				<div class="span12">
 					<p>Below is a more-detailed discussion of the main HTTP methods. Click on a tab for more information about the desired HTTP method.</p>
 					<ul class="nav nav-tabs">
-						<li class="active"><a href="#get" data-toggle="tab">GET</a></li>
+						<li class="active"><a href="#post" data-toggle="tab">POST</a></li>
+						<li><a href="#get" data-toggle="tab">GET</a></li>
 						<li><a href="#put" data-toggle="tab">PUT</a></li>
-						<li><a href="#post" data-toggle="tab">POST</a></li>
 						<li><a href="#delete" data-toggle="tab">DELETE</a></li>
 					</ul>
 					<div id="methodTabContent" class="tab-content">
+						<div class="tab-pane fade" id="post">
+							<p>The POST verb is most-often utilized to **create** new resources.  In particular, it's used to create subordinate resources.  That is, subordinate to some other (e.g. parent) resource.  In other words, when creating a new resource, POST to the parent and the service takes care of associating the new resource with the parent, assigning an ID (new resource URI), etc.</p>
+							<p>On successful creation, return HTTP status 201, returning a Location header with a link to the newly-created resource with the 201 HTTP status.</p>
+							<p>POST is neither safe nor idempotent.  It is therefore recommended for non-idempotent resource requests.  Making two identical POST requests will most-likely result in two resources containing the same information.</p>
+							<p><strong>Examples:</strong></p>
+							<ul>
+								<li><em>POST http://www.example.com/customers</em></li>
+								<li><em>POST http://www.example.com/customers/12345/orders</em></li>
+							</ul>
+						</div>
 						<div class="tab-pane fade in active" id="get">
-							<p>The HTTP GET method is used to retrieve (or read) a representation of a resource.  In the “happy” (or non-error) path, GET returns a representation in XML or JSON and an HTTP response code of 200 (OK).  In an error case, it most often returns a 404 (NOT FOUND) or 400 (BAD REQUEST).</p>
+							<p>The HTTP GET method is used to **read** (or retrieve) a representation of a resource.  In the “happy” (or non-error) path, GET returns a representation in XML or JSON and an HTTP response code of 200 (OK).  In an error case, it most often returns a 404 (NOT FOUND) or 400 (BAD REQUEST).</p>
 							<p>According to the design of the HTTP specification, GET (along with HEAD) requests are used only to read data and not change it.  Therefore, when used this way, they are considered safe.  That is, they can be called without risk of data modification or corruption—calling it once has the same effect as calling it 10 times, or none at all.  Additionally, GET (and HEAD) is idempotent, which means that making multiple identical requests ends up having the same result as a single request.</p>
 							<p>Do not expose unsafe operations via GET—it should never modify any resources on the server.</p>
 							<p><strong>Examples:</strong></p>
@@ -109,7 +124,7 @@
 							</ul>
 						</div>
 						<div class="tab-pane fade" id="put">
-							<p>PUT is most-often utilized for update capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource.</p>
+							<p>PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource.</p>
 							<p>However, PUT can also be used to create a resource in the case where the resource ID is chosen by the client instead of by the server.  In other words, if the PUT is to a URI that contains the value of a non-existent resource ID.  Again, the request body contains a resource representation.  Many feel this is convoluted and confusing.  Consequently, this method of creation should be used sparingly, if at all.</p>
 							<p>Alternatively, use POST to create new resources and provide the client-defined ID in the body representation—presumably to a URI that doesn't include the ID of the resource (see POST below).</p>
 							<p>On successful update, return 200 (or 204 if not returning any content in the body) from a PUT.  If using PUT for create, return HTTP status 201 on successful creation.  A body in the response is optional—providing one consumes more bandwidth.   It is not necessary to return a link via a Location header in the creation case since the client already set the resource ID.</p>
@@ -122,18 +137,8 @@
 								<li><em>PUT http://www.example.com/buckets/secret_stuff</em></li>
 							</ul>
 						</div>
-						<div class="tab-pane fade" id="post">
-							<p>The POST verb is most-often utilized for creation of new resources.  In particular, it's used to create subordinate resources.  That is, subordinate to some other (e.g. parent) resource.  In other words, when creating a new resource, POST to the parent and the service takes care of associating the new resource with the parent, assigning an ID (new resource URI), etc.</p>
-							<p>On successful creation, return HTTP status 201, returning a Location header with a link to the newly-created resource with the 201 HTTP status.</p>
-							<p>POST is neither safe nor idempotent.  It is therefore recommended for non-idempotent resource requests.  Making two identical POST requests will most-likely result in two resources containing the same information.</p>
-							<p><strong>Examples:</strong></p>
-							<ul>
-								<li><em>POST http://www.example.com/customers</em></li>
-								<li><em>POST http://www.example.com/customers/12345/orders</em></li>
-							</ul>
-						</div>
 						<div class="tab-pane fade" id="delete">
-							<p>DELETE is pretty easy to understand.  It is used to delete a resource identified by a URI.
+							<p>DELETE is pretty easy to understand.  It is used to **delete** a resource identified by a URI.
 							<p>On successful deletion, return HTTP status 200 (OK) along with a response body, perhaps the representation of the deleted item (often demands too much bandwidth), or a wrapped response (see Return Values below).  Either that or return HTTP status 204 (NO CONTENT) with no response body.  In other words, a 204 status with no body, or the JSEND-style response and HTTP status 200 are the recommended responses.</p>
 							<p>HTTP-spec-wise, DELETE operations are idempotent.  If you DELETE a resource, it's removed.  Repeatedly calling DELETE on that resource ends up the same: the resource is gone.  If calling DELETE say, decrements a counter (within the resource), the DELETE call is no longer idempotent.  As mentioned previously, usage statistics and measurements may be updated while still considering the service idempotent as long as no resource data is changed.  Using POST for non-idempotent resource requests is recommended.</p>
 							<p>There is a caveat about DELETE idempotence, however.  Calling DELETE on a resource a second time will often return a 404 (NOT FOUND) since it was already removed and therefore is no longer findable.  This, by some opinions, makes DELETE operations no longer idempotent, however, the end-state of the resource is the same. Returning a 404 is acceptable and communicates accurately the status of the call.</p>
