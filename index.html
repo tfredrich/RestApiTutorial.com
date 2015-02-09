@@ -8,17 +8,19 @@
 		<meta name="author" content="Todd Fredrich, Pearson eCollege">
 		<!-- Le styles -->
 		<link href="https://d7im4lln3lvbg.cloudfront.net/bootstrap/2.0.1/css/bootstrap.min.css" rel="stylesheet">
-		<style type="text/css">
-			body {
-				padding-top: 60px;
-				padding-bottom: 40px;
-			}
-		</style>
 		<link href="https://d7im4lln3lvbg.cloudfront.net/bootstrap/2.0.1/css/bootstrap-responsive.min.css" rel="stylesheet">
 		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 		<!--[if lt IE 9]>
 		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
+		<style type="text/css">
+			body {
+				padding-top: 60px;
+				padding-bottom: 40px;
+			}
+            .banner-container {
+            }
+		</style>
 		<script type="text/javascript">
 		
 		  var _gaq = _gaq || [];
@@ -34,8 +36,12 @@
 		</script>
 	</head>
 	<body>
-		<div class="container">
+        <div class="container">
+            <div class="row">
+                <div class="span2 banner-container">
+                </div>
 			<!-- Main hero unit for a primary marketing message or call to action -->
+                <div class="span10">
 			<div class="hero-unit">
 				<h1>Learn REST: A RESTful Tutorial</h1>
 				<p>Building restful web services, like other programming skills is <strong>part art, part science</strong>. As the Internet industry progresses, creating a REST API becomes more concrete, with emerging best practices. As RESTful Web services don't follow a prescribed standard except for HTTP, it's important to build your RESTful API in accordance with industry best practices to ease development and simplify client adoption.</p>
@@ -43,38 +49,12 @@
 				<p>Jump in with <a href="lessons/whatisrest.html">What Is REST?</a>, an overview concepts and constraints of the RESTful architecture.</p>
 				<p><a class="btn btn-primary btn-large" href="lessons/whatisrest.html">Get Started &raquo;</a></p>
 			</div>
-<!--			<div class="row">
-				<div class="span3">
-					<a href="rest-api-overview.html"><img src="./img/restful-api-overview.jpg" alt="RESTful API Overview" height="200" width="200" /></a>
-					<h2>Get Started</h2>
-					<p>
-						What is REST? Discover what the six constraints are for creating a RESTful API.
-					</p>
-				</div>
-				<div class="span3">
-					<a href="rest-api-tips.html"><img src="./img/helpful-tips.jpg" alt="Helpful Tips" height="200" width="200" /></a>
-					<h2>Get Started</h2>
-					<p>
-						Get started quickly, creating your RESTful API quickly with these high-level, over-arching quick tips.
-					</p>
-				</div>
-				<div class="span3">
-					<a href="rest-api-topics.html"><img src="./img/advanced-topics.jpg" alt="Advanced Topics" width="200" height="200" /></a>
-					<h2>Get Better</h2>
-					<p>
-						Ready to dive deeper in the creating RESTful services?  Discover the more esoteric concepts of REST APIs.
-					</p>
-				</div>
-				<div class="span3">
-					<a href="rest-api-converstations.html"><img src="./img/conversations.png" alt="Conversations" width="200" height="200" /></a>
-					<h2>Get Building</h2>
-					<p>Introducing RestExpress, a Java framework to get building RESTful services quickly.</p>
-				</div>
-</div> -->
 			<hr>
 			<footer>
 				<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work by <a xmlns:cc="http://creativecommons.org/ns#" href="www.RestApiTutorial.com" property="cc:attributionName" rel="cc:attributionURL">RestApiTutorial.com</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
 			</footer>
+</div>
+            </div>  <!-- /row -->
 		</div>		<!-- /container -->
 		<div class="navbar navbar-fixed-top">
 			<div class="navbar-inner">
