@@ -6,7 +6,7 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <url>
   <loc>http://www.restapitutorial.com/</loc>
-  <lastmod>2014-05-29T12:55:39+00:00</lastmod>
+  <lastmod>2015-02-08T12:55:39+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.restapitutorial.com/lessons/whatisrest.html</loc>
@@ -18,7 +18,7 @@
 </url>
 <url>
   <loc>http://www.restapitutorial.com/lessons/httpmethods.html</loc>
-  <lastmod>2014-05-29T12:55:39+00:00</lastmod>
+  <lastmod>2015-02-08T12:55:39+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.restapitutorial.com/lessons/restfulresourcenaming.html</loc>
