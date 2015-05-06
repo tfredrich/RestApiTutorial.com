@@ -89,17 +89,17 @@
                     <p>Suggested usages for the &quot;Top 10&quot; HTTP Response Status Codes are as follows:
                         <dl>
                             <dt>200 OK</dt>
-                                <dd>General status code. Most common code used to indicate success.</dd>
+                                <dd>General status code. This is most commonly used to indicate success.</dd>
                             <dt>201 CREATED</dt>
                                 <dd>Successful creation occurred (via either POST or PUT). Set the Location header to contain a link to the newly-created resource (on POST). Response body content may or may not be present.</dd>
                             <dt>204 NO CONTENT</dt>
                                 <dd>Indicates success but nothing is in the response body, often used for DELETE and PUT operations.</dd>
                             <dt>400 BAD REQUEST</dt>
-                                <dd>General error when fulfilling the request would cause an invalid state. Domain validation errors, missing data, etc. are some examples.</dd>
+                                <dd>General error for when fulfilling the request would cause an invalid state. Domain validation errors, missing data, etc. are some examples.</dd>
                             <dt>401 UNAUTHORIZED</dt>
                                 <dd>Error code response for missing or invalid authentication token.</dd>
                             <dt>403 FORBIDDEN</dt>
-                                <dd>Error code for user not authorized to perform the operation or the resource is unavailable for some reason (e.g. time constraints, etc.).</dd>
+                                <dd>Error code for when the user is not authorized to perform the operation or the resource is unavailable for some reason (e.g. time constraints, etc.).</dd>
                             <dt>404 NOT FOUND</dt>
                                 <dd>Used when the requested resource is not found, whether it doesn't exist or if there was a 401 or 403 that, for security reasons, the service wants to mask.</dd>
                             <dt>405 METHOD NOT ALLOWED</dt>
@@ -111,12 +111,12 @@
                         </dl>
                     </p>
 					<h2>Offer Both JSON and XML</h2>
-					<p>Favor JSON support unless you're in a highly-standardized and regulated industry that requires XML, Schema validation and namespaces. And offer both JSON and XML unless the costs are staggering. Ideally, let consumers switch between formats using the HTTP Accept header, or by just changing an extension from .xml to .json on the URL.</p>
-					<p>Be warned though, as soon as we start talking about XML support, we start talking about schemas for validation, namespaces, etc. Unless required by your industry, avoid supporting all that complexity initially, if ever. JSON is designed to be simple, terse and functional. Create your XML to look like that if you can.</p>
-                    <p>In other words, make the XML that is returned more JSON-like: simple and easy to read, without the schema and namespace details present&mdash;just data and links.  If it ends up being more complex than this, the cost of XML will be staggering. In my experience nobody uses the XML responses anyway over the last several years.  It's just too expensive to consume.</p>
+					<p>Favor JSON support unless you're in a highly-standardized and regulated industry that requires XML, schema validation and namespaces, and offer both JSON and XML unless the costs are staggering. Ideally, let consumers switch between formats using the HTTP Accept header, or by just changing an extension from .xml to .json on the URL.</p>
+					<p>Be aware that as soon as we start talking about XML support, we start talking about schemas for validation, namespaces, etc. Unless required by your industry, avoid supporting all that complexity initially, if ever. JSON is designed to be simple, terse and functional. Make your XML look like that if you can.</p>
+                    <p>In other words, make the XML that is returned more JSON-like &mdash; simple and easy to read, without the schema and namespace details present, just data and links.  If it ends up being more complex than this, the cost of XML will be staggering. In my experience no one has used XML responses anyway for the last several years,  it's just too expensive to consume.</p>
                     <p>Note that <a href="http://json-schema.org/">JSON-Schema</a> offers schema-style validation capabilities, if you need that sort of thing.</p>
 					<h2>Create Fine-Grained Resources</h2>
-					<p>When starting out, it's much easier to create APIs that mimic the underlying application domain or database architecture of your system.  Eventually, you'll want aggregate services&mdash;services that utilize multiple underlying resources to reduce chattiness.  But it's much easier to create larger resources later from individual resources than it is to create fine-grained or individual resources from larger aggregates.  Make it easy on yourself and start with small, easily defined resources, providing CRUD functionality on those.  You can create those use-case-oriented, chattiness-reducing resources later.</p>
+					<p>When starting out, it's best to create APIs that mimic the underlying application domain or database architecture of your system.  Eventually, you'll want aggregate services that utilize multiple underlying resources to reduce chattiness.  However, it's much easier to create larger resources later from individual resources than it is to create fine-grained or individual resources from larger aggregates.  Make it easy on yourself and start with small, easily defined resources, providing CRUD functionality on those.  You can create those use-case-oriented, chattiness-reducing resources later.</p>
 					<h2>Consider Connectedness</h2>
 					<p>One of the principles of REST is connectedness—via hypermedia links (search HATEOAS).  While services are still useful without them, APIs become more self-descriptive and discoverable when links are returned in the response.  At the very least, a 'self' link reference informs clients how the data was or can be retrieved.  Additionally, utilize the HTTP Location header to contain a link on resource creation via POST (or PUT).  For collections returned in a response that support pagination, 'first', 'last', 'next' and 'prev' links at a minimum are very helpful.</p>
                     <p>Regarding linking formats, there are many. The HTTP Web Linking Specification (<a href="http://tools.ietf.org/search/rfc5988">RFC5988</a>) explains a link as follows:
@@ -132,7 +132,7 @@
    A link can be viewed as a statement of the form &quot;{context IRI} has a
    {relation type} resource at {target IRI}, which has {target
    attributes}.&quot;</blockquote></p>
-                    <p>At the very least, place links in the HTTP Link header as recommended in the specification.  Or embrace a JSON representation of this HTTP link style (such as Atom-style links, see: <a href="http://tools.ietf.org/search/rfc4287#section-4.2.7">RFC4287</a>) in your JSON representations. Later, you can layer in more complex linking styles such as <a href="http://stateless.co/hal_specification.html">HAL+JSON</a>, <a href="https://github.com/kevinswiber/siren">Siren</a>, <a href="http://amundsen.com/media-types/collection/">Collection+JSON</a>, and/or <a href="http://json-ld.org/">JSON-LD</a>, etc. as your REST APIs become more mature.</p>
+                    <p>At the very least, place links in the HTTP Link header as recommended in the specification, or embrace a JSON representation of this HTTP link style (such as Atom-style links, see: <a href="http://tools.ietf.org/search/rfc4287#section-4.2.7">RFC4287</a>) in your JSON representations. Later, you can layer in more complex linking styles such as <a href="http://stateless.co/hal_specification.html">HAL+JSON</a>, <a href="https://github.com/kevinswiber/siren">Siren</a>, <a href="http://amundsen.com/media-types/collection/">Collection+JSON</a>, and/or <a href="http://json-ld.org/">JSON-LD</a>, etc. as your REST APIs become more mature.</p>
 				</div>
 			</div>
 			<hr>
