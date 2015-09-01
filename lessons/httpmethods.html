@@ -35,6 +35,20 @@
 	</head>
 	<body>
 		<div class="container">
+            <div class="row">
+                <div class="span12 banner-container">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Rest API Tutorial -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2093481943685202"
+     data-ad-slot="4845828438"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+                </div>
+            </div>
 			<div class="row">
 				<div class="span8">
 					<h1>Using HTTP Methods for RESTful Services</h1>
@@ -102,7 +116,7 @@
 						<li><a href="#delete" data-toggle="tab">DELETE</a></li>
 					</ul>
 					<div id="methodTabContent" class="tab-content">
-						<div class="tab-pane fade" id="post">
+						<div class="tab-pane fade in active" id="post">
 							<p>The POST verb is most-often utilized to **create** new resources.  In particular, it's used to create subordinate resources.  That is, subordinate to some other (e.g. parent) resource.  In other words, when creating a new resource, POST to the parent and the service takes care of associating the new resource with the parent, assigning an ID (new resource URI), etc.</p>
 							<p>On successful creation, return HTTP status 201, returning a Location header with a link to the newly-created resource with the 201 HTTP status.</p>
 							<p>POST is neither safe nor idempotent.  It is therefore recommended for non-idempotent resource requests.  Making two identical POST requests will most-likely result in two resources containing the same information.</p>
@@ -112,7 +126,7 @@
 								<li><em>POST http://www.example.com/customers/12345/orders</em></li>
 							</ul>
 						</div>
-						<div class="tab-pane fade in active" id="get">
+						<div class="tab-pane fade" id="get">
 							<p>The HTTP GET method is used to **read** (or retrieve) a representation of a resource.  In the “happy” (or non-error) path, GET returns a representation in XML or JSON and an HTTP response code of 200 (OK).  In an error case, it most often returns a 404 (NOT FOUND) or 400 (BAD REQUEST).</p>
 							<p>According to the design of the HTTP specification, GET (along with HEAD) requests are used only to read data and not change it.  Therefore, when used this way, they are considered safe.  That is, they can be called without risk of data modification or corruption—calling it once has the same effect as calling it 10 times, or none at all.  Additionally, GET (and HEAD) is idempotent, which means that making multiple identical requests ends up having the same result as a single request.</p>
 							<p>Do not expose unsafe operations via GET—it should never modify any resources on the server.</p>
