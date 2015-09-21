@@ -20,17 +20,17 @@
 		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		<script type="text/javascript">
-		
+
 		  var _gaq = _gaq || [];
 		  _gaq.push(['_setAccount', 'UA-31328878-1']);
 		  _gaq.push(['_trackPageview']);
-		
+
 		  (function() {
 		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
 		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 		  })();
-		
+
 		</script>
 	</head>
 	<body>
@@ -66,7 +66,7 @@
 			</div>
 			<div class="row">
 				<div class="span12">
-					<p>The HTTP verbs comprise a major portion of our “uniform interface” constraint and provide us the action counterpart to the noun-based resource.  The primary or most-commonly-used HTTP verbs (or methods, as they are properly called) are POST, GET, PUT, and DELETE.  These correspond to create, read, update, and delete (or CRUD) operations, respectively.  There are a number of other verbs, too, but are utilized less frequently.  Of those less-frequent methods, OPTIONS and HEAD are used more often than others.</p>
+					<p>The HTTP verbs comprise a major portion of our “uniform interface” constraint and provide us the action counterpart to the noun-based resource.  The primary or most-commonly-used HTTP verbs (or methods, as they are properly called) are POST, GET, PUT, PATCH, and DELETE.  These correspond to create, read, update, and delete (or CRUD) operations, respectively.  There are a number of other verbs, too, but are utilized less frequently.  Of those less-frequent methods, OPTIONS and HEAD are used more often than others.</p>
 					<p>Below is a table summarizing recommended return values of the primary HTTP methods in combination with the resource URIs:</p>
 					<table class="table table-striped table-bordered">
 						<thead>
@@ -92,8 +92,14 @@
 							</tr>
 							<tr>
 								<td>PUT</td>
-								<td>Update</td>
+								<td>Update/Replace</td>
 								<td>404 (Not Found), unless you want to update/replace every resource in the entire collection.</td>
+								<td>200 (OK) or 204 (No Content).  404 (Not Found), if ID not found or invalid.</td>
+							</tr>
+							<tr>
+								<td>PATCH</td>
+								<td>Update/Modify</td>
+								<td>404 (Not Found), unless you want to modify the collection itself.</td>
 								<td>200 (OK) or 204 (No Content).  404 (Not Found), if ID not found or invalid.</td>
 							</tr>
 							<tr>
@@ -113,6 +119,7 @@
 						<li class="active"><a href="#post" data-toggle="tab">POST</a></li>
 						<li><a href="#get" data-toggle="tab">GET</a></li>
 						<li><a href="#put" data-toggle="tab">PUT</a></li>
+						<li><a href="#patch" data-toggle="tab">PATCH</a></li>
 						<li><a href="#delete" data-toggle="tab">DELETE</a></li>
 					</ul>
 					<div id="methodTabContent" class="tab-content">
@@ -149,6 +156,18 @@
 								<li><em>PUT http://www.example.com/customers/12345</em></li>
 								<li><em>PUT http://www.example.com/customers/12345/orders/98765</em></li>
 								<li><em>PUT http://www.example.com/buckets/secret_stuff</em></li>
+							</ul>
+						</div>
+						<div class="tab-pane fade" id="patch">
+							<p>PATCH is used for **modify** capabilities.  The PATCH request only needs to contain the changes to the resource, not the complete resource.</p>
+							<p>This resembles PUT, but the body contains a set of instructions describing how a resource currently residing on the server should be modified to produce a new version.  This means that the PATCH body should not just be a modified part of the resource, but in some kind of patch language like JSON Patch or XML Patch.</p>
+							<p>PATCH is neither safe nor idempotent.  However, a PATCH request can be issued in such a way as to be idempotent, which also helps prevent bad outcomes from collisions between two PATCH requests on the same resource in a similar time frame.  Collisions from multiple PATCH requests may be more dangerous than PUT collisions because some patch formats need to operate from a known base-point or else they will corrupt the resource.  Clients using this kind of patch application should use a conditional request such that the request will fail if the resource has been updated since the client last accessed the resource.  For example, the client can use a strong ETag in an If-Match header on the PATCH request.</p>
+
+							<p><strong>Examples:</strong></p>
+							<ul>
+								<li><em>PATCH http://www.example.com/customers/12345</em></li>
+								<li><em>PATCH http://www.example.com/customers/12345/orders/98765</em></li>
+								<li><em>PATCH http://www.example.com/buckets/secret_stuff</em></li>
 							</ul>
 						</div>
 						<div class="tab-pane fade" id="delete">
