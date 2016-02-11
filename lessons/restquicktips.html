@@ -67,8 +67,8 @@
 			<div class="row">
 				<div class="span12">
 					<p>Whether it's technically RESTful or not (according to the six constraints mentioned previously), here are a few recommended REST-like concepts. These six quick tips will result in better, more usable services.</p>
-					<h2>Use HTTP Verbs to Mean Something</h2>
-					<p>API consumers are capable of sending GET, POST, PUT, and DELETE verbs, and these verbs greatly enhance the clarity of what a given request does. Also, GET requests must not change any underlying resource data.  Measurements and tracking may still occur, which updates data, but not resource data identified by the URI.</p>
+					<h2>Use HTTP Verbs to Make Your Requests Mean Something</h2>
+					<p>API consumers are capable of sending GET, POST, PUT, and DELETE verbs, which greatly enhance the clarity of a given request.</p>
                     <p>Generally, the four primary HTTP verbs are used as follows:
                     <dl>
                         <dt>GET</dt>
@@ -81,6 +81,10 @@
                             <dd>Create a new resource. Also a catch-all verb for operations that don't fit into the other categories.</dd>
                     </dl>
                     </p>
+                    <h3>Note</h3>
+                    <p>
+                    	GET requests must not change any underlying resource data. Measurements and tracking which update data may still occur, but the resource data identified by the URI should not change.
+                    </p>
 					<h2>Provide Sensible Resource Names</h2>
 					<p>Producing a great API is 80% art and 20% science. Creating a URL hierarchy representing sensible resources is the art part. Having sensible resource names (which are just URL paths, such as /customers/12345/orders) improves the clarity of what a given request does.</p>
 					<p>Appropriate resource names provide context for a service request, increasing understandability of the API.  Resources are viewed hierarchically via their URI names, offering consumers a friendly, easily-understood hierarchy of resources to leverage in their applications.</p>
@@ -90,7 +94,7 @@
                             <ul><li><strong>Good:</strong> /users/12345</li><li><strong>Poor:</strong> /api?type=user&amp;id=23</li></ul></li>
                             <li>Leverage the hierarchical nature of the URL to imply structure.</li>
                             <li>Design for your clients, not for your data.</li>
-                            <li>Resource names should be nouns. Avoid verbs as resource names.  It makes things more clear.  Use the HTTP methods to specify the verb portion of the request.</li>
+                            <li>Resource names should be nouns. Avoid verbs as resource names, to improve clarity. Use the HTTP methods to specify the verb portion of the request.</li>
                             <li>Use plurals in URL segments to keep your API URIs consistent across all HTTP methods, using the collection metaphor.
                             <ul><li><strong>Recommended:</strong> /customers/33245/orders/8769/lineitems/1</li><li><strong>Not:</strong> /customer/33245/order/8769/lineitem/1</li></ul></li>
                             <li>Avoid using collection verbiage in URLs. For example 'customer_list' as a resource. Use pluralization to indicate the collection metaphor (e.g. customers vs. customer_list).</li>
