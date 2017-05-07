@@ -92,19 +92,19 @@
 							<tr>
 								<td>PUT</td>
 								<td>Update/Replace</td>
-								<td>404 (Not Found), unless you want to update/replace every resource in the entire collection.</td>
+								<td>405 (Method Not Allowed), unless you want to update/replace every resource in the entire collection.</td>
 								<td>200 (OK) or 204 (No Content).  404 (Not Found), if ID not found or invalid.</td>
 							</tr>
 							<tr>
 								<td>PATCH</td>
 								<td>Update/Modify</td>
-								<td>404 (Not Found), unless you want to modify the collection itself.</td>
+								<td>405 (Method Not Allowed), unless you want to modify the collection itself.</td>
 								<td>200 (OK) or 204 (No Content).  404 (Not Found), if ID not found or invalid.</td>
 							</tr>
 							<tr>
 								<td>DELETE</td>
 								<td>Delete</td>
-								<td>404 (Not Found), unless you want to delete the whole collection—not often desirable.</td>
+								<td>405 (Method Not Allowed), unless you want to delete the whole collection—not often desirable.</td>
 								<td>200 (OK).  404 (Not Found), if ID not found or invalid.</td>
 							</tr>
 						</tbody>
