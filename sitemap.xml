@@ -6,7 +6,7 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <url>
   <loc>http://www.restapitutorial.com/</loc>
-  <lastmod>2017-09-12T12:55:39+00:00</lastmod>
+  <lastmod>2018-06-10T12:55:39+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.restapitutorial.com/lessons/whatisrest.html</loc>
@@ -38,6 +38,10 @@
 </url>
 <url>
   <loc>http://www.restapitutorial.com/index.html</loc>
-  <lastmod>2017-12-29T12:55:39+00:00</lastmod>
+  <lastmod>2018-06-10T12:55:39+00:00</lastmod>
+</url>
+<url>
+  <loc>http://www.restapitutorial.com/restapiwebinar.html</loc>
+  <lastmod>2018-06-10T12:55:39+00:00</lastmod>
 </url>
 </urlset>
