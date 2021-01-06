@@ -119,7 +119,7 @@
                         </ul>
                     </p>
                     <h2>Use HTTP Response Codes to Indicate Status</h2>
-                    <p>Response status codes are part of the HTTP specification. There are quite a number of them to address the most common situations. In the spirit of having our RESTful services embrace the HTTP specification, our Web APIs should return relevant HTTP status codes. For example, when a resource is successfully created (e.g. from a POST request), the API should return HTTP status code 201.  A list of valid <a href="http://www.restapitutorial.com/httpstatuscodes.html">HTTP status codes</a> is available <a href="http://www.restapitutorial.com/httpstatuscodes.html">here</a> which lists detailed descriptions of each.</p>
+                    <p>Response status codes are part of the HTTP specification. There are quite a number of them to address the most common situations. In the spirit of having our RESTful services embrace the HTTP specification, our Web APIs should return relevant HTTP status codes. For example, when a resource is successfully created (e.g. from a POST request), the API should return HTTP status code 201.  A list of valid <a href="https://www.restapitutorial.com/httpstatuscodes.html">HTTP status codes</a> is available <a href="https://www.restapitutorial.com/httpstatuscodes.html">here</a> which lists detailed descriptions of each.</p>
                     <p>Suggested usages for the &quot;Top 10&quot; HTTP Response Status Codes are as follows:
                         <dl>
                             <dt>200 OK</dt>
@@ -148,15 +148,15 @@
 					<p>Favor JSON support unless you're in a highly-standardized and regulated industry that requires XML, schema validation and namespaces, and offer both JSON and XML unless the costs are staggering. Ideally, let consumers switch between formats using the HTTP Accept header, or by just changing an extension from .xml to .json on the URL.</p>
 					<p>Be aware that as soon as we start talking about XML support, we start talking about schemas for validation, namespaces, etc. Unless required by your industry, avoid supporting all that complexity initially, if ever. JSON is designed to be simple, terse and functional. Make your XML look like that if you can.</p>
                     <p>In other words, make the XML that is returned more JSON-like &mdash; simple and easy to read, without the schema and namespace details present, just data and links.  If it ends up being more complex than this, the cost of XML will be staggering. In my experience no one has used XML responses anyway for the last several years,  it's just too expensive to consume.</p>
-                    <p>Note that <a href="http://json-schema.org/">JSON-Schema</a> offers schema-style validation capabilities, if you need that sort of thing.</p>
+                    <p>Note that <a href="https://json-schema.org/">JSON-Schema</a> offers schema-style validation capabilities, if you need that sort of thing.</p>
 					<h2>Create Fine-Grained Resources</h2>
 					<p>When starting out, it's best to create APIs that mimic the underlying application domain or database architecture of your system.  Eventually, you'll want aggregate services that utilize multiple underlying resources to reduce chattiness.  However, it's much easier to create larger resources later from individual resources than it is to create fine-grained or individual resources from larger aggregates.  Make it easy on yourself and start with small, easily defined resources, providing CRUD functionality on those.  You can create those use-case-oriented, chattiness-reducing resources later.</p>
 					<h2>Consider Connectedness</h2>
 					<p>One of the principles of REST is connectedness—via hypermedia links (search HATEOAS).  While services are still useful without them, APIs become more self-descriptive and discoverable when links are returned in the response.  At the very least, a 'self' link reference informs clients how the data was or can be retrieved.  Additionally, utilize the HTTP Location header to contain a link on resource creation via POST (or PUT).  For collections returned in a response that support pagination, 'first', 'last', 'next' and 'prev' links at a minimum are very helpful.</p>
-                    <p>Regarding linking formats, there are many. The HTTP Web Linking Specification (<a href="http://tools.ietf.org/search/rfc5988">RFC5988</a>) explains a link as follows:
+                    <p>Regarding linking formats, there are many. The HTTP Web Linking Specification (<a href="https://tools.ietf.org/search/rfc5988">RFC5988</a>) explains a link as follows:
                 <blockquote>a link is a typed connection between two
    resources that are identified by Internationalised Resource
-   Identifiers (IRIs) [<a href="http://tools.ietf.org/search/rfc3987">RFC3987</a>], and is comprised of:
+   Identifiers (IRIs) [<a href="https://tools.ietf.org/search/rfc3987">RFC3987</a>], and is comprised of:
                     <ul>
                         <li>A context IRI,</li>
                         <li>a link relation type</li>
@@ -166,19 +166,19 @@
    A link can be viewed as a statement of the form &quot;{context IRI} has a
    {relation type} resource at {target IRI}, which has {target
    attributes}.&quot;</blockquote></p>
-                    <p>At the very least, place links in the HTTP Link header as recommended in the specification, or embrace a JSON representation of this HTTP link style (such as Atom-style links, see: <a href="http://tools.ietf.org/search/rfc4287#section-4.2.7">RFC4287</a>) in your JSON representations. Later, you can layer in more complex linking styles such as <a href="http://stateless.co/hal_specification.html">HAL+JSON</a>, <a href="https://github.com/kevinswiber/siren">Siren</a>, <a href="http://amundsen.com/media-types/collection/">Collection+JSON</a>, and/or <a href="http://json-ld.org/">JSON-LD</a>, etc. as your REST APIs become more mature.</p>
+                    <p>At the very least, place links in the HTTP Link header as recommended in the specification, or embrace a JSON representation of this HTTP link style (such as Atom-style links, see: <a href="https://tools.ietf.org/search/rfc4287#section-4.2.7">RFC4287</a>) in your JSON representations. Later, you can layer in more complex linking styles such as <a href="https://stateless.co/hal_specification.html">HAL+JSON</a>, <a href="https://github.com/kevinswiber/siren">Siren</a>, <a href="https://amundsen.com/media-types/collection/">Collection+JSON</a>, and/or <a href="https://json-ld.org/">JSON-LD</a>, etc. as your REST APIs become more mature.</p>
 				</div>
 			</div>
 			<hr>
 			<footer>
-				<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.restapitutorial.com/" property="cc:attributionName" rel="cc:attributionURL">RestApiTutorial.com</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+				<p><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work by <a xmlns:cc="https://creativecommons.org/ns#" href="https://www.restapitutorial.com/" property="cc:attributionName" rel="cc:attributionURL">RestApiTutorial.com</a> is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
 			</footer>
 		</div> <!-- /container -->
 		<div class="navbar navbar-fixed-top">
 			<div class="navbar-inner">
 				<div class="container">
 					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
-					<a class="brand" href="http://www.restapitutorial.com">REST API Tutorial</a>
+					<a class="brand" href="https://www.restapitutorial.com">REST API Tutorial</a>
 					<div class="nav-collapse">
 						<ul class="nav">
 							<li><a href="../index.html">Home</a></li>
