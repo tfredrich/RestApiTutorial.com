@@ -33,6 +33,37 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 			}
             .banner-container {
             }
+			label{
+            position: absolute;
+            width: 45px;
+            height: 22px;
+            right: 20px;
+            top: 150px;
+            border: 2px solid;
+            border-radius: 20px;
+        }
+        label:before{
+            position: absolute;
+            content: '';
+            width:20px;
+            height: 20px;
+            left: 1px;
+            top: 1px;
+            border-radius: 50%;
+            background: #000;
+            cursor: pointer;
+            transition: 0.4s;
+        }
+
+		label.active:before{
+            left: 24px;
+            background: #fff;
+        }
+        body.night{
+            background: #000;
+			color: darkblue;
+            
+        }
 		</style>
 		<script type="text/javascript">
 
