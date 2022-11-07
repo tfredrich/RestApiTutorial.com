@@ -1,0 +1,68 @@
+[Search-placeholder]
+other = "搜索..."
+
+[Clear-History]
+other = "清理历史记录"
+
+[Attachments-label]
+other = "附件"
+
+[title-404]
+other = "错误"
+
+[message-404]
+other = "哎哟。 看起来这个页面不存在 ¯\\_(ツ)_/¯。"
+
+[Go-to-homepage]
+other = "转到主页"
+
+[Edit-this-page]
+other = "编辑"
+
+[Print-this-chapter]
+other = "打印整章"
+
+[Shortcuts-Title]
+other = "更多"
+
+[Expand-title]
+other = "展开"
+
+[Navigation-toggle]
+other = "导航"
+
+[Toc-toggle]
+other = "目录"
+
+[Byte-symbol]
+other = "B"
+
+[Kilobyte-symbol]
+other = "KB"
+
+[Megabyte-symbol]
+other = "MB"
+
+[note]
+other = "注释"
+
+[info]
+other = "信息"
+
+[tip]
+other = "提示"
+
+[warning]
+other = "警告"
+
+[Copy-to-clipboard]
+other = "复制到剪贴板"
+
+[Copied-to-clipboard]
+other = "复制到剪贴板！"
+
+[Copy-link-to-clipboard]
+other = "将链接复制到剪贴板"
+
+[Link-copied-to-clipboard]
+other = "链接复制到剪贴板！"

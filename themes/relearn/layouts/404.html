@@ -1,0 +1,41 @@
+{{- .Scratch.Set "relearnOutputFormat" "HTML" }}
+<!DOCTYPE html>
+<html lang="{{ .Page.Language | default "en" }}">
+  <head>
+    {{- partial "meta.html" . }}
+    {{- .Scratch.Add "title" "" }}
+    {{- if eq .Site.Data.titles .Title }}
+      {{- .Scratch.Set "title" (index .Site.Data.titles .Title).title }}
+    {{- else }}
+      {{- .Scratch.Set "title" .Title}}
+    {{- end }}
+    <title>{{ .Scratch.Get "title" }} {{ default "::" .Site.Params.titleSeparator }} {{ .Site.Title }}</title>
+
+    {{- partial "favicon.html" . }}
+    {{- partial "stylesheet.html" . }}
+    <style>
+      p, li, ul {
+        text-align: center
+      }
+      ul {
+        list-style-type: none;
+      }
+    </style>
+    {{- partial "custom-header.html" . }}
+  </head>
+  <body class="mobile-support" data-url="/">
+    <div id="body" class="default-animation" style="margin-left:0px;">
+      <div id="sidebar-overlay"></div>
+      <main id="body-inner" class="chapter" tabindex="-1">
+        <div class="flex-block-wrapper">
+          <h1>{{ T "title-404" }}</h1>
+          <p></p>
+          <p>{{ T "message-404" }}</p>
+          <p></p>
+          <p><a href="{{ "" | relLangURL }}">{{ T "Go-to-homepage" }}</a></p>
+          <p><img src="{{ "/images/gopher-404.jpg" | relURL }}" style="width:50%" alt="Page not found!"></p>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

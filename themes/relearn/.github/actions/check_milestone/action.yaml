@@ -1,0 +1,73 @@
+name: Check milestone
+description: Checks if the given milestone and its according tag are valid to be released
+inputs:
+  milestone:
+    description: Milestone for this release
+    required: true
+  github_token:
+    description: Secret GitHub token
+    required: true
+outputs:
+  outcome:
+    description: Result of the check, success or failure
+    value: ${{ steps.outcome.outputs.outcome }}
+runs:
+  using: composite
+  steps:
+    - name: Get tag uniqueness
+      id: unique_tag
+      uses: mukunku/tag-exists-action@v1.0.0
+      with:
+        tag: ${{ env.MILESTONE }}
+      env:
+        MILESTONE: ${{ inputs.milestone }}
+        GITHUB_TOKEN: ${{ inputs.github_token }}
+
+    - name: Get closed issues for milestone
+      id: closed_issues
+      uses: octokit/graphql-action@v2.x
+      with:
+        query: |
+          query {
+            search(first: 1, type: ISSUE, query: "user:${{ github.repository_owner }} repo:${{ github.event.repository.name }} milestone:${{ env.MILESTONE }} state:closed") {
+              issueCount
+            }
+          }
+      env:
+        MILESTONE: ${{ inputs.milestone }}
+        GITHUB_TOKEN: ${{ inputs.github_token }}
+
+    - name: Get open issues for milestone
+      id: open_issues
+      uses: octokit/graphql-action@v2.x
+      with:
+        query: |
+          query {
+            search(first: 1, type: ISSUE, query: "user:${{ github.repository_owner }} repo:${{ github.event.repository.name }} milestone:${{ env.MILESTONE }} state:open") {
+              issueCount
+            }
+          }
+      env:
+        MILESTONE: ${{ inputs.milestone }}
+        GITHUB_TOKEN: ${{ inputs.github_token }}
+
+    - name: Set outcome
+      id: outcome
+      shell: bash
+      run: |
+        if [ "${{ fromJSON(steps.closed_issues.outputs.data).search.issueCount > 0 && fromJSON(steps.open_issues.outputs.data).search.issueCount == 0 && steps.unique_tag.outputs.exists == 'false' }}" = "true" ]; then
+          echo "::set-output name=outcome::success"
+        else
+          echo "::set-output name=outcome::failure"
+        fi
+
+    - name: Log results and exit
+      shell: bash
+      run: |
+        echo outcome          : ${{ steps.outcome.outputs.outcome }}
+        echo has unique tag   : ${{ steps.unique_tag.outputs.exists == 'false' }}
+        echo has closed issues: ${{ fromJSON(steps.closed_issues.outputs.data).search.issueCount > 0 }}
+        echo has open issues  : ${{ fromJSON(steps.open_issues.outputs.data).search.issueCount > 0 }}
+        if [ "${{ steps.outcome.outputs.outcome }}" = "failure" ]; then
+          exit 1
+        fi

@@ -1,0 +1,68 @@
+[Search-placeholder]
+other = "Search..."
+
+[Clear-History]
+other = "Clear History"
+
+[Attachments-label]
+other = "Attachments"
+
+[title-404]
+other = "Error"
+
+[message-404]
+other = "Woops. Looks like this page doesn't exist ¯\\_(ツ)_/¯."
+
+[Go-to-homepage]
+other = "Go to homepage"
+
+[Edit-this-page]
+other = "Edit"
+
+[Print-this-chapter]
+other = "Print whole chapter"
+
+[Shortcuts-Title]
+other = "More"
+
+[Expand-title]
+other = "Expand me..."
+
+[Navigation-toggle]
+other = "Menu"
+
+[Toc-toggle]
+other = "Table of Contents"
+
+[Byte-symbol]
+other = "B"
+
+[Kilobyte-symbol]
+other = "KB"
+
+[Megabyte-symbol]
+other = "MB"
+
+[note]
+other = "Note"
+
+[info]
+other = "Info"
+
+[tip]
+other = "Tip"
+
+[warning]
+other = "Warning"
+
+[Copy-to-clipboard]
+other = "Copy to clipboard"
+
+[Copied-to-clipboard]
+other = "Copied to clipboard!"
+
+[Copy-link-to-clipboard]
+other = "Copy link to clipboard"
+
+[Link-copied-to-clipboard]
+other = "Copied link to clipboard!"

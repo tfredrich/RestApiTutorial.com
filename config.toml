@@ -1,0 +1,30 @@
+baseURL = 'http://restapitutorial.org/'
+languageCode = 'en-us'
+title = 'REST API Tutorial'
+uglyURLs = true
+#
+# Change the default theme to hugo-theme-relearn
+theme = "relearn"
+
+# For search functionality
+[outputs]
+home = [ "HTML", "RSS", "JSON"]
+
+[[menu.shortcuts]]
+name = "<i class='fab fa-fw fa-github'></i> GitHub repo"
+identifier = "ds"
+url = "https://github.com/McShelby/hugo-theme-relearn"
+weight = 10
+
+[[menu.shortcuts]]
+name = "<i class='fas fa-fw fa-tags'></i> Tags"
+url = "tags/"
+weight = 40
+
+[params]
+  editURL = "https://github.com/McShelby/hugo-theme-relearn/edit/main/exampleSite/content/"
+  description = "Learn REST API Design"
+  author = "Todd Fredrich"
+  collapsibleMenu = true
+  titleSeparator = " - "
+  themeVariant = [ "relearn-light", "relearn-dark" ]

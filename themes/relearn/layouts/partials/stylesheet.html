@@ -1,0 +1,47 @@
+    {{- $assetBusting := not .Site.Params.disableAssetsBusting }}
+    <link href="{{"css/nucleus.css" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" rel="stylesheet">
+    <link href="{{"css/fontawesome-all.min.css" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" rel="stylesheet">
+    <link href="{{"css/featherlight.min.css" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" rel="stylesheet">
+    <link href="{{"css/perfect-scrollbar.min.css" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" rel="stylesheet">
+    <link href="{{"css/auto-complete.css" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" rel="stylesheet">
+    <link href="{{"css/theme.css" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" rel="stylesheet">
+    {{- $themevariants := slice | append (.Site.Params.themeVariant | default "relearn-light" ) }}
+    {{- with index $themevariants 0 }}
+    <link href="{{(printf "css/theme-%s.css" .) | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" rel="stylesheet" id="variant-style">
+    {{- end }}
+    <link href="{{"css/ie.css" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" rel="stylesheet">
+    <link href="{{"css/variant.css" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" rel="stylesheet">
+    <link href="{{"css/print.css" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" rel="stylesheet"{{ if ne (.Scratch.Get "relearnOutputFormat") "PRINT" }} media="print"{{ end }}>
+    {{- if .Site.Params.disableInlineCopyToClipBoard }}
+    <style>
+      :not(pre) > code.copy-to-clipboard-code + span.copy-to-clipboard-button {
+        display: none;
+      }
+      :not(pre) > code.copy-to-clipboard-code {
+        border-bottom-right-radius: 2px;
+        border-top-right-radius: 2px;
+        border-right-width: 1px;
+      }
+    </style>
+    {{- end }}
+    <script src="{{"js/variant.js" | relURL}}{{ if not .Site.Params.disableAssetsBusting }}?{{ now.Unix }}{{ end }}"></script>
+    <script>
+      {{ "// hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:" | safeJS }}
+      {{ "// https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72" | safeJS }}
+      var index_url={{ "index.json" | relLangURL }};
+      var root_url="/";
+      var baseUri=root_url.replace(/\/$/, '');
+      {{ "// translations" | safeJS }}
+      window.T_Copy_to_clipboard = '{{ T "Copy-to-clipboard" | safeJS }}';
+      window.T_Copied_to_clipboard = '{{ T "Copied-to-clipboard" | safeJS }}';
+      window.T_Copy_link_to_clipboard = '{{ T "Copy-link-to-clipboard" | safeJS }}';
+      window.T_Link_copied_to_clipboard = '{{ T "Link-copied-to-clipboard" | safeJS }}';
+      {{ "// some further base stuff" | safeJS }}
+      var baseUriFull='{{ trim .Site.BaseURL "/" | safeJS }}/';
+      {{- $quotedthemevariants := slice }}
+      {{- range $themevariants }}
+        {{- $quotedthemevariants = $quotedthemevariants | append (printf "'%s'" .) }}
+      {{- end }}
+      variants.init( [ {{ delimit $quotedthemevariants ", " | safeJS }} ] );
+    </script>
+    <script src="{{"js/jquery.min.js"| relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}"></script>

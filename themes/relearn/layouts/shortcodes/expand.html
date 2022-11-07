@@ -1,0 +1,22 @@
+{{- $_hugo_config := `{ "version": 1 }` }}
+{{- $title := .Get "title" | default (.Get 0) | default (T "Expand-title") }}
+{{- $expanded := .Get "open" | default (.Get 1) | default false }}
+{{- if eq (printf "%T" $expanded) "string" }}
+	{{- $expanded = (eq $expanded "true") }}
+{{- end }}
+{{- $content := .Inner | safeHTML }}
+<div class="expand
+    {{- if $expanded }} expand-expanded{{ end -}}
+">
+    {{/* things are getting complicated when search tries to open the expand box while jquery sets the display CSS on the element */}}{{ "" -}}
+    <a class="expand-label" onclick="$t=$(this); if($t.parent('.expand-expanded.expand-marked').length){ $t.next().css('display','none') }else if($t.parent('.expand-marked').length){ $t.next().css('display','block') }else{ $t.next('.expand-content').slideToggle(100); } $t.parent().toggleClass('expand-expanded');">
+        <i class="fas fa-chevron-down"></i>
+        <i class="fas fa-chevron-right"></i>
+        {{ $title }}
+    </a>
+    <div class="expand-content" style="display:
+        {{- if $expanded }} block{{ else }} none{{ end -}}
+    ;">
+{{ $content }}
+    </div>
+</div>

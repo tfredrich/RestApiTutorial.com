@@ -1,0 +1,68 @@
+[Search-placeholder]
+other = "Buscar..."
+
+[Clear-History]
+other = "Borrar Historial"
+
+[Attachments-label]
+other = "Adjuntos"
+
+[title-404]
+other = "Error"
+
+[message-404]
+other = "Ups. Parece que la página no existe ¯\\_(ツ)_/¯."
+
+[Go-to-homepage]
+other = "Ir al inicio"
+
+[Edit-this-page]
+other = "Editar"
+
+[Print-this-chapter]
+other = "Imprimer le chapitre entier"
+
+[Shortcuts-Title]
+other = "Más"
+
+[Expand-title]
+other = "Expandir..."
+
+[Navigation-toggle]
+other = "Menú"
+
+[Toc-toggle]
+other = "Tabla de contenido"
+
+[Byte-symbol]
+other = "B"
+
+[Kilobyte-symbol]
+other = "KB"
+
+[Megabyte-symbol]
+other = "MB"
+
+[note]
+other = "Nota"
+
+[info]
+other = "Información"
+
+[tip]
+other = "Consejo"
+
+[warning]
+other = "Aviso"
+
+[Copy-to-clipboard]
+other = "Copiar en el portapapeles"
+
+[Copied-to-clipboard]
+other = "¡Copiado al portapapeles!"
+
+[Copy-link-to-clipboard]
+other = "Copiar enlace al portapapeles"
+
+[Link-copied-to-clipboard]
+other = "¡Enlace copiado al portapapeles!"

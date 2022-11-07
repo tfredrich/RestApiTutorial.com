@@ -1,0 +1,68 @@
+[Search-placeholder]
+other = "Searrrch..."
+
+[Clear-History]
+other = "Clear Historrry"
+
+[Attachments-label]
+other = "Attachments"
+
+[title-404]
+other = "Errror"
+
+[message-404]
+other = "Woops. Looks like this plank doesn't exist ¯\\_(ツ)_/¯."
+
+[Go-to-homepage]
+other = "Go t' homeplank"
+
+[Edit-this-page]
+other = "Edit"
+
+[Print-this-chapter]
+other = "Prrrint whole chapterrr"
+
+[Shortcuts-Title]
+other = "Morrre"
+
+[Expand-title]
+other = "Expand me..."
+
+[Navigation-toggle]
+other = "Menu"
+
+[Toc-toggle]
+other = "Table o' Contents"
+
+[Byte-symbol]
+other = "B"
+
+[Kilobyte-symbol]
+other = "KB"
+
+[Megabyte-symbol]
+other = "MB"
+
+[note]
+other = "Avast"
+
+[info]
+other = "Ahoi"
+
+[tip]
+other = "Smarrrt arrrse"
+
+[warning]
+other = "Arrr"
+
+[Copy-to-clipboard]
+other = "Copy t' clipboard"
+
+[Copied-to-clipboard]
+other = "Copied t' clipboard!"
+
+[Copy-link-to-clipboard]
+other = "Copy link t' clipboard"
+
+[Link-copied-to-clipboard]
+other = "Copied link t' clipboard!"

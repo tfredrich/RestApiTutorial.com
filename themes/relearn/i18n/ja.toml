@@ -1,0 +1,68 @@
+[Search-placeholder]
+other = "検索..."
+
+[Clear-History]
+other = "履歴削除"
+
+[Attachments-label]
+other = "添付"
+
+[title-404]
+other = "エラー"
+
+[message-404]
+other = "おっと。ページが見当たりません。 ¯\\_(ツ)_/¯."
+
+[Go-to-homepage]
+other = "ホームページへ行く"
+
+[Edit-this-page]
+other = "編集"
+
+[Print-this-chapter]
+other = "章全体を印刷する"
+
+[Shortcuts-Title]
+other = "更に"
+
+[Expand-title]
+other = "開く..."
+
+[Navigation-toggle]
+other = "メニュー"
+
+[Toc-toggle]
+other = "目次"
+
+[Byte-symbol]
+other = "B"
+
+[Kilobyte-symbol]
+other = "KB"
+
+[Megabyte-symbol]
+other = "MB"
+
+[note]
+other = "手記"
+
+[info]
+other = "情報"
+
+[tip]
+other = "先端"
+
+[warning]
+other = "警告"
+
+[Copy-to-clipboard]
+other = "クリップボードにコピー"
+
+[Copied-to-clipboard]
+other = "クリップボードにコピー!"
+
+[Copy-link-to-clipboard]
+other = "リンクをクリップボードにコピー"
+
+[Link-copied-to-clipboard]
+other = "リンクをクリップボードにコピーしました!"

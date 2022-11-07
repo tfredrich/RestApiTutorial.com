@@ -1,0 +1,68 @@
+[Search-placeholder]
+other = "Telusuri..."
+
+[Clear-History]
+other = "Bersihkan Riwayat"
+
+[Attachments-label]
+other = "Lampiran"
+
+[title-404]
+other = "Kesalahan"
+
+[message-404]
+other = "Oops. Sepertinya halaman ini tidak ada ¯\\_(ツ)_/¯."
+
+[Go-to-homepage]
+other = "Ke halaman depan"
+
+[Edit-this-page]
+other = "Mengedit"
+
+[Print-this-chapter]
+other = "Mencetak seluruh bab"
+
+[Shortcuts-Title]
+other = "Lainnya"
+
+[Expand-title]
+other = "Bentangkan..."
+
+[Navigation-toggle]
+other = "Menu"
+
+[Toc-toggle]
+other = "Daftar isi"
+
+[Byte-symbol]
+other = "B"
+
+[Kilobyte-symbol]
+other = "KB"
+
+[Megabyte-symbol]
+other = "MB"
+
+[note]
+other = "Nota"
+
+[info]
+other = "Info"
+
+[tip]
+other = "Ujung"
+
+[warning]
+other = "Peringatan"
+
+[Copy-to-clipboard]
+other = "Salin ke clipboard"
+
+[Copied-to-clipboard]
+other = "Disalin ke clipboard!"
+
+[Copy-link-to-clipboard]
+other = "Salin link ke clipboard"
+
+[Link-copied-to-clipboard]
+other = "Link disalin ke clipboard!"

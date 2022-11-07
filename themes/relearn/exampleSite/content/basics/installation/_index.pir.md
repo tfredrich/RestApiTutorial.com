@@ -1,0 +1,5 @@
++++
+title = "Installat'n"
+weight = 15
++++
+{{< piratify >}}

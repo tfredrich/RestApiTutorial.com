@@ -1,0 +1,10 @@
+{{- $file := .Get "file" | default (.Get 0) }}
+{{- $showFirstHeading := .Get "showfirstheading" | default (.Get 1) | default true }}
+{{- if eq (printf "%T" $showFirstHeading) "string" }}
+	{{- $showFirstHeading = (eq $showFirstHeading "true") }}
+{{- end }}
+{{- if not $showFirstHeading }}<div class="include hide-first-heading">{{ end }}
+
+{{ $file | readFile | safeHTML }}
+
+{{- if not $showFirstHeading }}</div>{{ end }}

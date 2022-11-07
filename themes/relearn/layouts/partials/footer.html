@@ -1,0 +1,69 @@
+
+        </div>
+      </main><!-- #body-inner -->
+{{- partial "custom-comments.html" . }}
+    </div><!-- #body -->
+{{- partial "menu.html" . }}
+    <script src="{{"js/clipboard.min.js" | relURL}}{{ if not .Site.Params.disableAssetsBusting }}?{{ now.Unix }}{{ end }}"></script>
+    <script src="{{"js/perfect-scrollbar.min.js" | relURL}}{{ if not .Site.Params.disableAssetsBusting }}?{{ now.Unix }}{{ end }}"></script>
+    <script src="{{"js/featherlight.min.js" | relURL}}{{ if not .Site.Params.disableAssetsBusting }}?{{ now.Unix }}{{ end }}"></script>
+{{- $wantsMermaid := or (and (eq (.Scratch.Get "relearnOutputFormat") "HTML") (.Page.Store.Get "htmlHasMermaid")) (and (eq (.Scratch.Get "relearnOutputFormat") "PRINT") (.Page.Store.Get "printHasMermaid")) }}
+{{- if $wantsMermaid }}
+    <script src="{{"js/jquery.svg.pan.zoom.js" | relURL}}{{ if not .Site.Params.disableAssetsBusting }}?{{ now.Unix }}{{ end }}"></script>
+  {{- if isset .Params "custommermaidurl" }}
+    <script src="{{ .Params.customMermaidURL }}"></script>
+  {{- else if isset .Site.Params "custommermaidurl" }}
+    <script src="{{ .Site.Params.customMermaidURL }}"></script>
+  {{- else }}
+    <script src="{{"js/mermaid.min.js" | relURL}}{{ if not .Site.Params.disableAssetsBusting }}?{{ now.Unix }}{{ end }}"></script>
+  {{- end }}
+  {{- if isset .Params "mermaidinitialize" }}
+    {{- $.Scratch.Set "mermaidInitialize" .Params.mermaidInitialize }}
+  {{- else if isset .Site.Params "mermaidinitialize" }}
+    {{- $.Scratch.Set "mermaidInitialize" .Site.Params.mermaidInitialize }}
+  {{- else }}
+    {{- $.Scratch.Set "mermaidInitialize" "{}" }}
+  {{- end }}
+    <script>
+      function useMermaid( config ){
+        if (typeof mermaid != 'undefined' && typeof mermaid.mermaidAPI != 'undefined') {
+          mermaid.initialize( Object.assign( { "securityLevel": "antiscript", "startOnLoad": false  }, config ) );
+          if( config.theme ){
+            var write_style = variants.findLoadedStylesheet( 'variant-style' );
+            write_style.setProperty( '--CONFIG-MERMAID-theme', config.theme );
+          }
+        }
+      }
+      useMermaid( JSON.parse({{ $.Scratch.Get "mermaidInitialize" }}) );
+    </script>
+{{- end }}
+{{- $wantsSwagger := or (and (eq (.Scratch.Get "relearnOutputFormat") "HTML") (.Page.Store.Get "htmlHasSwagger")) (and (eq (.Scratch.Get "relearnOutputFormat") "PRINT") (.Page.Store.Get "printHasSwagger")) }}
+{{- if $wantsSwagger }}
+  {{- if isset .Params "customswaggerurl" }}
+    <script src="{{ .Params.customSwaggerURL }}"></script>
+  {{- else if isset .Site.Params "customswaggerurl" }}
+    <script src="{{ .Site.Params.customSwaggerURL }}"></script>
+  {{- else }}
+    <script src="{{ "/js/rapidoc-min.js" | relURL }}{{ if not .Site.Params.disableAssetsBusting }}?{{ now.Unix }}{{ end }}"></script>
+  {{- end }}
+  {{- if isset .Params "swaggerinitialize" }}
+    {{- $.Scratch.Set "swaggerInitialize" .Params.swaggerInitialize }}
+  {{- else if isset .Site.Params "swaggerinitialize" }}
+    {{- $.Scratch.Set "swaggerInitialize" .Site.Params.swaggerInitialize }}
+  {{- else }}
+    {{- $.Scratch.Set "swaggerInitialize" "{}" }}
+  {{- end }}
+    <script>
+      function useSwagger( config ){
+        if( config.theme ){
+          var write_style = variants.findLoadedStylesheet( 'variant-style' );
+          write_style.setProperty( '--CONFIG-SWAGGER-theme', config.theme );
+        }
+      }
+      useSwagger( JSON.parse({{ $.Scratch.Get "swaggerInitialize" }}) );
+    </script>
+{{- end }}
+    <script src="{{"js/theme.js" | relURL}}{{ if not .Site.Params.disableAssetsBusting }}?{{ now.Unix }}{{ end }}"></script>
+    {{- partial "custom-footer.html" . }}
+  </body>
+</html>

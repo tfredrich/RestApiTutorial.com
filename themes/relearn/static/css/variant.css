@@ -1,0 +1,397 @@
+:root {
+    /* initially use section background to avoid flickering on load when a non default variant is active;
+    this is only possible because every color variant defines this variable, otherwise we would have been lost */
+    --INTERNAL-PRIMARY-color: var(--PRIMARY-color, var(--MENU-HEADER-BG-color, rgba( 0, 0, 0, 0 ))); /* not --INTERNAL-MENU-HEADER-BG-color */
+    --INTERNAL-SECONDARY-color: var(--SECONDARY-color, var(--MAIN-LINK-color, #486ac9)); /* not --INTERNAL-MAIN-LINK-color */
+
+    --INTERNAL-MAIN-TEXT-color: var(--MAIN-TEXT-color, #101010);
+    --INTERNAL-MAIN-TITLES-TEXT-color: var(--MAIN-TITLES-TEXT-color, #4a4a4a);
+    --INTERNAL-MAIN-LINK-color: var(--MAIN-LINK-color, var(--SECONDARY-color, #486ac9)); /* not --INTERNAL-SECONDARY-color */
+    --INTERNAL-MAIN-LINK-HOVER-color: var(--MAIN-LINK-HOVER-color, var(--INTERNAL-MAIN-LINK-color));
+    --INTERNAL-MAIN-BG-color: var(--MAIN-BG-color, #ffffff);
+
+    --INTERNAL-MAIN-TITLES-H1-color: var(--MAIN-TITLES-H1-color, var(--INTERNAL-MAIN-TEXT-color));
+    --INTERNAL-MAIN-TITLES-H2-color: var(--MAIN-TITLES-H2-color, var(--INTERNAL-MAIN-TITLES-TEXT-color));
+    --INTERNAL-MAIN-TITLES-H3-color: var(--MAIN-TITLES-H3-color, var(--INTERNAL-MAIN-TITLES-H2-color));
+    --INTERNAL-MAIN-TITLES-H4-color: var(--MAIN-TITLES-H4-color, var(--INTERNAL-MAIN-TITLES-H3-color));
+    --INTERNAL-MAIN-TITLES-H5-color: var(--MAIN-TITLES-H5-color, var(--INTERNAL-MAIN-TITLES-H4-color));
+    --INTERNAL-MAIN-TITLES-H6-color: var(--MAIN-TITLES-H6-color, var(--INTERNAL-MAIN-TITLES-H5-color));
+
+    --INTERNAL-MAIN-font: var(--MAIN-font, "Work Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif);
+    --INTERNAL-MAIN-TITLES-TEXT-font: var(--MAIN-TITLES-TEXT-font, var(--INTERNAL-MAIN-font));
+
+    --INTERNAL-MAIN-TITLES-H1-font: var(--MAIN-TITLES-H1-font, var(--INTERNAL-MAIN-font));
+    --INTERNAL-MAIN-TITLES-H2-font: var(--MAIN-TITLES-H2-font, var(--INTERNAL-MAIN-TITLES-TEXT-font));
+    --INTERNAL-MAIN-TITLES-H3-font: var(--MAIN-TITLES-H3-font, var(--INTERNAL-MAIN-TITLES-H2-font));
+    --INTERNAL-MAIN-TITLES-H4-font: var(--MAIN-TITLES-H4-font, var(--INTERNAL-MAIN-TITLES-H3-font));
+    --INTERNAL-MAIN-TITLES-H5-font: var(--MAIN-TITLES-H5-font, var(--INTERNAL-MAIN-TITLES-H4-font));
+    --INTERNAL-MAIN-TITLES-H6-font: var(--MAIN-TITLES-H6-font, var(--INTERNAL-MAIN-TITLES-H5-font));
+
+    --INTERNAL-CODE-BLOCK-color: var(--CODE-BLOCK-color, var(--MAIN-CODE-color, #000000));
+    --INTERNAL-CODE-BLOCK-BG-color: var(--CODE-BLOCK-BG-color, var(--MAIN-CODE-BG-color, #f8f8f8));
+    --INTERNAL-CODE-BLOCK-BORDER-color: var(--CODE-BLOCK-BORDER-color, var(--MAIN-CODE-BG-color, var(--INTERNAL-CODE-BLOCK-BG-color)));
+
+    --INTERNAL-CODE-INLINE-color: var(--CODE-INLINE-color, #5e5e5e);
+    --INTERNAL-CODE-INLINE-BG-color: var(--CODE-INLINE-BG-color, #fffae9);
+    --INTERNAL-CODE-INLINE-BORDER-color: var(--CODE-INLINE-BORDER-color, #fbf0cb);
+
+    --INTERNAL-CODE-font: var(--CODE-font, "Consolas", menlo, monospace);
+
+    --INTERNAL-MERMAID-theme: var(--CONFIG-MERMAID-theme, var(--MERMAID-theme, default));
+    --INTERNAL-SWAGGER-theme: var(--CONFIG-SWAGGER-theme, var(--SWAGGER-theme, light));
+
+    --INTERNAL-TAG-BG-color: var(--TAG-BG-color, var(--INTERNAL-PRIMARY-color));
+
+    --INTERNAL-MENU-HEADER-BG-color: var(--MENU-HEADER-BG-color, var(--PRIMARY-color, rgba( 0, 0, 0, 0 ))); /* not --INTERNAL-PRIMARY-color */
+    --INTERNAL-MENU-HEADER-BORDER-color: var(--MENU-HEADER-BORDER-color, var(--INTERNAL-MENU-HEADER-BG-color));
+
+    --INTERNAL-MENU-HOME-LINK-color: var(--MENU-HOME-LINK-color, #323232);
+    --INTERNAL-MENU-HOME-LINK-HOVER-color: var(--MENU-HOME-LINK-HOVER-color, var(--MENU-HOME-LINK-HOVERED-color, #808080));
+
+    --INTERNAL-MENU-SEARCH-color: var(--MENU-SEARCH-color, var(--MENU-SEARCH-BOX-ICONS-color, #e0e0e0));
+    --INTERNAL-MENU-SEARCH-BG-color: var(--MENU-SEARCH-BG-color, #323232);
+    --INTERNAL-MENU-SEARCH-BORDER-color: var(--MENU-SEARCH-BORDER-color, var(--MENU-SEARCH-BOX-color, var(--INTERNAL-MENU-SEARCH-BG-color)));
+
+    --INTERNAL-MENU-SECTIONS-ACTIVE-BG-color: var(--MENU-SECTIONS-ACTIVE-BG-color, rgba( 0, 0, 0, .166 ));
+    --INTERNAL-MENU-SECTIONS-BG-color: var(--MENU-SECTIONS-BG-color, #282828);
+    --INTERNAL-MENU-SECTIONS-LINK-color: var(--MENU-SECTIONS-LINK-color, #bababa);
+    --INTERNAL-MENU-SECTIONS-LINK-HOVER-color: var(--MENU-SECTIONS-LINK-HOVER-color, var(--INTERNAL-MENU-SECTIONS-LINK-color));
+    --INTERNAL-MENU-SECTION-ACTIVE-CATEGORY-color: var(--MENU-SECTION-ACTIVE-CATEGORY-color, #444444);
+    --INTERNAL-MENU-SECTION-ACTIVE-CATEGORY-BG-color: var(--MENU-SECTION-ACTIVE-CATEGORY-BG-color, var(--INTERNAL-MAIN-BG-color));
+
+    --INTERNAL-MENU-VISITED-color: var(--MENU-VISITED-color, var(--INTERNAL-SECONDARY-color));
+    --INTERNAL-MENU-SECTION-HR-color: var(--MENU-SECTION-HR-color, #606060);
+
+    --INTERNAL-BOX-CAPTION-color: var(--BOX-CAPTION-color, rgba( 255, 255, 255, 1 ));
+    --INTERNAL-BOX-BG-color: var(--BOX-BG-color, rgba( 255, 255, 255, .833 ));
+    --INTERNAL-BOX-TEXT-color: var(--BOX-TEXT-color, rgba( 16, 16, 16, 1 ));
+
+    --INTERNAL-BOX-BLUE-color: var(--BOX-BLUE-color, rgba( 48, 117, 229, 1 ));
+    --INTERNAL-BOX-GREEN-color: var(--BOX-GREEN-color, rgba( 42, 178, 24, 1 ));
+    --INTERNAL-BOX-GREY-color: var(--BOX-GREY-color, rgba( 128, 128, 128, 1 ));
+    --INTERNAL-BOX-ORANGE-color: var(--BOX-ORANGE-color, rgba( 237, 153, 9, 1 ));
+    --INTERNAL-BOX-RED-color: var(--BOX-RED-color, rgba( 224, 62, 62, 1 ));
+
+    --INTERNAL-BOX-INFO-color: var(--BOX-INFO-color, var(--INTERNAL-BOX-BLUE-color));
+    --INTERNAL-BOX-NEUTRAL-color: var(--BOX-NEUTRAL-color, var(--INTERNAL-BOX-GREY-color));
+    --INTERNAL-BOX-NOTE-color: var(--BOX-NOTE-color, var(--INTERNAL-BOX-ORANGE-color));
+    --INTERNAL-BOX-TIP-color: var(--BOX-TIP-color, var(--INTERNAL-BOX-GREEN-color));
+    --INTERNAL-BOX-WARNING-color: var(--BOX-WARNING-color, var(--INTERNAL-BOX-RED-color));
+
+    --INTERNAL-BOX-BLUE-TEXT-color: var(--BOX-BLUE-TEXT-color, var(--INTERNAL-BOX-TEXT-color));
+    --INTERNAL-BOX-GREEN-TEXT-color: var(--BOX-GREEN-TEXT-color, var(--INTERNAL-BOX-TEXT-color));
+    --INTERNAL-BOX-GREY-TEXT-color: var(--BOX-GREY-TEXT-color, var(--INTERNAL-BOX-TEXT-color));
+    --INTERNAL-BOX-ORANGE-TEXT-color: var(--BOX-ORANGE-TEXT-color, var(--INTERNAL-BOX-TEXT-color));
+    --INTERNAL-BOX-RED-TEXT-color: var(--BOX-RED-TEXT-color, var(--INTERNAL-BOX-TEXT-color));
+
+    --INTERNAL-BOX-INFO-TEXT-color: var(--BOX-INFO-TEXT-color, var(--INTERNAL-BOX-BLUE-TEXT-color));
+    --INTERNAL-BOX-NEUTRAL-TEXT-color: var(--BOX-NEUTRAL-TEXT-color, var(--INTERNAL-BOX-GREY-TEXT-color));
+    --INTERNAL-BOX-NOTE-TEXT-color: var(--BOX-NOTE-TEXT-color, var(--INTERNAL-BOX-ORANGE-TEXT-color));
+    --INTERNAL-BOX-TIP-TEXT-color: var(--BOX-TIP-TEXT-color, var(--INTERNAL-BOX-GREEN-TEXT-color));
+    --INTERNAL-BOX-WARNING-TEXT-color: var(--BOX-WARNING-TEXT-color, var(--INTERNAL-BOX-RED-TEXT-color));
+}
+
+body {
+    background-color: var(--INTERNAL-MAIN-BG-color);
+    color: var(--INTERNAL-MAIN-TEXT-color);
+    font-family: var(--INTERNAL-MAIN-font);
+}
+
+a,
+.anchor,
+#toc-menu,
+#body a.highlight:after {
+    color: var(--INTERNAL-MAIN-LINK-color);
+}
+
+a:hover,
+.anchor:hover,
+#toc-menu:hover,
+#body a.highlight:hover:after {
+    color: var(--INTERNAL-MAIN-LINK-HOVER-color);
+}
+
+#sidebar {
+    background: var(--INTERNAL-MENU-SECTIONS-BG-color);
+}
+
+#header-wrapper {
+    background-color: var(--INTERNAL-MENU-HEADER-BG-color);
+    border-color: var(--INTERNAL-MENU-HEADER-BORDER-color);
+    color: var(--INTERNAL-MENU-SEARCH-color);
+}
+
+.searchbox {
+    border-color: var(--INTERNAL-MENU-SEARCH-BORDER-color);
+    background-color: var(--INTERNAL-MENU-SEARCH-BG-color);
+}
+
+#sidebar .collapsible-menu label:after,
+#sidebar a {
+    color: var(--INTERNAL-MENU-SECTIONS-LINK-color);
+}
+
+#sidebar select:hover,
+#sidebar .collapsible-menu label:hover:after,
+#sidebar a:hover {
+    color: var(--INTERNAL-MENU-SECTIONS-LINK-HOVER-color);
+}
+
+#sidebar ul.topics > li.parent,
+#sidebar ul.topics > li.active {
+    background-color: var(--INTERNAL-MENU-SECTIONS-ACTIVE-BG-color);
+}
+
+#sidebar ul.topics li.active > a {
+    background-color: var(--INTERNAL-MENU-SECTION-ACTIVE-CATEGORY-BG-color);
+    color: var(--INTERNAL-MENU-SECTION-ACTIVE-CATEGORY-color);
+}
+
+#sidebar ul li.visited > a .read-icon {
+    color: var(--INTERNAL-MENU-VISITED-color);
+}
+
+#sidebar .nav-title {
+    color: var(--INTERNAL-MENU-SECTIONS-LINK-HOVER-color);
+}
+
+#sidebar hr {
+    border-color: var(--INTERNAL-MENU-SECTION-HR-color);
+}
+
+#footer {
+    color: var(--INTERNAL-MENU-SECTIONS-LINK-color);
+}
+
+h1 {
+    color: var(--INTERNAL-MAIN-TITLES-H1-color);
+    font-family: var(--INTERNAL-MAIN-TITLES-H1-font);
+}
+
+h2 {
+    color: var(--INTERNAL-MAIN-TITLES-H2-color);
+    font-family: var(--INTERNAL-MAIN-TITLES-H2-font);
+}
+
+h3 {
+    color: var(--INTERNAL-MAIN-TITLES-H3-color);
+    font-family: var(--INTERNAL-MAIN-TITLES-H3-font);
+}
+
+h4 {
+    color: var(--INTERNAL-MAIN-TITLES-H4-color);
+    font-family: var(--INTERNAL-MAIN-TITLES-H4-font);
+}
+
+h5 {
+    color: var(--INTERNAL-MAIN-TITLES-H5-color);
+    font-family: var(--INTERNAL-MAIN-TITLES-H5-font);
+}
+
+h6 {
+    color: var(--INTERNAL-MAIN-TITLES-H6-color);
+    font-family: var(--INTERNAL-MAIN-TITLES-H6-font);
+}
+
+div.box {
+    background-color: var(--VARIABLE-BOX-color);
+}
+
+div.box > .box-label {
+    color: var(--VARIABLE-BOX-CAPTION-color);
+}
+
+div.box > .box-content {
+    background-color: var(--VARIABLE-BOX-BG-color);
+    color: var(--VARIABLE-BOX-TEXT-color);
+}
+
+.cstyle.info {
+    --VARIABLE-BOX-color: var(--INTERNAL-BOX-INFO-color);
+    --VARIABLE-BOX-TEXT-color: var(--INTERNAL-BOX-INFO-TEXT-color);
+}
+
+.cstyle.warning {
+    --VARIABLE-BOX-color: var(--INTERNAL-BOX-WARNING-color);
+    --VARIABLE-BOX-TEXT-color: var(--INTERNAL-BOX-WARNING-TEXT-color);
+}
+
+.cstyle.note {
+    --VARIABLE-BOX-color: var(--INTERNAL-BOX-NOTE-color);
+    --VARIABLE-BOX-TEXT-color: var(--INTERNAL-BOX-NOTE-TEXT-color);
+}
+
+.cstyle.tip {
+    --VARIABLE-BOX-color: var(--INTERNAL-BOX-TIP-color);
+    --VARIABLE-BOX-TEXT-color: var(--INTERNAL-BOX-TIP-TEXT-color);
+}
+
+.cstyle.primary {
+    --VARIABLE-BOX-color: var(--INTERNAL-PRIMARY-color);
+    --VARIABLE-BOX-TEXT-color: var(--INTERNAL-MAIN-TEXT-color);
+}
+
+.cstyle.secondary {
+    --VARIABLE-BOX-color: var(--INTERNAL-SECONDARY-color);
+    --VARIABLE-BOX-TEXT-color: var(--INTERNAL-MAIN-TEXT-color);
+}
+
+.cstyle.blue {
+    --VARIABLE-BOX-color: var(--INTERNAL-BOX-BLUE-color);
+    --VARIABLE-BOX-TEXT-color: var(--INTERNAL-BOX-BLUE-TEXT-color);
+}
+
+.cstyle.green {
+    --VARIABLE-BOX-color: var(--INTERNAL-BOX-GREEN-color);
+    --VARIABLE-BOX-TEXT-color: var(--INTERNAL-BOX-GREEN-TEXT-color);
+}
+
+.cstyle.grey {
+    --VARIABLE-BOX-color: var(--INTERNAL-BOX-GREY-color);
+    --VARIABLE-BOX-TEXT-color: var(--INTERNAL-BOX-GREY-TEXT-color);
+}
+
+.cstyle.orange {
+    --VARIABLE-BOX-color: var(--INTERNAL-BOX-ORANGE-color);
+    --VARIABLE-BOX-TEXT-color: var(--INTERNAL-BOX-ORANGE-TEXT-color);
+}
+
+.cstyle.red {
+    --VARIABLE-BOX-color: var(--INTERNAL-BOX-RED-color);
+    --VARIABLE-BOX-TEXT-color: var(--INTERNAL-BOX-RED-TEXT-color);
+}
+
+.cstyle.transparent {
+    --VARIABLE-BOX-color: transparent;
+    --VARIABLE-BOX-CAPTION-color: var(--INTERNAL-MAIN-TITLES-TEXT-color);
+    --VARIABLE-BOX-BG-color: transparent;
+    --VARIABLE-BOX-TEXT-color: var(--INTERNAL-MAIN-TEXT-color);
+}
+
+code,
+kbd,
+pre,
+samp {
+    font-family: var(--INTERNAL-CODE-font);
+}
+
+code {
+    background-color: var(--INTERNAL-CODE-INLINE-BG-color);
+    border-color: var(--INTERNAL-CODE-INLINE-BORDER-color);
+    color: var(--INTERNAL-CODE-INLINE-color);
+}
+
+pre {
+    background-color: var(--INTERNAL-CODE-BLOCK-BG-color);
+    border-color: var(--INTERNAL-CODE-BLOCK-BORDER-color);
+    color: var(--INTERNAL-CODE-BLOCK-color);
+}
+
+div.featherlight .featherlight-content{
+    background-color: var(--INTERNAL-MAIN-BG-color);
+}
+
+#topbar {
+    background-color: var(--INTERNAL-MAIN-BG-color);
+}
+
+#body a[aria-disabled="true"] {
+    color: var(--INTERNAL-MAIN-TEXT-color);
+}
+
+.copy-to-clipboard-button {
+    background-color: var(--INTERNAL-CODE-INLINE-BG-color);
+    border-color: var(--INTERNAL-CODE-INLINE-BORDER-color);
+    color: var(--INTERNAL-CODE-INLINE-color);
+    font-family: var(--INTERNAL-CODE-font);
+}
+
+.copy-to-clipboard-button:hover {
+    background-color: var(--INTERNAL-CODE-INLINE-color);
+    color: var(--INTERNAL-CODE-INLINE-BG-color);
+}
+
+pre .copy-to-clipboard-button {
+    border-color: var(--INTERNAL-CODE-BLOCK-BORDER-color);
+    color: var(--INTERNAL-MAIN-LINK-color);
+}
+
+pre .copy-to-clipboard-button:hover {
+    background-color: var(--INTERNAL-MAIN-LINK-color);
+    border-color: var(--INTERNAL-MAIN-LINK-color);
+    color: var(--INTERNAL-CODE-BLOCK-BG-color);
+}
+
+#homelinks {
+    background-color: var(--INTERNAL-MENU-HEADER-BORDER-color);
+    border-color: var(--INTERNAL-MENU-HEADER-BORDER-color);
+}
+
+#homelinks a {
+    color: var(--INTERNAL-MENU-HOME-LINK-color);
+}
+
+#homelinks a:hover {
+    color: var(--INTERNAL-MENU-HOME-LINK-HOVER-color);
+}
+
+#body a.highlight:after {
+    background-color: var(--INTERNAL-MAIN-LINK-color);
+}
+
+#body a.highlight:hover:after {
+    background-color: var(--INTERNAL-MAIN-LINK-HOVER-color);
+}
+
+.progress {
+    background-color: var(--INTERNAL-MAIN-BG-color);
+}
+
+.btn {
+    background-color: var(--VARIABLE-BOX-color);
+}
+
+.btn a {
+    border-color: var(--VARIABLE-BOX-color);
+    color: var(--VARIABLE-BOX-CAPTION-color);
+}
+
+.btn a:hover,
+.btn a:focus,
+.btn a:active {
+    background-color: var(--VARIABLE-BOX-BG-color);
+    color: var(--VARIABLE-BOX-TEXT-color);
+}
+
+.btn.cstyle.transparent {
+    --VARIABLE-BOX-BG-color: var(--INTERNAL-BOX-BG-color);
+}
+
+.btn.cstyle.transparent:hover,
+.btn.cstyle.transparent:focus,
+.btn.cstyle.transparent:active {
+    background-color: var(--INTERNAL-BOX-NEUTRAL-color);
+}
+
+.btn.cstyle.transparent a {
+    --VARIABLE-BOX-color: var(--INTERNAL-BOX-NEUTRAL-color);
+    --VARIABLE-BOX-TEXT-color: var(--VARIABLE-BOX-CAPTION-color);
+}
+
+#body .tags a.tag-link {
+    background-color: var(--INTERNAL-TAG-BG-color);
+    color: var(--INTERNAL-MAIN-BG-color);
+}
+
+#body .tags a.tag-link:before {
+    border-right-color: var(--INTERNAL-TAG-BG-color);
+}
+
+#body .tags a.tag-link:after {
+    background-color: var(--INTERNAL-MAIN-BG-color);
+}
+
+#body .tab-nav-button.active {
+    background-color: var(--INTERNAL-MAIN-BG-color) !important;
+    border-bottom-color: var(--INTERNAL-MAIN-BG-color) !important;
+}

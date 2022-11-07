@@ -1,0 +1,43 @@
+/* here in this showcase we use our own modified chroma syntax highlightning style;
+   if you want to use a predefined style instead:
+   - remove `markup.highlight.noClasses` from your config.toml
+   - set `markup.highlight.style` to a predefined style name in your config.toml
+   - remove the following `@import` of the self-defined chroma stylesheet */
+@import "chroma-relearn-light.css";
+
+:root {
+    --PRIMARY-color: #7dc903; /* brand primary color */
+    --SECONDARY-color: #486ac9; /* brand secondary color */
+
+    --MAIN-TEXT-color: #101010; /* text color of content and h1 titles */
+    --MAIN-LINK-HOVER-color: #202891; /* hoverd link color of content */
+    --MAIN-BG-color: #ffffff; /* background color of content */
+    --MAIN-TITLES-TEXT-color: #4a4a4a; /* text color of h2-h6 titles and transparent box titles */
+
+    /* adjusted to relearn-light chroma style */
+    --CODE-BLOCK-color: #000000; /* fallback text color of block code; should be adjusted to your selected chroma style */
+    --CODE-BLOCK-BG-color: #f8f8f8; /* fallback background color of block code; should be adjusted to your selected chroma style */
+    --CODE-BLOCK-BORDER-color: #d8d8d8; /* border color of block code */
+
+    --CODE-INLINE-color: #5e5e5e; /* text color of inline code */
+    --CODE-INLINE-BG-color: #fffae9; /* background color of inline code */
+    --CODE-INLINE-BORDER-color: #f8e8c8; /* border color of inline code */
+
+    --MENU-HOME-LINK-color: #323232; /* home button color if configured */
+    --MENU-HOME-LINK-HOVER-color: #808080; /* hoverd home button color if configured */
+
+    --MENU-SEARCH-color: #e0e0e0; /* text and icon color of search box */
+    --MENU-SEARCH-BG-color: #323232; /* background color of search box */
+    --MENU-SEARCH-BORDER-color: #e0e0e0; /* border color of search box */
+
+    --MENU-SECTIONS-BG-color: #282828; /* background of the menu; this is NOT just a color value but can be a complete CSS background definition including gradients, etc. */
+    --MENU-SECTIONS-ACTIVE-BG-color: rgba( 0, 0, 0, .166 ); /* background color of the active menu section */
+    --MENU-SECTIONS-LINK-color: #bababa; /* link color of menu topics */
+    --MENU-SECTIONS-LINK-HOVER-color: #ffffff; /* hoverd link color of menu topics */
+    --MENU-SECTION-ACTIVE-CATEGORY-color: #444444; /* text color of the displayed menu topic */
+    --MENU-SECTION-HR-color: #606060; /* separator color of menu footer */
+
+    --BOX-CAPTION-color: rgba( 255, 255, 255, 1 ); /* text color of colored box titles */
+    --BOX-BG-color: rgba( 255, 255, 255, .833 ); /* background color of colored boxes */
+    --BOX-TEXT-color: rgba( 16, 16, 16, 1 ); /* text color of colored box content */
+}

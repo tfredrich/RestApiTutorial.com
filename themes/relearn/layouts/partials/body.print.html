@@ -1,0 +1,84 @@
+{{- $currentNode := . }}
+{{- $isActive := .IsHome }}
+{{- $pages := .Site.Home.Sections }}
+{{- $defaultOrdersectionsby := .Site.Params.ordersectionsby | default "weight" }}
+{{- $currentOrdersectionsby := .Site.Home.Params.ordersectionsby | default $defaultOrdersectionsby }}
+{{- if $isActive }}
+  {{- template "section-print" dict "sect" . "currentnode" $currentNode }}
+  {{- if or .IsHome .Params.chapter $pages }}
+          <section>
+  {{- end }}
+{{- end }}
+{{- if eq $currentOrdersectionsby "title" }}
+  {{- range $pages.ByTitle }}
+    {{- template "section-tree-print" dict "sect" . "currentnode" $currentNode "isActive" $isActive }}
+  {{- end }}
+{{- else }}
+  {{- range $pages.ByWeight }}
+    {{- template "section-tree-print" dict "sect" . "currentnode" $currentNode "isActive" $isActive }}
+  {{- end }}
+{{- end }}
+{{- if $isActive }}
+  {{- if or .IsHome .Params.chapter $pages }}
+          </section>
+  {{- end }}
+{{- end }}
+{{- define "section-tree-print" }}
+  {{- $currentNode := .currentnode }}
+  {{- $isActive := .isActive }}
+  {{- $currentFileRelPermalink := .currentnode.RelPermalink }}
+  {{- with .sect }}
+    {{- $isSelf := eq .RelPermalink $currentFileRelPermalink }}
+    {{- $isActive = or $isSelf $isActive }}
+    {{- $pages := .Pages }}
+    {{- if .Page.IsHome }}
+      {{- $pages = .Sections }}
+    {{- else if .Page.Sections}}
+      {{- $pages = (.Pages | union .Sections) }}
+    {{- end }}
+    {{- $relearnIsHiddenFrom := index ($currentNode.Scratch.Get "relearnIsHiddenFrom") .RelPermalink }}
+    {{- $isAncestor := and (not $isSelf) (.IsAncestor $currentNode) }}
+    {{- $hidden := and $relearnIsHiddenFrom (not $.showhidden) (not $isSelf) (not $isAncestor) }}
+    {{- if $hidden }}
+    {{- else if or .IsSection .IsHome }}
+      {{- $defaultOrdersectionsby := .Site.Params.ordersectionsby | default "weight" }}
+      {{- $currentOrdersectionsby := .Params.ordersectionsby | default $defaultOrdersectionsby }}
+      {{- if $isActive }}
+        {{- template "section-print" dict "sect" . "currentnode" $currentNode }}
+        {{- if or .IsHome .Params.chapter $pages }}
+          <section>
+        {{- end }}
+      {{- end }}
+      {{- if eq $currentOrdersectionsby "title" }}
+        {{- range $pages.ByTitle }}
+          {{- template "section-tree-print" dict "sect" . "currentnode" $currentNode "isActive" $isActive }}
+        {{- end }}
+      {{- else }}
+        {{- range $pages.ByWeight }}
+          {{- template "section-tree-print" dict "sect" . "currentnode" $currentNode "isActive" $isActive }}
+        {{- end }}
+      {{- end }}
+      {{- if $isActive }}
+        {{- if or .IsHome .Params.chapter $pages }}
+          </section>
+        {{- end }}
+      {{- end }}
+    {{- else }}
+      {{- if $isActive }}
+        {{- template "section-print" dict "sect" . "currentnode" $currentNode }}
+      {{- end }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{- define "section-print" }}
+  {{- $currentNode := .currentnode }}
+  {{- with .sect }}
+    {{- $currentNode.Page.Store.Set "printHasMermaid" (or ($currentNode.Page.Store.Get "printHasMermaid") (.Page.Store.Get "htmlHasMermaid")) }}
+    {{- $currentNode.Page.Store.Set "printHasSwagger" (or ($currentNode.Page.Store.Get "printHasSwagger") (.Page.Store.Get "htmlHasSwagger")) }}
+    {{/* if we have a relative link in a print page, our print URL is one level to deep; so we are making it absolute to our page by prepending the page's permalink */}}
+    {{- $link_prefix := strings.TrimRight "/" .Page.RelPermalink }}
+    {{- $content := partial "content.html" . }}
+    {{- $content = replaceRE "((?:src|href)\\s*=(?:\\s*[\"']\\s*)?)(\\.[^\"'\\s>]*|[\\w]+[^\"'\\s>:]*)([\"'\\s>])" (printf "${1}%s/${2}${3}" $link_prefix) $content }}
+    {{- partial "article.html" (dict "page" . "content" $content) }}
+  {{- end }}
+{{- end }}

@@ -1,0 +1,77 @@
+name: Release milestone
+description: Creates a release with changelog and tag out of a given milestone
+inputs:
+  milestone:
+    description: Milestone for this release
+    required: true
+  github_token:
+    description: Secret GitHub token
+    required: true
+runs:
+  using: composite
+  steps:
+    - name: Setup node
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+
+    - name: Close milestone
+      uses: Akkjon/close-milestone@v2
+      with:
+        milestone_name: ${{ env.MILESTONE }}
+      env:
+        MILESTONE: ${{ inputs.milestone }}
+        GITHUB_TOKEN: ${{ inputs.github_token }}
+
+    - name: Create provisionary tag
+      shell: bash
+      env:
+        MILESTONE: ${{ inputs.milestone }}
+        GITHUB_TOKEN: ${{ inputs.github_token }}
+      run: |
+        git config user.name "GitHub Actions Bot"
+        git config user.email "<>"
+        git tag --message "" "$MILESTONE"
+        git push origin "$MILESTONE"
+
+    - name: Update changelog
+      shell: bash
+      env:
+        MILESTONE: ${{ inputs.milestone }}
+        GITHUB_TOKEN: ${{ inputs.github_token }}
+        GREN_GITHUB_TOKEN: ${{ inputs.github_token }}
+      run: |
+        echo "$MILESTONE" > layouts/partials/version.html
+        npx github-release-notes@0.17.1 changelog --generate --override --tags=all
+        git add *
+        git commit --message "Ship tag $MILESTONE"
+        git push origin main
+
+    - name: Create final tag
+      shell: bash
+      env:
+        MILESTONE: ${{ inputs.milestone }}
+        GITHUB_TOKEN: ${{ inputs.github_token }}
+      run: |
+        git tag --force --message "" "$MILESTONE"
+        git push --force origin "$MILESTONE"
+
+    - name: Publish release
+      shell: bash
+      env:
+        MILESTONE: ${{ inputs.milestone }}
+        GREN_GITHUB_TOKEN: ${{ inputs.github_token }}
+      run: |
+        npx github-release-notes@0.17.1 release --tags "$MILESTONE"
+
+    - name: Update version number to mark non-release version
+      shell: bash
+      env:
+        MILESTONE: ${{ inputs.milestone }}
+        GITHUB_TOKEN: ${{ inputs.github_token }}
+        GREN_GITHUB_TOKEN: ${{ inputs.github_token }}
+      run: |
+        echo "$MILESTONE+tip" > layouts/partials/version.html
+        git add *
+        git commit --message "Mark non-release version"
+        git push origin main

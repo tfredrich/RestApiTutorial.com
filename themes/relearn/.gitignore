@@ -1,0 +1,5 @@
+.DS_Store
+public/
+exampleSite/public
+exampleSite/hugo*.exe
+.hugo_build.lock

@@ -1,0 +1,27 @@
+{{- $_hugo_config := `{ "version": 1 }` }}
+{{- $href := .Get "href" }}
+{{- $style := .Get "style" | default "transparent" }}
+{{- $title := .Get "title" | default (.Inner) | default ($style | T) }}
+{{- $icon := .Get "icon" | default "" }}
+{{- if and (not $icon) (eq (len $icon) 0) }}
+  {{- if eq $style "info" }}{{ $icon = default "info-circle" }}{{ end }}
+  {{- if eq $style "warning" }}{{ $icon = default "exclamation-triangle" }}{{ end }}
+  {{- if eq $style "note" }}{{ $icon = default "exclamation-circle" }}{{ end }}
+  {{- if eq $style "tip" }}{{ $icon = default "lightbulb" }}{{ end }}
+{{- end }}
+{{- $icon = trim $icon " " }}
+{{- if and $icon (not (findRE ".*?\\bfa-\\w.*?" $icon)) }}
+  {{- $icon = printf "fa-fw fas fa-%s" $icon }}
+{{- end }}
+{{- $iconposition := .Get "icon-position" | default "left" }}
+<span class="btn cstyle {{ $style }}">
+  <a href="{{ $href }}" target="_blank">
+    {{- if and $icon (eq $iconposition "left") }}
+    <i class="{{ $icon }}"></i>
+    {{- end }}
+    {{ $title }}
+    {{- if and $icon (eq $iconposition "right") }}
+    <i class="{{ $icon }}"></i>
+    {{- end }}
+  </a>
+</span>

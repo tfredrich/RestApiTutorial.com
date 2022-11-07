@@ -1,0 +1,47 @@
+{{- $_hugo_config := `{ "version": 1 }` }}
+{{- $style := .Get "style" | default "transparent" }}
+{{- $title := .Get "title" | default ($style | T) | default ("Attachments-label" | T) }}
+{{- $icon := .Get "icon" | default "" }}
+{{- if and (not $icon) (eq (len $icon) 0) }}
+  {{- $icon = "paperclip" }}
+  {{- if eq $style "info" }}{{ $icon = default "info-circle" }}{{ end }}
+  {{- if eq $style "warning" }}{{ $icon = default "exclamation-triangle" }}{{ end }}
+  {{- if eq $style "note" }}{{ $icon = default "exclamation-circle" }}{{ end }}
+  {{- if eq $style "tip" }}{{ $icon = default "lightbulb" }}{{ end }}
+{{- end }}
+{{- $icon = trim $icon " " }}
+{{- if and $icon (not (findRE ".*?\\bfa-\\w.*?" $icon)) }}
+  {{- $icon = printf "fa-fw fas fa-%s" $icon }}
+{{- end }}
+{{- $sort := .Get "sort" | default "asc" }}
+{{- $pattern := .Get "pattern" | default "" }}
+<div class="box attachments cstyle {{ $style }}">
+  <div class="box-label">{{ if $icon }}<i class="{{ $icon }}"></i> {{ end }}{{ $title }}</div>
+  <ul class="box-content attachments-files">
+  {{- $filesName := "files" }}
+  {{- if ne .Page.File.BaseFileName "index" }}
+    {{- $filesName = printf "%s.files" .Page.File.BaseFileName }}
+  {{- end }}
+  {{- $fileLink := printf "%s/%s" (.Page.Language.ContentDir | default "content") .Page.File.Dir }}
+  {{- $fileLink = replace (replace $fileLink "\\" "/") "content/" "" }}
+  {{- $fileDir := printf "%s/%s" (.Page.Language.ContentDir | default "content") .Page.File.Dir  }}
+  {{- $fileDir = replace $fileDir "\\" "/" }}
+  {{- range sort (readDir (printf "%s%s" $fileDir $filesName) ) "Name" $sort }}
+    {{- if findRE $pattern .Name}}
+      {{- $size := .Size }}
+      {{- $unit := "Byte-symbol" }}
+      {{- if ge $size 1024 }}
+        {{- $size = div $size 1024 }}
+        {{- $unit = "Kilobyte-symbol" }}
+      {{- end }}
+      {{- if ge $size 1024 }}
+        {{- $size = div $size 1024 }}
+        {{- $unit = "Megabyte-symbol" }}
+      {{- end }}
+      {{- $unitsymbol := $unit | T }}
+    <li><a href="{{ (printf "%s%s/%s" $fileLink $filesName .Name) | relURL }}">{{.Name}}</a> ({{$size}} {{$unitsymbol}})</li>
+    {{- end }}
+  {{- end }}
+  </ul>
+  {{- .Inner }}
+</div>

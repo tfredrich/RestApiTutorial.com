@@ -1,0 +1,171 @@
+
+    {{- $showvisitedlinks := .Site.Params.showVisitedLinks }}
+    <aside id="sidebar" class="default-animation{{ if $showvisitedlinks }} showVisitedLinks{{ end }}">
+      {{- $currentNode := . }}
+      <div id="header-wrapper" class="default-animation">
+        <div id="header" class="default-animation">
+{{ partial "logo.html" . }}
+        </div>
+        {{- if not .Site.Params.disableSearch }}
+{{ partial "search.html" . }}
+        {{- end }}
+      </div>
+      {{- if not .Site.Params.disableLandingPageButton }}
+      <div id="homelinks" class="default-animation">
+        <ul>
+          <li>
+              <a class="padding" href="{{ .Site.Params.landingPageURL | default "/" | relLangURL }}">{{ .Site.Params.landingPageName | default `<i class="fas fa-home"></i> Home` | safeHTML }}</a>
+          </li>
+        </ul>
+      </div>
+      {{- end }}
+      <div id="content-wrapper" class="highlightable">
+        <ul class="topics{{ if .Site.Params.collapsibleMenu }} collapsible-menu{{ end }}">
+          {{- $defaultOrdersectionsby := .Site.Params.ordersectionsby | default "weight" }}
+          {{- $currentOrdersectionsby := .Site.Home.Params.ordersectionsby | default $defaultOrdersectionsby }}
+          {{- $defaultAlwaysopen := .Site.Params.alwaysopen | default false }}
+          {{- if eq $currentOrdersectionsby "title" }}
+            {{- range .Site.Home.Sections.ByTitle }}
+              {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks "alwaysopen" $defaultAlwaysopen }}
+            {{- end }}
+          {{- else }}
+            {{- range .Site.Home.Sections.ByWeight }}
+              {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks "alwaysopen" $defaultAlwaysopen }}
+            {{- end }}
+          {{- end }}
+        </ul>
+        {{- $disableShortcutsTitle := .Site.Params.DisableShortcutsTitle }}
+        {{- with .Site.Menus.shortcuts }}
+        <div id="shortcuts">
+          <div class="nav-title">{{ if not $disableShortcutsTitle }}{{ T "Shortcuts-Title" }}{{ end }}</div>
+          <ul>
+            {{- range sort . "Weight" }}
+            <li>{{ .Pre }}<a class="padding" href="{{ .URL | relLangURL }}">{{ safeHTML .Name }}</a>{{ .Post }}</li>
+            {{- end }}
+          </ul>
+        </div>
+        {{- end }}
+        {{- $siteLanguages := .Site.Languages }}
+        {{- $showlangswitch := and .Site.IsMultiLingual (not .Site.Params.disableLanguageSwitchingButton) (gt (int (len $siteLanguages)) 1) }}
+        {{- $themevariants := slice | append (.Site.Params.themeVariant | default "relearn-light" ) }}
+        {{- $showvariantswitch := gt (int (len $themevariants)) 1 }}
+        {{- $footer := partial "menu-footer.html" . }}
+        {{- $showfooter := not (eq 0 (int (len ($footer | plainify)))) }}
+        <div class="footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter{{if $showlangswitch}} showLangSwitch{{end}}{{if $showvariantswitch}} showVariantSwitch{{end}}{{if $showvisitedlinks}} showVisitedLinks{{end}}{{if $showfooter}} showFooter{{end}}"></div>
+        <hr class="default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter{{if $showlangswitch}} showLangSwitch{{end}}{{if $showvariantswitch}} showVariantSwitch{{end}}{{if $showvisitedlinks}} showVisitedLinks{{end}}{{if $showfooter}} showFooter{{end}}"/>
+        <div id="prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks{{if $showlangswitch}} showLangSwitch{{end}}{{if $showvariantswitch}} showVariantSwitch{{end}}{{if $showvisitedlinks}} showVisitedLinks{{end}}">
+          <ul>
+            <li id="select-language-container" class="footerLangSwitch{{if $showlangswitch}} showLangSwitch{{end}}">
+              <a class="padding select-container">
+                <i class="fas fa-language fa-fw"></i>
+                <span>&nbsp;</span>
+                <div class="select-style">
+                  <select id="select-language" onchange="location = baseUri + this.value;">
+                    {{- $pageLang := .Page.Lang }}
+                    {{- range .Page.AllTranslations }}
+                      {{- $translation := . }}
+                      {{- range $siteLanguages }}
+                        {{- if eq $translation.Lang .Lang }}
+                          {{- if eq $pageLang .Lang }}
+                    <option id="{{ $translation.Language }}" value="{{ $translation.RelPermalink }}" selected>{{ .LanguageName }}</option>
+                          {{- else }}
+                    <option id="{{ $translation.Language }}" value="{{ $translation.RelPermalink }}">{{ .LanguageName }}</option>
+                          {{- end }}
+                        {{- end }}
+                      {{- end }}
+                    {{- end }}
+                  </select>
+                </div>
+                <div class="select-clear"></div>
+              </a>
+            </li>
+            <li id="select-variant-container" class="footerVariantSwitch{{if $showvariantswitch}} showVariantSwitch{{end}}">
+              <a class="padding select-container">
+                <i class="fas fa-paint-brush fa-fw"></i>
+                <span>&nbsp;</span>
+                <div class="select-style">
+                  <select id="select-variant" onchange="variants.changeVariant( this.value );">
+                    {{- $firstvariant := true }}
+                    {{- range $themevariants }}
+                      {{- $themevariant := . }}
+                      {{- $variantname := replaceRE "[-_]+" " " $themevariant }}
+                      {{- if $firstvariant }}
+                        {{- $firstvariant = false }}
+                    <option id="{{ $themevariant }}" value="{{ $themevariant }}" selected>{{ $variantname | title }}</option>
+                      {{- else }}
+                    <option id="{{ $themevariant }}" value="{{ $themevariant }}">{{ $variantname | title }}</option>
+                      {{- end }}
+                    {{- end }}
+                  </select>
+                </div>
+                <div class="select-clear"></div>
+              </a>
+              <script>variants.markSelectedVariant();</script>
+            </li>
+            <li class="footerVisitedLinks{{if $showvisitedlinks}} showVisitedLinks{{end}}"><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> {{ T "Clear-History" }}</a></li>
+          </ul>
+        </div>
+        <div id="footer" class="footerFooter{{if $showfooter}} showFooter{{end}}">
+          {{- $footer }}
+        </div>
+      </div>
+    </aside>
+    {{- define "section-tree-nav" }}
+      {{- $currentNode := .currentnode }}
+      {{- $showvisitedlinks := .showvisitedlinks }}
+      {{- $alwaysopen := .alwaysopen }}
+      {{- $currentFileRelPermalink := .currentnode.RelPermalink }}
+      {{- with .sect }}
+        {{- $isSelf := eq .RelPermalink $currentFileRelPermalink }}
+        {{- $isAncestor := and (not $isSelf) (.IsAncestor $currentNode) }}
+        {{- $isActive := $isSelf }}
+        {{- $pages := .Pages }}
+        {{- if .Page.IsHome }}
+          {{- $pages = .Sections }}
+        {{- else if .Page.Sections}}
+          {{- $pages = (.Pages | union .Sections) }}
+        {{- end }}
+        {{- $relearnIsHiddenFrom := index ($currentNode.Scratch.Get "relearnIsHiddenFrom") .RelPermalink }}
+        {{- $hidden := and $relearnIsHiddenFrom (not $.showhidden) (not $isSelf) (not $isAncestor) }}
+        {{- if $hidden }}
+        {{- else if or .IsSection .IsHome }}
+          {{- $numberOfVisibleChildren := 0 }}
+          {{- range $pages }}
+            {{- $isSelfSub := eq .RelPermalink $currentFileRelPermalink }}
+            {{- $isAncestorSub := and (not $isSelf) (.IsAncestor $currentNode) }}
+            {{- $relearnIsSubHiddenFrom := index ($currentNode.Scratch.Get "relearnIsHiddenFrom") .RelPermalink }}
+            {{- $subHidden := and $relearnIsSubHiddenFrom (not $.showhidden) (not $isSelfSub) (not $isAncestorSub) }}
+            {{- $numberOfVisibleChildren = add $numberOfVisibleChildren (int (not $subHidden)) }}
+          {{- end }}
+          {{- safeHTML .Params.head }}
+          {{- if $numberOfVisibleChildren }}
+            {{- $defaultOrdersectionsby := .Site.Params.ordersectionsby | default "weight" }}
+            {{- $currentOrdersectionsby := .Params.ordersectionsby | default $defaultOrdersectionsby }}
+            {{- $currentAlwaysopen := .Params.alwaysopen | default $alwaysopen }}
+            {{- $pageHash := md5 .Page }}
+            {{- $isOpen := or $currentAlwaysopen $isSelf $isAncestor }}
+          <li data-nav-id="{{.RelPermalink}}" title="{{.Title}}" class="dd-item{{if $isActive }} active{{end}}{{if (or $isSelf $isAncestor) }} parent{{end}}{{if $currentAlwaysopen}} alwaysopen{{end}}"><input type="checkbox" id="section-{{ $pageHash }}" class="toggle"{{ if $isOpen }} checked{{ end }}/><label for="section-{{ $pageHash }}" ></label><a href="{{.RelPermalink}}">
+              {{- partial "menu-pre.html" . }}{{ or .Params.menuTitle .LinkTitle .Title }}{{ partial "menu-post.html" . }}
+              {{- if $showvisitedlinks }}<i class="fas fa-check read-icon"></i>{{ end }}</a><ul>
+              {{- $defaultAlwaysopen := .Site.Params.alwaysopen | default true }}
+              {{- if eq $currentOrdersectionsby "title" }}
+                {{- range $pages.ByTitle }}
+                  {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks "alwaysopen" $defaultAlwaysopen }}
+                {{- end }}
+              {{- else }}
+                {{- range $pages.ByWeight }}
+                  {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks "alwaysopen" $defaultAlwaysopen }}
+                {{- end }}
+              {{- end }}</ul></li>
+            {{- else }}
+          <li data-nav-id="{{.RelPermalink}}" title="{{.Title}}" class="dd-item{{if $isActive }} active{{end}}"><a href="{{.RelPermalink}}">
+                  {{- partial "menu-pre.html" . }}{{ or .Params.menuTitle .LinkTitle .Title }}{{ partial "menu-post.html" . }}
+                  {{- if $showvisitedlinks }}<i class="fas fa-check read-icon"></i>{{ end }}</a></li>
+            {{- end }}
+        {{- else }}
+          <li data-nav-id="{{.RelPermalink}}" title="{{.Title}}" class="dd-item{{if $isActive }} active{{end}}"><a href="{{.RelPermalink}}">
+              {{- partial "menu-pre.html" . }}{{ or .Params.menuTitle .LinkTitle .Title }}{{ partial "menu-post.html" . }}
+              {{- if $showvisitedlinks }}<i class="fas fa-check read-icon"></i>{{ end }}</a></li>
+        {{- end }}
+      {{- end }}
+    {{- end }}

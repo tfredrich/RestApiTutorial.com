@@ -1,0 +1,71 @@
+[Search-placeholder]
+other = "Tìm kiếm..."
+
+[Clear-History]
+other = "Xóa lịch sử.."
+
+[Attachments-label]
+other = "Tập tin đính kèm"
+
+[title-404]
+other = "Lỗi"
+
+[message-404]
+other = "Tiếc quá! Có vẻ như trang này không tồn tại ¯\\_(ツ)_/¯."
+
+[Go-to-homepage]
+other = "Đi đến trang chủ"
+
+[Edit-this-page]
+other = "Biên tập"
+
+[Print-this-chapter]
+other = "In toàn bộ chương"
+
+[Shortcuts-Title]
+other = "Nội dung khác"
+
+[Expand-title]
+other = "Mở rộng..."
+
+[Navigation-toggle]
+other = "Menu"
+
+[Toc-toggle]
+other = "Mục lục"
+
+[BinaryPrefix-kilobyte]
+other = "kb"
+
+[Byte-symbol]
+other = "B"
+
+[Kilobyte-symbol]
+other = "KB"
+
+[Megabyte-symbol]
+other = "MB"
+
+[note]
+other = "Ghi chú"
+
+[info]
+other = "Thông tin"
+
+[tip]
+other = "Mẹo vặt"
+
+[warning]
+other = "Cảnh báo"
+
+[Copy-to-clipboard]
+other = "Sao chép vào bảng tạm"
+
+[Copied-to-clipboard]
+other = "Sao chép vào bảng tạm!"
+
+[Copy-link-to-clipboard]
+other = "Sao chép nối kết vào bảng tạm"
+
+[Link-copied-to-clipboard]
+other = "Liên kết được sao chép vào bảng tạm!"

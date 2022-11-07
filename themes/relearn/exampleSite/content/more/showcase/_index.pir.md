@@ -1,0 +1,4 @@
++++
+title = "Showcase"
++++
+{{< piratify >}}

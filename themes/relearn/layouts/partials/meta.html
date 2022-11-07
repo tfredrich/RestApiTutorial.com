@@ -1,0 +1,16 @@
+
+    <meta charset="utf-8">
+    {{- $c:=""}}{{/* to avoid that user swiping to the left leaves a gap on the right side, we set minimum-scale, even if not advised to */}}
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    {{ hugo.Generator }}
+    {{- $ver := partial "version.html" }}
+    {{- $ver = replaceRE "\\s*(\\S*)" "${1}" $ver }}
+    <meta name="generator" content="Relearn {{ $ver }}">
+    {{- partial "page-meta.hugo" . }}
+    {{- if not (and .Title (or (ne (.Scratch.Get "relearnIsHiddenStem") true) (ne .Site.Params.disableSeoHiddenPages true) ) ) }}
+    <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+    {{- end }}
+    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
+    {{- with .Site.Params.author }}
+    <meta name="author" content="{{ . }}">
+    {{- end }}

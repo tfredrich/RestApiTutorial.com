@@ -1,0 +1,68 @@
+[Search-placeholder]
+other = "Поиск..."
+
+[Clear-History]
+other = "Очистить историю"
+
+[Attachments-label]
+other = "Присоединенные файлы"
+
+[title-404]
+other = "Ошибка"
+
+[message-404]
+other = "Упс. Выглядит будто такой страницы нет ¯\\_(ツ)_/¯."
+
+[Go-to-homepage]
+other = "Перейти на главную"
+
+[Edit-this-page]
+other = "редактировать"
+
+[Print-this-chapter]
+other = "Печать всей главы"
+
+[Shortcuts-Title]
+other = "Еще"
+
+[Expand-title]
+other = "Развернуть..."
+
+[Navigation-toggle]
+other = "Меню"
+
+[Toc-toggle]
+other = "Оглавление"
+
+[Byte-symbol]
+other = "Б"
+
+[Kilobyte-symbol]
+other = "КБ"
+
+[Megabyte-symbol]
+other = "МБ"
+
+[note]
+other = "Заметка"
+
+[info]
+other = "Информация"
+
+[tip]
+other = "Совет"
+
+[warning]
+other = "Внимание"
+
+[Copy-to-clipboard]
+other = "Копировать в буфер"
+
+[Copied-to-clipboard]
+other = "Скопировано в буфер обмена!"
+
+[Copy-link-to-clipboard]
+other = "Скопировать ссылку в буфер обмена"
+
+[Link-copied-to-clipboard]
+other = "Ссылка скопирована в буфер обмена!"

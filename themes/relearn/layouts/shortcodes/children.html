@@ -1,0 +1,105 @@
+{{- $_hugo_config := `{ "version": 1 }` }}
+{{- $showhidden := .Get "showhidden" | default false }}
+{{- if eq (printf "%T" $showhidden) "string" }}
+	{{- $showhidden = (eq $showhidden "true") }}
+{{- end }}
+{{- $style := .Get "style" | default "li" }}
+{{- $depth := .Get "depth" | default 1 }}
+{{- $withDescription := .Get "description" | default false }}
+{{- if eq (printf "%T" $withDescription) "string" }}
+	{{- $withDescription = (eq $withDescription "true") }}
+{{- end }}
+{{- $sortTerm :=  .Get "sort" | lower }}
+{{- $containerstyle :=  .Get "containerstyle" | default "ul" }}
+{{- if( and (not (eq $style "li") ) (eq $containerstyle "ul" ) ) }}
+	{{- $containerstyle = "div" }}
+{{- end }}
+
+{{ (printf "<%s class=\"children children-%s children-sort-%s\">" $containerstyle $style $sortTerm)|safeHTML }}
+	{{- $pages := .Page.Pages }}
+	{{- if .Page.IsHome }}
+		{{- $pages = .Page.Sections }}
+	{{- else if .Page.Sections}}
+		{{- $pages = (.Page.Pages | union .Page.Sections) }}
+	{{- end }}
+
+	{{- $defaultOrdersectionsby := .Site.Params.ordersectionsby | default "weight" }}
+	{{- $currentOrdersectionsby := $sortTerm | default (.Page.Params.ordersectionsby | default $defaultOrdersectionsby) }}
+	{{- if eq $currentOrdersectionsby "weight" }}
+		{{- template "childs" dict "menu" $pages.ByWeight "containerstyle" $containerstyle "style" $style "showhidden" $showhidden "count" 1 "depth" $depth "pages" .Site.Pages "description" $withDescription "sortTerm" $sortTerm }}
+	{{- else if or (eq $currentOrdersectionsby "name") (eq $currentOrdersectionsby "title") }}
+		{{- template "childs" dict "menu" $pages.ByTitle "containerstyle" $containerstyle "style" $style "showhidden" $showhidden "count" 1 "depth" $depth "pages" .Site.Pages "description" $withDescription "sortTerm" $sortTerm }}
+	{{- else if eq $currentOrdersectionsby "publishdate" }}
+		{{- template "childs" dict "menu" $pages.ByPublishDate "containerstyle" $containerstyle "style" $style "showhidden" $showhidden "count" 1 "depth" $depth "pages" .Site.Pages "description" $withDescription "sortTerm" $sortTerm }}
+	{{- else if eq $currentOrdersectionsby "date" }}
+		{{- template "childs" dict "menu" $pages.ByDate "containerstyle" $containerstyle "style" $style "showhidden" $showhidden "count" 1 "depth" $depth "pages" .Site.Pages "description" $withDescription "sortTerm" $sortTerm }}
+	{{- else if eq $currentOrdersectionsby "length" }}
+		{{- template "childs" dict "menu" $pages.ByLength "containerstyle" $containerstyle "style" $style "showhidden" $showhidden "count" 1 "depth" $depth "pages" .Site.Pages "description" $withDescription "sortTerm" $sortTerm }}
+	{{- else }}
+		{{- template "childs" dict "menu" $pages "containerstyle" $containerstyle "style" $style "showhidden" $showhidden "count" 1 "depth" $depth "pages" .Site.Pages "description" $withDescription "sortTerm" $sortTerm }}
+	{{- end }}
+{{ (printf "</%s>" $containerstyle)|safeHTML }}
+
+{{- define "childs" }}
+	{{- range .menu }}
+		{{- $hidden := and (or (.Params.hidden) (eq .Title "")) (not $.showhidden) }}
+        {{- if not $hidden }}
+			{{- if not .IsHome }}
+				{{- if hasPrefix $.style "h" }}
+					{{- $num := sub ( int (trim $.style "h") ) 1 }}
+					{{- $numn := add $num $.count }}
+
+{{ (printf "<h%d>" $numn)|safeHTML -}}
+<a href="{{ .RelPermalink }}" >{{ .Title }}</a>
+{{- (printf "</h%d>" $numn)|safeHTML }}
+
+				{{- else }}
+{{ (printf "<%s>" $.style)|safeHTML -}}
+<a href="{{ .RelPermalink }}" >{{ .Title }}</a>
+{{- (printf "</%s>" $.style)|safeHTML }}
+				{{- end }}
+
+				{{- if $.description }}
+					{{- if .Description }}
+<p>{{ .Description }}</p>
+					{{else}}
+<p>{{ .Summary }}</p>
+					{{- end }}
+				{{- end }}
+			{{- end }}
+			{{- if lt $.count $.depth }}
+
+				{{- if eq $.style "li" }}
+{{- (printf "<%s>" $.containerstyle)|safeHTML }}
+				{{- end }}
+
+				{{- $pages := .Page.Pages }}
+				{{- if .Page.IsHome }}
+					{{- $pages = .Page.Sections }}
+				{{- else if .Page.Sections}}
+					{{- $pages = (.Page.Pages | union .Page.Sections) }}
+				{{- end }}
+
+				{{- $defaultOrdersectionsby := .Site.Params.ordersectionsby | default "weight" }}
+				{{- $currentOrdersectionsby := $.sortTerm | default (.Page.Params.ordersectionsby | default $defaultOrdersectionsby) }}
+				{{- if eq $currentOrdersectionsby "weight" }}
+					{{- template "childs" dict "menu" $pages.ByWeight "containerstyle" $.containerstyle "style" $.style "showhidden" $.showhidden "count" (add $.count 1) "depth" $.depth "pages" $.pages "description" $.description "sortTerm" $.sortTerm }}
+				{{- else if or (eq $.currentOrdersectionsby "name") (eq $.currentOrdersectionsby "title") }}
+					{{- template "childs" dict "menu" $pages.ByTitle "containerstyle" $.containerstyle "style" $.style "showhidden" $.showhidden "count" (add $.count 1) "depth" $.depth "pages" $.pages "description" $.description "sortTerm" $.sortTerm }}
+				{{- else if eq $.currentOrdersectionsby "publishdate" }}
+					{{- template "childs" dict "menu" $pages.ByPublishDate "containerstyle" $.containerstyle "style" $.style "showhidden" $.showhidden "count" (add $.count 1) "depth" $.depth "pages" $.pages "description" $.description "sortTerm" $.sortTerm }}
+				{{- else if eq $.currentOrdersectionsby "date" }}
+					{{- template "childs" dict "menu" $pages.ByDate "containerstyle" $.containerstyle "style" $.style "showhidden" $.showhidden "count" (add $.count 1) "depth" $.depth "pages" $.pages "description" $.description "sortTerm" $.sortTerm }}
+				{{- else if eq $.currentOrdersectionsby "length" }}
+					{{- template "childs" dict "menu" $pages.ByLength "containerstyle" $.containerstyle "style" $.style "showhidden" $.showhidden "count" (add $.count 1) "depth" $.depth "pages" $.pages "description" $.description "sortTerm" $.sortTerm }}
+				{{- else }}
+					{{- template "childs" dict "menu" $pages "containerstyle" $.containerstyle "style" $.style "showhidden" $.showhidden "count" (add $.count 1) "depth" $.depth "pages" $.pages "description" $.description "sortTerm" $.sortTerm }}
+				{{- end }}
+
+				{{- if eq $.style "li" }}
+{{- (printf "</%s>" $.containerstyle)|safeHTML }}
+				{{- end }}
+			{{- end }}
+		{{- end }}
+	{{- end }}
+{{- end }}

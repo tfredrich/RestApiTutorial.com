@@ -1,0 +1,25 @@
+{{- partial "header.html" . }}
+{{- if .Site.Home.Content }}
+  {{- if eq (.Scratch.Get "relearnOutputFormat") "PRINT" }}
+    {{- partial "body.print.html" .Site.Home }}
+  {{- else }}
+    {{- partial "body.html" .Site.Home }}
+  {{- end }}
+{{- else }}
+          <article>
+
+<h1>Customize your own home page</h1>
+<p>
+  The site is working. Don't forget to customize this page with your own. You typically have 3 choices :
+</p>
+<ul>
+  <li><b>1.</b> Create an _index.md document in <b>content</b> folder and fill it with Markdown content</li>
+  <li><b>2.</b> Create an <b>index.html</b> file in the <b>static</b> folder and fill the file with HTML content</li>
+  <li><b>3.</b> Configure your server to automatically redirect home page to one your documentation page</li>
+</ul>
+
+            <footer class="footline">
+          	</footer>
+          </article>
+{{- end }}
+{{- partial "footer.html" . }}

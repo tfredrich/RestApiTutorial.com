@@ -1,0 +1,12 @@
+[module]
+  [module.hugoVersion]
+    min = "0.93.0"
+
+[outputFormats]
+  [outputFormats.PRINT]
+    name= "PRINT"
+    baseName = "index"
+    path = "_print"
+    isHTML = true
+    mediaType = 'text/html'
+    permalinkable = false

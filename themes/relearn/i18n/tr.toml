@@ -1,0 +1,68 @@
+[Search-placeholder]
+other = "Ara..."
+
+[Clear-History]
+other = "Geçmişi Temizle"
+
+[Attachments-label]
+other = "Ekler"
+
+[title-404]
+other = "Hata"
+
+[message-404]
+other = "Uups. Görünüşe göre böyle bir sayfa yok ¯\\_(ツ)_/¯"
+
+[Go-to-homepage]
+other = "Anasayfaya dön"
+
+[Edit-this-page]
+other = "Düzenlemek"
+
+[Print-this-chapter]
+other = "Bölümün tamamını yazdır"
+
+[Shortcuts-Title]
+other = "Dahası Var"
+
+[Expand-title]
+other = "Genişlet..."
+
+[Navigation-toggle]
+other = "Menü"
+
+[Toc-toggle]
+other = "İçindekiler"
+
+[Byte-symbol]
+other = "B"
+
+[Kilobyte-symbol]
+other = "KB"
+
+[Megabyte-symbol]
+other = "MB"
+
+[note]
+other = "Not"
+
+[info]
+other = "Bilgi"
+
+[tip]
+other = "Bahşiş"
+
+[warning]
+other = "Uyarı"
+
+[Copy-to-clipboard]
+other = "Panoya kopyala"
+
+[Copied-to-clipboard]
+other = "Panoya kopyalanmış!"
+
+[Copy-link-to-clipboard]
+other = "Bağlantıyı panoya kopyala"
+
+[Link-copied-to-clipboard]
+other = "Panoya bağlantı kopyalanmış!"

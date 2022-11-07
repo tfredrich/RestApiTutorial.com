@@ -1,0 +1,11 @@
+{{- $content := .content }}
+{{- with .page }}
+          <article{{if .Params.chapter}} class="chapter"{{end}}>
+
+{{ if and (not .IsHome ) (not .Params.chapter) }}<h1>{{ .Title }}</h1>
+{{ end }}{{ $content | safeHTML }}
+            <footer class="footline">
+              {{- partial "content-footer.html" . }}
+            </footer>
+          </article>
+{{- end }}

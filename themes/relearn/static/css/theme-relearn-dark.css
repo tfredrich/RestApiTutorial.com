@@ -1,0 +1,47 @@
+/* here in this showcase we use our own modified chroma syntax highlightning style;
+   if you want to use a predefined style instead:
+   - remove `markup.highlight.noClasses` from your config.toml
+   - set `markup.highlight.style` to a predefined style name in your config.toml
+   - remove the following `@import` of the self-defined chroma stylesheet */
+@import "chroma-relearn-dark.css";
+
+:root {
+    --PRIMARY-color: #7dc903; /* brand primary color */
+    --SECONDARY-color: #6c8ce3; /* brand secondary color */
+
+    --MAIN-TEXT-color: #e0e0e0; /* text color of content and h1 titles */
+    --MAIN-LINK-HOVER-color: #93b0ff; /* hoverd link color of content */
+    --MAIN-BG-color: #202020; /* background color of content */
+    --MAIN-TITLES-TEXT-color: #ffffff; /* text color of h2-h6 titles and transparent box titles */
+
+    /* adjusted to relearn-dark chroma style */
+    --CODE-BLOCK-color: #f8f8f8; /* fallback text color of block code; should be adjusted to your selected chroma style */
+    --CODE-BLOCK-BG-color: #2b2b2b; /* fallback background color of block code; should be adjusted to your selected chroma style */
+
+    --CODE-INLINE-color: #82e550; /* text color of inline code */
+    --CODE-INLINE-BG-color: #2d2d2d; /* background color of inline code */
+    --CODE-INLINE-BORDER-color: #464646; /* border color of inline code */
+
+    --MERMAID-theme: dark; /* name of the default Mermaid theme for this variant, can be overridden in config.toml */
+    --SWAGGER-theme: dark; /* name of the default Swagger theme for this variant, can be overridden in config.toml */
+
+    --MENU-HOME-LINK-color: #323232; /* home button color if configured */
+    --MENU-HOME-LINK-HOVER-color: #5e5e5e; /* hoverd home button color if configured */
+
+    --MENU-SEARCH-color: #e0e0e0; /* text and icon color of search box */
+    --MENU-SEARCH-BG-color: #323232; /* background color of search box */
+    --MENU-SEARCH-BORDER-color: #e0e0e0; /* border color of search box */
+
+    --MENU-SECTIONS-BG-color: #2b2b2b; /* background of the menu; this is NOT just a color value but can be a complete CSS background definition including gradients, etc. */
+    --MENU-SECTIONS-LINK-color: #bababa; /* link color of menu topics */
+    --MENU-SECTIONS-LINK-HOVER-color: #ffffff; /* hoverd link color of menu topics */
+    --MENU-SECTIONS-ACTIVE-BG-color: #323232; /* background color of the active menu section */
+    --MENU-SECTION-ACTIVE-CATEGORY-color: #82e550; /* text color of the displayed menu topic */
+    --MENU-SECTION-HR-color: #606060; /* separator color of menu footer */
+
+    --MENU-VISITED-color: #486ac9; /* icon color of visited menu topics if configured */
+
+    --BOX-CAPTION-color: rgba( 240, 240, 240, 1 ); /* text color of colored box titles */
+    --BOX-BG-color: rgba( 20, 20, 20, 1 ); /* background color of colored boxes */
+    --BOX-TEXT-color: #e0e0e0; /* text color of colored box content */
+}

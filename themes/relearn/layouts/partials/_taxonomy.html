@@ -1,0 +1,22 @@
+{{- partial "header.html" . }}
+          <article>
+
+<h1>{{ if eq .Kind "term" }}{{ .Data.Singular | humanize }} {{ default "::" .Site.Params.titleSeparator }} {{ end }}{{ .Title }}</h1>
+<ul>
+  {{- range .Data.Terms.Alphabetical }}
+    {{- if and .Page.Title (or (ne (.Page.Scratch.Get "relearnIsHiddenStem") true) (ne .Page.Site.Params.disableTagHiddenPages true) ) }}
+  <li><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a> ({{ len .Pages }})</li>
+    {{- end }}
+  {{- else }}
+    {{- range sort .Pages "Title" }}
+      {{- if and .Title (or (ne (.Scratch.Get "relearnIsHiddenStem") true) (ne .Site.Params.disableTagHiddenPages true) ) }}
+  <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      {{- end }}
+    {{- end }}
+  {{- end }}
+</ul>
+
+            <footer class="footline">
+            </footer>
+          </article>
+{{- partial "footer.html" . }}

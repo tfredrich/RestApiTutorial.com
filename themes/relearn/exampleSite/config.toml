@@ -1,0 +1,162 @@
+# this is a required setting for this theme to appear on https://themes.gohugo.io/
+# change this to a value appropriate for you
+baseURL = "https://example.com"
+# as the official Hugo documentation recommends, we turn this off for this
+# showcase; this allows the published site to be served by both http and https
+canonifyURLs = false
+# required for official documentation served from subfolder
+relativeURLs = false
+
+# the directory where Hugo reads the themes from; this is specific to your
+# installation and most certainly needs be deleted or changed
+themesdir = "../.."
+# yeah, well, obviously a mandatory setting for your site, if you want to
+# use this theme ;-)
+theme = "hugo-theme-relearn"
+
+# the main language of this site; also an automatic pirrrate translation is
+# available in this showcase
+languageCode = "en"
+defaultContentLanguage = "en"
+# if you want to get rrrid o' ourrr pirrrates nonsense uncomment th' next line
+# disableLanguages = ['pir']
+
+# the site's title of this showcase; you should change this ;-)
+title = "Hugo Relearn Documentation"
+
+# settings specific to this theme's features; choose to your likings and
+# consult this documentation for explaination
+[params]
+  editURL = "https://github.com/McShelby/hugo-theme-relearn/edit/main/exampleSite/content/"
+  description = "Documentation for Hugo Relearn Theme"
+  author = "Sören Weber"
+  showVisitedLinks = true
+  collapsibleMenu = true
+  disableBreadcrumb = false
+  disableNextPrev = false
+  disableLandingPageButton = true
+  titleSeparator = "::"
+  themeVariant = [ "relearn-light", "relearn-dark", "learn", "neon", "blue", "green", "red" ]
+  disableSeoHiddenPages = true
+  # this is for the stylesheet genertor to allow for interactivity in mermaid
+  # graphs; you usually will not need it and you should remove this for
+  # security reasons
+  mermaidInitialize = "{ \"securityLevel\": \"loose\" }"
+
+[outputs]
+  # add JSON to the home to support lunr search; This is a mandatory setting
+  # for the search functionality
+  # add PRINT to home, section and page to activate feature to print whole
+  # chapters
+  home = ["HTML", "RSS", "PRINT", "JSON"]
+  section = ["HTML", "RSS", "PRINT"]
+  page = ["HTML", "RSS", "PRINT"]
+
+[markup]
+  [markup.highlight]
+    # if `guessSyntax = true`, there will be no unstyled code even if no language
+    # was given BUT mermaid code fences will not work anymore! So this is a mandatory
+    # setting for your site
+    guessSyntax = false
+
+    # here in this showcase we use our own modified chroma syntax highlightning style
+    # which is imported in theme-relearn-light.css / theme-relearn-dark.css;
+    # if you want to use a predefined style instead:
+    # - remove the following `noClasses`
+    # - set the following `style` to a predefined style name
+    # - remove the `@import` of the self-defined chroma stylesheet from your CSS files
+    #   (here eg.: theme-relearn-light.css / theme-relearn-dark.css)
+    noClasses = false
+    # style = "tango"
+
+  [markup.goldmark.renderer]
+    # activated for this showcase to use HTML and JavaScript; decide on your own needs;
+    # if in doubt, remove this line
+    unsafe = true
+
+# allows `hugo server` to display this showcase in IE11; this is used for testing, as we
+# are still supporting IE11 - although with degraded experience; if you don't care about
+# `hugo server` or browsers of ancient times, fell free to remove this whole block
+[server]
+  [[server.headers]]
+    for = "**.html"
+    [server.headers.values]
+       X-UA-Compatible = "IE=edge"
+
+# showcase of the menu shortcuts; you can use relative URLs linking
+# to your content or use fully-quallified URLs to link outside of
+# your project
+[Languages]
+  [Languages.en]
+    title = "Hugo Relearn Theme"
+    weight = 1
+    languageName = "English"
+    landingPageURL = "/"
+    landingPageName = "<i class='fas fa-home'></i> Home"
+
+  [[Languages.en.menu.shortcuts]]
+    name = "<i class='fab fa-fw fa-github'></i> GitHub repo"
+    identifier = "ds"
+    url = "https://github.com/McShelby/hugo-theme-relearn"
+    weight = 10
+
+  [[Languages.en.menu.shortcuts]]
+    name = "<i class='fas fa-fw fa-camera'></i> Showcases"
+    url = "more/showcase/"
+    weight = 11
+
+  [[Languages.en.menu.shortcuts]]
+    name = "<i class='fas fa-fw fa-bookmark'></i> Hugo Documentation"
+    identifier = "hugodoc"
+    url = "https://gohugo.io/"
+    weight = 20
+
+  [[Languages.en.menu.shortcuts]]
+    name = "<i class='fas fa-fw fa-bullhorn'></i> Credits"
+    url = "more/credits/"
+    weight = 30
+
+  [[Languages.en.menu.shortcuts]]
+    name = "<i class='fas fa-fw fa-tags'></i> Tags"
+    url = "tags/"
+    weight = 40
+
+  # this is ourrr way t' showcase th' multilang settings by
+  # doing autotrrranlat'n of th' english content; we are
+  # lazy and don't supporrt furrrther trrranslations; arrr,
+  # don't take it t' serrrious, fello'; it's prrretty hacky and:
+  # NOT MEANT FOR PRRRODUCTION! ARRR!
+
+  [Languages.pir]
+    title = "Cap'n Hugo Relearrrn Theme"
+    weight = 1
+    languageName = "Arrr! ☠ Pirrrates ☠"
+    landingPageURL = "/pir/"
+    landingPageName = "<i class='fas fa-home'></i> Arrr! Home"
+
+  [[Languages.pir.menu.shortcuts]]
+    name = "<i class='fab fa-fw fa-github'></i> GitHub repo"
+    identifier = "ds"
+    url = "https://github.com/McShelby/hugo-theme-relearn"
+    weight = 10
+
+  [[Languages.pir.menu.shortcuts]]
+    name = "<i class='fas fa-fw fa-camera'></i> Showcases"
+    url = "more/showcase/"
+    weight = 11
+
+  [[Languages.pir.menu.shortcuts]]
+    name = "<i class='fas fa-fw fa-bookmark'></i> Cap'n Hugo Documentat'n"
+    identifier = "hugodoc"
+    url = "https://gohugo.io/"
+    weight = 20
+
+  [[Languages.pir.menu.shortcuts]]
+    name = "<i class='fas fa-fw fa-bullhorn'></i> Crrredits"
+    url = "more/credits/"
+    weight = 30
+
+  [[Languages.pir.menu.shortcuts]]
+    name = "<i class='fas fa-fw fa-tags'></i> Arrr! Tags"
+    url = "tags/"
+    weight = 40

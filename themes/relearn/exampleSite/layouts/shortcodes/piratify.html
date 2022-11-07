@@ -1,0 +1,111 @@
+{{- $langsrc := .Get 1 | default "en" }}
+{{- $langtrg := .Page.Language.Lang }}
+{{- $baseURL := urls.Parse .Site.BaseURL }}
+{{- $baseURLpath := $baseURL.Path | default "/" }}
+{{- $words := dict
+	"Hugo" "Cap'n Hugo"
+	"Info" "Ahoi"
+	"Note" "Avast"
+	"Tip" "Smarrrt Arrrse"
+	"Warning" "Arrr"
+	"good" "bloody"
+	"shortcode" "shorrrtcode"
+	"Shortcode" "Shorrrtcode"
+	"shortcodes" "shorrrtcodes"
+	"Shortcodes" "Shorrrtcodes"
+	"Mermaid" "Merrrmaid"
+	"Markdown" "Marrrkdown"
+	"Markup" "Marrrkup"
+	"markup" "marrrkup"
+	"for" "fer"
+	"Your" "Yer"
+	"your" "yer"
+	"You" "Ye"
+	"you" "ye"
+	"the" "th'"
+	"The" "Th'"
+	"is" "be"
+	"Is" "Be"
+	"are" "be"
+	"Are" "Be"
+	"Of" "O'"
+	"of" "o'"
+	"To" "T'"
+	"to" "t'"
+	"in" "'n"
+	"With" "Wit'"
+	"with" "wit'"
+	"Where" "Whar'"
+	"where" "whar'"
+	"After" "Aft"
+	"after" "aft"
+	"And" "An'"
+	"and" "an'"
+	"Load" "Board"
+	"load" "board"
+	"Loaded" "Boarded"
+	"loaded" "boarded"
+	"Content" "Rrrambling"
+	"content" "rrrambling"
+	"icon" "ay'con"
+	"Icon" "Ay'con"
+	"icons" "ay'cons"
+	"Icons" "Ay'cons"
+	"syntax" "rules"
+	"Syntax" "Rules"
+	"Site" "Ship"
+	"site" "ship"
+	"Page" "Plank"
+	"page" "plank"
+	"Pages" "Planks"
+	"pages" "planks"
+	"Relearn" "Relearrrn"
+	"Learn" "Learrrn"
+-}}
+{{- $specials := dict
+	"(\\w)ing([\\s\\n<.,;?!:])" "'n"
+	"(\\w)ings([\\s\\n<.,;?!:])" "'ns"
+	"(\\w)tion([\\s\\n<.,;?!:])" "t'n"
+	"(\\w)tions([\\s\\n<.,;?!:])" "t'ns"
+	"(\\w)(?:[aeiou])ble([\\s\\n<.,;?!:])" "'ble"
+	"(\\w)(?:[aeiou])mize([\\s\\n<.,;?!:])" "'mize"
+	"(\\w)(?:[aeiou])mizes([\\s\\n<.,;?!:])" "'mizes"
+	"(\\w)(?:[aeiou])nize([\\s\\n<.,;?!:])" "'nize"
+	"(\\w)(?:[aeiou])nizes([\\s\\n<.,;?!:])" "'nizes"
+	(printf "(.)=\"%s([^\"]*?\")" $baseURLpath)  (printf "=\"%s%s/" $baseURLpath $langtrg)
+-}}
+{{- $fix := dict
+	"warn'n" "warning"
+	"sect'n" "section"
+	"n Cap'n" "n"
+	"Avast right o' John" "Note right of John"
+-}}
+{{- $c := "" }}
+{{- range .Page.Translations }}
+	{{- if eq .Language.Lang $langsrc }}
+		{{- $l := .RelPermalink }}
+		{{- $c = .Content }}
+		{{- range $from, $to := $words }}
+			{{- $c = replaceRE (printf "([\\s\\n>])%s([\\s\\n<.,;?!:])" $from) (printf "${1}%s${2}" $to) $c }}
+		{{- end }}
+		{{- range $from, $to := $specials }}
+			{{- $c = replaceRE $from (printf "${1}%s${2}" $to) $c }}
+		{{- end }}
+		{{- range $from, $to := $fix }}
+			{{- $c = replace $c $from $to }}
+		{{- end }}
+		{{- $c = replaceRE "(src|href)=\"(images/[^\"]*?\")" (printf "${1}=\"%s${2}" $l) $c }}
+		{{- $c = replaceRE "(src|href)=\"([^\"]*?)/pir/([^\"]*?.files/[^\"]*?\")" "${1}=\"${2}/${3}" $c }}
+	{{- end }}
+{{- end }}
+{{- $style := "warning" }}
+{{- $title := "Arrr! Pirrrates" }}
+{{- $icon := "skull-crossbones" }}
+<div class="box notices cstyle {{ $style }}">
+    <div class="box-label"><i class="fa-fw fas fa-{{ $icon }}"></i> {{ $title }}</div>
+	<div class="box-content">
+	    <p>Fello' pirrates, be awarrre some featurrres may not work fer us in this trrranslat'n. Like table of rrramblings, some Merrrmaids and stuff.</p>
+	</div>
+</div>
+
+{{ $c | safeHTML }}

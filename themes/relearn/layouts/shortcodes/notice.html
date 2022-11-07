@@ -1,0 +1,19 @@
+{{- $_hugo_config := `{ "version": 1 }` }}
+{{- $style := .Get "style" | default (.Get 0) | default "default" }}
+{{- $title := .Get "title" | default (.Get 1) | default ($style | T) }}
+{{- $icon := .Get "icon" | default (.Get 2) | default "" }}
+{{- if and (not $icon) (eq (len $icon) 0) }}
+  {{- if eq $style "info" }}{{ $icon = default "info-circle" }}{{ end }}
+  {{- if eq $style "warning" }}{{ $icon = default "exclamation-triangle" }}{{ end }}
+  {{- if eq $style "note" }}{{ $icon = default "exclamation-circle" }}{{ end }}
+  {{- if eq $style "tip" }}{{ $icon = default "lightbulb" }}{{ end }}
+{{- end }}
+{{- $icon = trim $icon " " }}
+{{- if and $icon (not (findRE ".*?\\bfa-\\w.*?" $icon)) }}
+  {{- $icon = printf "fa-fw fas fa-%s" $icon }}
+{{- end }}
+<div class="box notices cstyle {{ $style }}">
+    <div class="box-label">{{ if $icon }}<i class="{{ $icon }}"></i> {{ end }}{{ $title }}</div>
+    <div class="box-content">
+{{ .Inner }}    </div>
+</div>
