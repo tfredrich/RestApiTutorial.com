@@ -1,4 +1,4 @@
-baseURL = 'http://restapitutorial.org/'
+baseURL = 'http://restapitutorial.com/'
 languageCode = 'en-us'
 title = 'REST API Tutorial'
 uglyURLs = true
@@ -13,7 +13,7 @@ home = [ "HTML", "RSS", "JSON"]
 [[menu.shortcuts]]
 name = "<i class='fab fa-fw fa-github'></i> GitHub repo"
 identifier = "ds"
-url = "https://github.com/McShelby/hugo-theme-relearn"
+url = "https://github.com/tfredrich/RestApiTutorial.com"
 weight = 10
 
 [[menu.shortcuts]]
@@ -22,7 +22,7 @@ url = "tags/"
 weight = 40
 
 [params]
-  editURL = "https://github.com/McShelby/hugo-theme-relearn/edit/main/exampleSite/content/"
+  editURL = "https://github.com/tfredrich/RestApiTutorial.com/edit/hugo-refactor/content/"
   description = "Learn REST API Design"
   author = "Todd Fredrich"
   collapsibleMenu = true
