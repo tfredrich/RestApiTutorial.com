@@ -4,7 +4,7 @@ title = 'REST API Tutorial'
 uglyURLs = true
 #
 # Change the default theme to hugo-theme-relearn
-theme = "relearn"
+theme = "hugo-theme-relearn"
 
 # For search functionality
 [outputs]

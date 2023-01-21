@@ -1,7 +1,0 @@
-{{- partial "header.html" . }}
-{{- if eq (.Scratch.Get "relearnOutputFormat") "PRINT" }}
-  {{- partial "body.print.html" . }}
-{{- else }}
-  {{- partial "body.html" . }}
-{{- end }}
-{{- partial "footer.html" . }}
