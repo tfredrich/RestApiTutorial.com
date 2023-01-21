@@ -50,4 +50,6 @@ Servers are able to temporarily extend or customize the functionality of a clien
 
 Complying with these constraints, and thus conforming to the REST architectural style, will enable any kind of distributed hypermedia system to have desirable emergent properties, such as performance, scalability, simplicity, modifiability, visibility, portability and reliability.
 
-NOTE: The only optional constraint of REST architecture is code on demand. If a service violates any other constraint, it cannot strictly be referred to as RESTful.
+{{% notice info "RESTful or Not?" %}}
+The only optional constraint of REST architecture is code on demand. If a service violates any other constraint, it cannot strictly be referred to as RESTful.
+{{% /notice %}}

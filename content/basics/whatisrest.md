@@ -5,7 +5,7 @@ weight: 10
 ---
 The term RESTful APIs or RESTful services is a hot topic. So what is REST? And how do we create a so-called RESTful API? Good question! Let's talk about this often misunderstood phrase...
 
-{{% notice style="tip" title="Here's a Quick Tip!" icon="exclamation-circle" %}}
+{{% notice info "A Loose Definition" %}}
 When someone says, "REST service," "REST API" or "RESTful API" they more-than-likely mean an HTTP or Web-based server that accepts requests over HTTP and responds in human-readable JSON.
 
 Yep, that really is it. But there are a lot of nuances--read on to discover more details!
