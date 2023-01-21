@@ -2,8 +2,6 @@
 title = "Resources"
 weight = 50
 +++
-
-# REST API Resources
 ## Translations
 * [Russian](http://www.restapitutorial.ru/)
 

@@ -6,7 +6,11 @@ weight: 20
 Whether it's technically RESTful or not (according to the six constraints mentioned previously), here are a few recommended REST-like concepts. These six quick tips will result in better, more usable services.
 
 ## Use HTTP Methods to Make Requests Mean Something
+{{% notice tip "Verb-Free URLs" "exclamation-circle" %}}
 API consumers are capable of sending GET, POST, PUT, PATCH and DELETE methods (or verbs), which greatly enhance the clarity of a given request.
+
+Therefore, it is recommended that no verbs (action words) appear in the URL. Instead leverage the HTTP Methods to provide the verb.
+{{% /notice %}}
 
 Generally, the five primary HTTP methods are used as follows:
 
@@ -18,10 +22,14 @@ Generally, the five primary HTTP methods are used as follows:
 | DELETE | Remove/delete a specific resource by an identifier. |
 | POST | Create a new resource. Also a catch-all verb for operations that don't fit into the other categories. |
 
-__Note__: GET requests MUST not change any underlying resource data. Measurements and tracking which update data may still occur, but the resource identified by the URI MUST not change.
+{{% notice warning "Safety" "exclamation-circle" %}}
+GET requests MUST not change any underlying resource data. Measurements and tracking which update data may still occur, but the resource identified by the URI MUST not change.
+{{% /notice %}}
 
 ## Provide Sensible Resource Names
+{{% notice tip "Verb-Free URLs" "exclamation-circle" %}}
 Producing a great API is 80% art and 20% science. Creating a URL hierarchy representing sensible resources is the art part. Having sensible resource names (which are just URL paths, such as /customers/12345/orders) improves the clarity of what a given request does. As humans are involved in understanding an API, this clarity counts.
+{{% /notice %}}
 
 Appropriate resource names provide context for a service request, increasing understandability of the API. Resources are viewed hierarchically via their URI names, offering consumers a friendly, easily-understood hierarchy of resources to leverage in their applications.
 

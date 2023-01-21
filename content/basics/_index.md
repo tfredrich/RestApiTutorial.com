@@ -5,7 +5,7 @@ title = "The Basics"
 weight = 5
 +++
 
-### Chapter 1
+### Part 1
 
 # Learn REST API Basics
 Quickly learn the basics of what REST is and the core concepts behind it.
