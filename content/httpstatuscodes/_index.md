@@ -37,7 +37,7 @@ As a `WebDAV` request may contain many sub-requests involving file operations, i
 This class of status codes indicates the action requested by the client was received, understood, accepted, and processed successfully.
 
 {{% expand "★ 200 OK" %}}
-★ General status code. Most common code used to indicate success.
+General status code. Most common code used to indicate success.
 
 The request has succeeded. The information returned with the response is dependent on the method used in the request, for example:
 - `GET` an entity corresponding to the requested resource is sent in the response.
@@ -47,7 +47,7 @@ The request has succeeded. The information returned with the response is depende
 {{% /expand %}}
 
 {{% expand "★ 201 Created" %}}
-★ Successful creation occurred (via either POST or PUT). Set the Location header to contain a link to the newly-created resource (on POST). Response body content may or may not be present.
+Successful creation occurred (via either POST or PUT). Set the Location header to contain a link to the newly-created resource (on POST). Response body content may or may not be present.
 
 The request has been fulfilled and resulted in a new resource being created. The newly created resource can be referenced by the URI(s) returned in the entity of the response, with the most specific URI for the resource given by a Location header field. The response SHOULD include an entity containing a list of resource characteristics and location(s) from which the user or user agent can choose the one most appropriate. The entity format is specified by the media type given in the Content-Type header field. The origin server MUST create the resource before returning the 201 status code. If the action cannot be carried out immediately, the server SHOULD respond with 202 (Accepted) response instead.
 
@@ -69,7 +69,7 @@ Not present in HTTP/1.0: available since HTTP/1.1
 {{% /expand %}}
 
 {{% expand "★ 204 No Content" %}}
-★ Status when nothing is in the response body (e.g. DELETE). The server successfully processed the request, but is not returning any content.
+Status when nothing is in the response body (e.g. DELETE). The server successfully processed the request, but is not returning any content.
 
 The server has fulfilled the request but does not need to return an entity-body, and might want to return updated metainformation. The response MAY include new or updated metainformation in the form of entity-headers, which if present SHOULD be associated with the requested variant.
 
@@ -174,7 +174,7 @@ Since HTTP/1.1
 {{% /expand %}}
 
 {{% expand "★ 304 Not Modified" %}}
-★ Used for conditional GET calls to reduce band-width usage. If used, must set the Date, Content-Location, ETag headers to what they would have been on a regular GET call. There must be no body on the response.
+Used for conditional GET calls to reduce band-width usage. If used, must set the Date, Content-Location, ETag headers to what they would have been on a regular GET call. There must be no body on the response.
 
 Indicates the resource has not been modified since last requested. Typically, the HTTP client provides a header like the If-Modified-Since header to provide a time against which to compare. Using this saves bandwidth and reprocessing on both the server and client, as only the header data must be sent and received in comparison to the entirety of the page being re-processed by the server, then sent again using more bandwidth of the server and client.
 
@@ -227,13 +227,13 @@ The `4xx` class of status code is intended for cases in which the client seems t
 If the client is sending data, a server implementation using `TCP` SHOULD be careful to ensure that the client acknowledges receipt of the packet(s) containing the response, before the server closes the input connection. If the client continues sending data to the server after the close, the server's `TCP` stack will send a reset packet to the client, which may erase the client's unacknowledged input buffers before they can be read and interpreted by the `HTTP` application.
 
 {{% expand "★ 400 Bad Request" %}}
-★ General error when fulfilling the request would cause an invalid state. Syntax and domain validation errors, missing data, etc. are some examples.
+General error when fulfilling the request would cause an invalid state. Syntax and domain validation errors, missing data, etc. are some examples.
 
 The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modifications.
 {{% /expand %}}
 
 {{% expand "★ 401 Unauthorized" %}}
-★ Error code response for missing or invalid authentication token.
+Error code response for missing or invalid authentication token.
 
 Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource. See Basic access authentication and Digest access authentication.
 
@@ -247,7 +247,7 @@ The original intention was that this code might be used as part of some form of 
 {{% /expand %}}
 
 {{% expand "★ 403 Forbidden" %}}
-★ Error code for user not authorized to perform the operation or the resource is unavailable for some reason (e.g. time constraints, etc.).
+Error code for user not authorized to perform the operation or the resource is unavailable for some reason (e.g. time constraints, etc.).
 
 The request was a legal request, but the server is refusing to respond to it. Unlike a 401 Unauthorized response, authenticating will make no difference.
 
@@ -255,7 +255,7 @@ The server understood the request, but is refusing to fulfill it. Authorization 
 {{% /expand %}}
 
 {{% expand "★ 404 Not Found" %}}
-★ Used when the requested resource is not found, whether it doesn't exist or if there was a 401 or 403 that, for security reasons, the service wants to mask.
+Used when the requested resource is not found, whether it doesn't exist or if there was a 401 or 403 that, for security reasons, the service wants to mask.
 
 The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible.
 
@@ -292,7 +292,7 @@ The server timed out waiting for the request. According to W3 HTTP specification
 {{% /expand %}}
 
 {{% expand "★ 409 Conflict" %}}
-★ Whenever a resource conflict would be caused by fulfilling the request. Duplicate entries and deleting root objects when cascade-delete is not supported are a couple of examples.
+Whenever a resource conflict would be caused by fulfilling the request. Duplicate entries and deleting root objects when cascade-delete is not supported are a couple of examples.
 
 Indicates that the request could not be processed because of conflict in the request, such as an edit conflict.
 
@@ -448,7 +448,7 @@ The server failed to fulfill an apparently valid request.
 Response status codes beginning with the digit "5" indicate cases in which the server is aware that it has erred or is incapable of performing the request. Except when responding to a `HEAD` request, the server SHOULD include an entity containing an explanation of the error situation, and whether it is a temporary or permanent condition. Clients SHOULD display any included entity to the user. These response codes are applicable to any request method.
 
 {{% expand "★ 500 Internal Server Error" %}}
-★ The general catch-all error when the server-side throws an exception. This indicates a service outage.
+The general catch-all error when the server-side throws an exception. This indicates a service outage.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request. A generic error message, given when no more specific message is suitable.
 {{% /expand %}}

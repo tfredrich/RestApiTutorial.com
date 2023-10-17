@@ -11,4 +11,8 @@ From a RESTful service standpoint, for an operation (or service call) to be idem
 
 The PUT and DELETE methods are defined to be idempotent. However, there is a caveat on DELETE. The problem with DELETE, which if successful would normally return a 200 (OK) or 204 (No Content), will often return a 404 (Not Found) on subsequent calls, unless the service is configured to "mark" resources for deletion without actually deleting them. However, when the service actually deletes the resource, the next call will not find the resource to delete it and return a 404. However, the state on the server is the same after each DELETE call, but the response is different.
 
-GET, HEAD, OPTIONS and TRACE methods are defined as safe, meaning they are only intended for retrieving data. This makes them idempotent as well since multiple, identical requests will behave the same.
+{{% notice warning "Keep **Idempotent** Methods Idempotent" %}}
+Ensure API implementations maintain idempotence for PUT and DELETE HTTP methods.
+{{% /notice %}}
+
+GET, HEAD, OPTIONS and TRACE methods are defined as [safe](safety.html), meaning they are only intended for retrieving data (and, therefore, do not modify that data). This makes them idempotent as well since multiple, identical requests will behave the same.

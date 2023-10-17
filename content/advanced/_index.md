@@ -1,11 +1,8 @@
 +++
-chapter = true
-pre = "<b>2. </b>"
-title = "Advanced API Design"
-weight = 10
+archetype="chapter"
+menuPre = "<b>2. </b>"
+menuTitle = "Advanced API Design"
+title = "The Seven Pillars of API Design"
+weight = 2
 +++
-
-### Part 2
-
-# The Seven Pillars of API Design
 Stay Tuned as We Begin Our Journey in Designing Exquisite RESTful APIs.

@@ -1,13 +1,10 @@
 +++
-chapter = true
-pre = "<b>1. </b>"
-title = "The Basics"
-weight = 5
+archetype = "chapter"
+menuPre = "<b>1. </b>"
+menuTitle = "Introduction"
+title = "Learn REST API Basics"
+weight = 1
 +++
-
-### Part 1
-
-# Learn REST API Basics
 Quickly learn the basics of what REST is and the core concepts behind it.
 
 {{% notice tip "Here's a Quick Tip!" %}}
