@@ -31,3 +31,4 @@ weight = 40
   showVisitedLinks = true
   disableLandingPageButton = true
   disableBreadcrumb = false
+  disableRootBreadcrumb = true

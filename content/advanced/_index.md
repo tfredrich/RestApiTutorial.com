@@ -1,8 +1,7 @@
 +++
 archetype="chapter"
 menuPre = "<b>2. </b>"
-menuTitle = "Advanced API Design"
-title = "The Seven Pillars of API Design"
+title = "Advanced API Design"
 weight = 2
 +++
 

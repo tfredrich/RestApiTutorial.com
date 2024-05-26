@@ -1,8 +1,7 @@
 +++
 archetype = "chapter"
 menuPre = "<b>1. </b>"
-menuTitle = "Introduction"
-title = "Learn REST API Basics"
+title = "Introduction"
 weight = 1
 +++
 Quickly learn the basics of what REST is and the core concepts behind it.
@@ -14,7 +13,7 @@ Be on the lookout for Quick Tips in boxes like this throughout the course. They'
 
 Continue to [What is REST?](/introduction/whatisrest.html)
 
-## Chapter 1 Outline
+## REST API Basics Outline
 1. [What is REST](/introduction/whatisrest.html)
 2. [The Six Constraints](/introduction/restconstraints.html)
     - Uniform Interface
