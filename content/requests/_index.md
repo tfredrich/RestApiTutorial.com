@@ -1,7 +1,7 @@
 +++
 archetype="chapter"
 menuPre = "<b>5. </b>"
-menuTitle = "Requests*"
+linkTitle = "Requests"
 title = "Pillar 3: Requests"
 weight = 5
 hidden = true

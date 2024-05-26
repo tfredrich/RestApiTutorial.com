@@ -23,8 +23,7 @@ weight = 40
 
 [params]
   editURL = "https://github.com/tfredrich/RestApiTutorial.com/edit/hugo-refactor/content/"
-  description = "Learn REST API Design"
-  author = "Todd Fredrich"
+  author.name = "Todd Fredrich"
   collapsibleMenu = true
   titleSeparator = " - "
   themeVariant = [ "auto", "zen-light", "zen-dark" ]

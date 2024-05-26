@@ -1,7 +1,7 @@
 +++
 archetype="chapter"
 menuPre = "<b>8. </b>"
-menuTitle = "Relationships*"
+linkTitle = "Relationships"
 title = "Pillar 6: Relationships (HATEOAS)"
 weight = 8
 hidden = true

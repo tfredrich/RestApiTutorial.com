@@ -1,6 +1,7 @@
 +++
 archetype = "home"
 title = "Learn REST API Design"
+description = "Learn REST API Design"
 +++
 {{< figure src="https://unsplash.com/photos/Ams91Wo635s/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8OHx8ZGVzaWduJTIwY29tcGFzc3xlbnwwfHx8fDE2OTc1NzgzODV8MA&force=true&w=640" alt="Image depicting design tools" >}}
 

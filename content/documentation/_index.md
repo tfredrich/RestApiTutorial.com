@@ -1,7 +1,7 @@
 +++
 archetype="chapter"
 menuPre = "<b>10. </b>"
-menuTitle = "Documentation*"
+linkTitle = "Documentation"
 title = "BONUS Pillar 8: Documentation"
 weight = 10
 hidden = true
