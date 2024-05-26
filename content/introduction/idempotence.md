@@ -16,3 +16,7 @@ Ensure API implementations maintain idempotence for PUT and DELETE HTTP methods.
 {{% /notice %}}
 
 GET, HEAD, OPTIONS and TRACE methods are defined as [safe](safety.html), meaning they are only intended for retrieving data (and, therefore, do not modify that data). This makes them idempotent as well since multiple, identical requests will behave the same.
+
+----
+* Previous: [Resource Naming](/introduction/resourcenaming.html)
+* Next: [Safety](/introduction/safety.html)

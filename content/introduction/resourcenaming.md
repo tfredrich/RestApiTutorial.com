@@ -81,3 +81,7 @@ Look at some widely used APIs to get the hang of this and leverage the intuition
 * Twitter: https://developer.twitter.com/en/docs/api-reference-index
 * Facebook: https://developers.facebook.com/docs/reference/api/
 * LinkedIn: https://developer.linkedin.com/apis
+
+----
+* Previous: [HTTP Methods](/introduction/httpmethods.html)
+* Next: [Idempotence](/introduction/idempotence.html)

@@ -53,3 +53,7 @@ Complying with these constraints, and thus conforming to the REST architectural 
 {{% notice info "RESTful or Not?" %}}
 The only optional constraint of REST architecture is code on demand. If a service violates any other constraint, it cannot strictly be referred to as RESTful.
 {{% /notice %}}
+
+----
+* Previous: [What is REST?](/introduction/whatisrest.html)
+* Next: [REST Quick Tips](/introduction/restquicktips.html)

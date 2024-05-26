@@ -16,3 +16,7 @@ For APIs and web services, it's best practice to use safe methods whenever possi
 Keeping methods safe improves scalability, caching, and overall reliability of web services. It also prevents unintended consequences from clients accidentally sending non-idempotent requests multiple times. APIs designed with primarily safe methods are easier to cache and scale horizontally.
 
 In summary, safe HTTP methods avoid modifying server state, which provides benefits like [idempotence](idempotence.html) and cacheability. Using safe methods correctly is an important aspect of API design. It improves performance, scalability, and prevents issues with non-idempotent requests from clients.
+
+----
+* Previous: [Idempotence](/introduction/idempotence.html)
+* Next: [Chapter 2. Advanced API Design](/advanced.html)

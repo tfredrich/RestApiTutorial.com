@@ -87,3 +87,7 @@ Regarding linking formats, there are many. The HTTP Web Linking Specification (R
 > A link can be viewed as a statement of the form "{context IRI} has a {relation type} resource at {target IRI}, which has {target attributes}."
 
 At the very least, place links in the HTTP Link header as recommended in the specification, or embrace a JSON representation of this HTTP link style (such as Atom-style links, see: RFC4287) in your JSON representations. Later, you can layer in more complex linking styles such as HAL+JSON, Siren, Collection+JSON, and/or JSON-LD, etc. as your REST APIs become more mature.
+
+----
+* Previous: [The Six Constraints](/introduction/restconstraints.html)
+* Next: [HTTP Methods](/introduction/httpmethods.html)

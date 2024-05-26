@@ -138,3 +138,6 @@ Which returns the following JSON response:
    ]
 }
 ```
+----
+* Previous: [Introduction](/introduction.html)
+* Next: [The Six Constraints](/introduction/restconstraints.html)

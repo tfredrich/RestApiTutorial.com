@@ -83,3 +83,7 @@ __Examples:__
 * DELETE http://www.example.com/customers/12345
 * DELETE http://www.example.com/customers/12345/orders
 * DELETE http://www.example.com/bucket/sample
+
+----
+* Previous: [REST Quick Tips](/introduction/restquicktips.html)
+* Next: [Resource Naming](/introduction/resourcenaming.html)
