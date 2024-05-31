@@ -1,0 +1,7 @@
+{{ site.BaseURL }}
+
+# Permanent Redirect (301)
+Redirect 301 /lessons/restquicktips.html /introduction/restquicktips.html
+Redirect 301 /lessons/httpmethods.html /introduction/httpmethods.html
+Redirect 301 /lessons/restfulresourcenaming.html /introduction/resourcenaming.html
+Redirect 301 /httpmethods.html /introduction/httpmethods.html

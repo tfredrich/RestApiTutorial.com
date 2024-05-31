@@ -2,6 +2,7 @@
 archetype = "home"
 title = "Learn REST API Design"
 description = "Learn REST API Design"
+date = 2024-05-31T10:25:40-06:00
 +++
 {{< figure src="https://unsplash.com/photos/Ams91Wo635s/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8OHx8ZGVzaWduJTIwY29tcGFzc3xlbnwwfHx8fDE2OTc1NzgzODV8MA&force=true&w=640" alt="Image depicting design tools" >}}
 

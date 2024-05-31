@@ -1,6 +1,7 @@
 baseURL = 'http://restapitutorial.com/'
 languageCode = 'en-us'
 title = 'REST API Tutorial'
+description = "Foo bar"
 uglyURLs = true
 #
 # Change the default theme to hugo-theme-relearn
@@ -8,7 +9,7 @@ theme = "hugo-theme-relearn"
 
 # For search functionality
 [outputs]
-home = [ "HTML", "RSS", "SEARCH"]
+home = [ "HTML", "RSS", "SEARCH", "htaccess"]
 
 [[menu.shortcuts]]
 name = "<i class='fab fa-fw fa-github'></i> GitHub repo"
@@ -31,3 +32,13 @@ weight = 40
   disableLandingPageButton = true
   disableBreadcrumb = false
   disableRootBreadcrumb = true
+
+[outputFormats]
+[outputFormats.htaccess]
+    baseName = ""
+    isPlainText = true
+    mediaType = "text/htaccess"
+
+[mediaTypes]
+  [mediaTypes."text/htaccess"]
+    suffixes = ["htaccess"]

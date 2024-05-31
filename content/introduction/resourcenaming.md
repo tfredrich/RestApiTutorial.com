@@ -1,6 +1,6 @@
 ---
 title: "Resource Naming"
-date: 2022-06-07T16:44:49-06:00
+date: 2024-05-31T10:25:40-06:00
 weight: 40
 ---
 In addition to utilizing the HTTP verbs appropriately, resource naming is arguably the most debated and most important concept to grasp when creating an understandable, easily leveraged Web service API. When resources are named well, an API is intuitive and easy to use. Done poorly, that same API can feel klutzy and be difficult to use and understand. Below are a few tips to get you going when creating the resource URIs for your new API.

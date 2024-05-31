@@ -1,6 +1,7 @@
 +++
 title = "HTTP Status Codes"
 weight = 40
+date = 2024-05-31T10:25:40-06:00
 +++
 This page is created from HTTP status code information found at [ietf.org](https://www.ietf.org/assignments/http-status-codes/http-status-codes.xml) and [Wikipedia](https://en.wikipedia.org/wiki/HTTP_status_code). Click on the category heading or the status code link to read more.
 

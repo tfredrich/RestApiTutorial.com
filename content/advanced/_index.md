@@ -3,6 +3,7 @@ archetype="chapter"
 menuPre = "<b>2. </b>"
 title = "Advanced API Design"
 weight = 2
+date = 2024-05-31T10:25:40-06:00
 +++
 
 ![7 Pillars](images/seven_pillars.jpeg "Seven Pillars")
