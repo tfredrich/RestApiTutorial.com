@@ -1,0 +1,44 @@
+baseURL = 'http://restapitutorial.com/'
+languageCode = 'en-us'
+title = 'REST API Tutorial'
+description = "Foo bar"
+uglyURLs = true
+#
+# Change the default theme to hugo-theme-relearn
+theme = "hugo-theme-relearn"
+
+# For search functionality
+[outputs]
+home = [ "HTML", "RSS", "SEARCH", "htaccess"]
+
+[[menu.shortcuts]]
+name = "<i class='fab fa-fw fa-github'></i> GitHub repo"
+identifier = "ds"
+url = "https://github.com/tfredrich/RestApiTutorial.com"
+weight = 10
+
+[[menu.shortcuts]]
+name = "<i class='fas fa-fw fa-tags'></i> Tags"
+url = "tags/"
+weight = 40
+
+[params]
+  editURL = "https://github.com/tfredrich/RestApiTutorial.com/edit/hugo-refactor/content/"
+  author.name = "Todd Fredrich"
+  collapsibleMenu = true
+  titleSeparator = " - "
+  themeVariant = [ "auto", "zen-light", "zen-dark" ]
+  showVisitedLinks = true
+  disableLandingPageButton = true
+  disableBreadcrumb = false
+  disableRootBreadcrumb = true
+
+[outputFormats]
+[outputFormats.htaccess]
+    baseName = ""
+    isPlainText = true
+    mediaType = "text/htaccess"
+
+[mediaTypes]
+  [mediaTypes."text/htaccess"]
+    suffixes = ["htaccess"]
