@@ -23,7 +23,7 @@ url = "tags/"
 weight = 40
 
 [params]
-  editURL = "https://github.com/tfredrich/RestApiTutorial.com/edit/hugo-refactor/content/"
+  editURL = "https://github.com/tfredrich/RestApiTutorial.com/edit/master/content/"
   author.name = "Todd Fredrich"
   collapsibleMenu = true
   titleSeparator = " - "
