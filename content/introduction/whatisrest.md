@@ -26,7 +26,7 @@ In other words, the caller (or client):
     * And usually has more JSON in the body.
 
 ## Example
-For example, say we wanted to search iTunes for RadioHead songs. We would call the iTunes Search API (See: https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/index.html).
+For example, say we wanted to search iTunes for RadioHead songs. We would call the iTunes Search API (See: https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/index.html ).
 
 We can use 'curl' on the command-line as follows. In this case all the query-string paremeters on the URL are simply telling the search API what term to search for (radiohead), how many results we want returned (3), and the type of media (music):
 ```bash
