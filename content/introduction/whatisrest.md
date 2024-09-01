@@ -13,7 +13,7 @@ Yep, that really is it. But there are a lot of nuances--read on to discover more
 {{% /notice %}}
 
 ## Defining REST
-Technically, REST is an acronym for "REpresentational State Transfer" which is simply an architectural style originally written about by Roy Fielding in his doctoral dissertation (see https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm). You can read more details about the six contraints here, but first I want to give you a brief overview of what people mean when they say "REST."
+Technically, REST is an acronym for "REpresentational State Transfer" which is simply an architectural style originally written about by Roy Fielding in his doctoral dissertation (see https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm ). You can read more details about the six constraints here, but first I want to give you a brief overview of what people mean when they say "REST."
 
 To be clear, the constraints in Roy Fielding's dissertation MUST be met in order for a service to be technically RESTful. And the REST constraints do not specify a communication protocol. However, at this point the term is used very loosely and in today's Internet world, RESTful almost always means an HTTP-based API. That means it operates in a request-response fashion over HTTP, usually using JSON as the data format in the request and response bodies. Though there are a lot of nuances, it's really just that simple!
 
