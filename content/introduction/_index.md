@@ -31,7 +31,7 @@ Continue to [What is REST?](/introduction/whatisrest.html)
     - Fine-Grained APIs
     - Links and Connectedness
 4. [HTTP Methods](/introduction/httpmethods.html)
-    - POST, GET, PUT, PATH, DELETE
+    - POST, GET, PUT, PATCH, DELETE
 5. [Resource Naming](/introduction/resourcenaming.html)
     - Collection Metaphor
 6. [Idempotence](/introduction/idempotence.html)
