@@ -1,9 +1,11 @@
 +++
 title = "Resources"
 weight = 50
+date = 2024-05-31T11:12:40-06:00
 +++
 ## Translations
 * [Russian](http://www.restapitutorial.ru/)
+* [Persian](http://www.restapitutorial.ir/)
 
 ## REST API Cheat Sheets
 * [API Design Cheat Sheet](https://github.com/RestCheatSheet/api-cheat-sheet#api-design-cheat-sheet) - This GitHub repository outlines important tips to consider when designing APIs that developers love.

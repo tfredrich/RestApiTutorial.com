@@ -1,6 +1,6 @@
 ---
 title: "The Six Constraints"
-date: 2022-06-07T08:22:06-06:00
+date: 2024-05-31T10:25:40-06:00
 weight: 15
 ---
 {{< youtube llpr5924N7E >}}
@@ -28,7 +28,7 @@ Aside from the description above, HATEOS also means that, where necessary, links
 The uniform interface that any REST services must provide is fundamental to its design.
 
 ## 2. Stateless
-As REST is an acronym for REpresentational State Transfer, statelessness is key. Essentially, what this means is that the necessary state to handle the request is contained within the request itself, whether as part of the URI, query-string parameters, body, or headers. The URI uniquely identifies the resource and the body contains the state (or state change) of that resource. Then after the server does it's processing, the appropriate state, or the piece(s) of state that matter, are communicated back to the client via headers, status and response body.
+As REST is an acronym for REpresentational State Transfer, statelessness is key. Essentially, what this means is that the necessary state to handle the request is contained within the request itself, whether as part of the URI, query-string parameters, body, or headers. The URI uniquely identifies the resource and the body contains the state (or state change) of that resource. Then after the server does its processing, the appropriate state, or the piece(s) of state that matter, are communicated back to the client via headers, status and response body.
 
 Most of us who have been in the industry for a while are accustomed to programming within a container which provides us with the concept of “session” which maintains state across multiple HTTP requests. In REST, the client must include all information for the server to fulfill the request, resending state as necessary if that state must span multiple requests. Statelessness enables greater scalability since the server does not have to maintain, update or communicate that session state. Additionally, load balancers don't have to worry about session affinity for stateless systems.
 

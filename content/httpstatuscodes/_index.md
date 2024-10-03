@@ -1,6 +1,7 @@
 +++
 title = "HTTP Status Codes"
 weight = 40
+date = 2024-05-31T10:25:40-06:00
 +++
 This page is created from HTTP status code information found at [ietf.org](https://www.ietf.org/assignments/http-status-codes/http-status-codes.xml) and [Wikipedia](https://en.wikipedia.org/wiki/HTTP_status_code). Click on the category heading or the status code link to read more.
 
@@ -546,6 +547,19 @@ This status code is not specified in any RFCs, but is used by some HTTP proxies 
 {{% expand "599 Network connect timeout error" %}}
 This status code is not specified in any RFCs, but is used by some HTTP proxies to signal a network connect timeout behind the proxy to a client in front of the proxy.
 {{% /expand %}}
+
+## Status Codes Triggering Retry
+Some of these HTTP status codes indicate temporary issues that may resolve over time, making them ideal candidates for automatic retries by a calling client. Implementing these retries enhances the resilience and reliability of distributed API systems.
+
+The HTTP status codes that should trigger an automatic retry include:
+- 408 (Request Timeout): The server took too long to respond. Retrying may help.
+- 429 (Too Many Requests): Indicates rate-limiting. Retry after the delay specified in the `Retry-After` header.
+- 500 (Internal Server Error): A server-side issue that may resolve itself. Retrying is optional.
+- 502 (Bad Gateway): Suggests a temporary network issue or service stack disruption that may self-correct.
+- 503 (Service Unavailable): Likely due to temporary service outages or in-progress deployments.
+- 504 (Gateway Timeout): A downstream server (e.g., DNS) didn’t respond in time. Retrying may resolve the issue.
+
+Implementing retries for these status codes (ideally with exponential back-off and retry limits) improves an application’s ability to handle network hiccups and temporary server errors.
 
 ---
 

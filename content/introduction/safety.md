@@ -1,6 +1,6 @@
 ---
 title: "Safety"
-date: 2023-10-17T16:03:17-06:00
+date: 2024-05-31T10:25:40-06:00
 weight: 60
 ---
 Safety is defined in the HTTP specification as a method that does not modify resources on the server. When a client makes a request using a safe method, it should not incur any side effects on the server.  The HTTP methods that are considered "safe" are GET, HEAD, OPTIONS, and TRACE.

@@ -1,6 +1,6 @@
 ---
 title: "HTTP Methods"
-date: 2022-06-07T16:31:51-06:00
+date: 2024-05-31T10:25:40-06:00
 weight: 30
 ---
 The HTTP verbs (or methods, as they are formally called) comprise a major portion of our “uniform interface” constraint and provide us the action counterpart to the noun-based resource. The primary or most-commonly-used HTTP verbs are POST, GET, PUT, PATCH, and DELETE. These correspond to create, read, update, and delete (or CRUD) operations, respectively. There are a number of other verbs, too, but are utilized less frequently. Of those less-frequent methods, OPTIONS and HEAD are used more often than others.
@@ -14,7 +14,7 @@ Below is a table summarizing recommended return values of the primary HTTP metho
 | GET       | Read | 200 (OK), list of customers. Use pagination, sorting and filtering to navigate big lists. | 200 (OK), single customer. 404 (Not Found), if ID not found or invalid. |
 | PUT       | Update/Replace | 405 (Method Not Allowed), unless you want to update/replace every resource in the entire collection. | 200 (OK) or 204 (No Content). 404 (Not Found), if ID not found or invalid. |
 | PATCH     | Update/Modify | 405 (Method Not Allowed), unless you want to modify the collection itself. Which is possible if operating on the collection as a whole. | 200 (OK) or 204 (No Content). 404 (Not Found), if ID not found or invalid. |
-| DELETE    | Delete | 405 (Method Not Allowed), unless you want to delete the whole collection—not often desirable. | 200 (OK). 404 (Not Found), if ID not found or invalid. |
+| DELETE    | Delete | 405 (Method Not Allowed), unless you want to delete the whole collection—not often desirable. | 200 (OK) or 204 (No Content). 404 (Not Found), if ID not found or invalid. |
 
 Below is a more-detailed discussion of the main HTTP methods.
 ## POST

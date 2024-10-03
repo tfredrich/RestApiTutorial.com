@@ -1,9 +1,0 @@
-//Rewrite to www
-Options +FollowSymLinks
-RewriteEngine on
-RewriteCond %{HTTP_HOST} ^restapitutorial.com[nc]
-RewriteRule ^(.*)$ http://www.restapitutorial.com/$1 [r=301,nc]
-
-//301 Redirect Old File
-Redirect 301 https://www.restapitutorial.com/lessons/restquicktips.html https://www.restapitutorial.com/introduction/restquicktips.html
-Redirect 301 https://www.restapitutorial.com/lessons/restquicktips.html http://www.restapitutorial.com/introduction/restquicktips.html
