@@ -9,9 +9,10 @@ collapsibleMenu = true
 
 ![7 Pillars](images/seven_pillars.jpeg "Seven Pillars")
 
-__COMING SOON!__ Stay Tuned as we begin our journey in designing exquisite RESTful APIs that consumers love and developers can maintain.
+Let's continue a deeper journey in designing exquisite RESTful APIs that consumers love and developers can maintain!
 
 ## Introducing the Seven Pillars of Advanced API Design
+
 API design can be broken down into seven essential pillars. These pillars provide a comprehensive framework for designing robust, scalable, and maintainable APIs.
 
 The seven pillars of API design are:
@@ -33,4 +34,4 @@ The final pillar focuses on ensuring the security and integrity of the API, incl
 8. __\*BONUS\* Documentation:__
 This forgotten pillar encompasses them all by wrapping it all up in a neat package complete with bow! In fact, tools like OpenAPI enable documentation- or design-first for all of these concepts.
 
-By understanding and implementing these seven pillars, you'll be well on your way to designing a robust, scalable, and maintainable API that makes consumers happy.
+By understanding and implementing these pillars, you'll be well on your way to designing a robust, scalable, and maintainable API that makes consumers happy.
