@@ -68,7 +68,7 @@ Suggested usages for the "Top 10" HTTP Response Status Codes are as follows:
 ## Support JSON
 Favor JSON support unless you're in a highly-standardized and regulated industry that requires XML, schema validation and namespaces. If you must provide both JSON and XML let consumers switch between formats using the HTTP `Accept` header: `application/json` or `application/xml`.
 
-Be aware that as soon as we start talking about XML support, we start talking about schemas for validation, namespaces, etc. Unless required by your industry, avoid supporting all that complexity initially, if ever. JSON is designed to be simple, fairly terse and functional.
+Be aware that as soon as we start talking about XML support, we start talking about schemas for validation, namespaces, etc. and a more-than doubling of the test surface. Unless required by your industry, avoid supporting all that complexity initially, if ever. JSON is designed to be simple, fairly terse and functional.
 
 ## Create Fine-Grained Resources
 When starting out, it's best to create APIs that mimic the underlying application domain or database architecture of your system. Eventually, you'll want aggregate services that utilize multiple underlying resources to reduce chattiness. However, it's much easier to create larger resources later from individual resources than it is to create fine-grained or individual resources from larger aggregates. Make it easy on yourself and start with small, easily defined resources, providing CRUD functionality on those. You can create those use-case-oriented, chattiness-reducing resources later.

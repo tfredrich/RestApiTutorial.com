@@ -809,29 +809,4 @@ The 207 (Multi-Status) status code provides status for multiple independent oper
 </status-section>
 <link rel="stylesheet" href="status-styles.css">
 
-<h2>Status Codes Triggering Retry</h2>
-<p>Some of these HTTP status codes indicate temporary issues that may resolve over time, making them ideal candidates for automatic retries by a calling client. Implementing these retries enhances the resilience and reliability of distributed API systems.</p>
-<p>The HTTP status codes that should trigger an automatic retry include:</p>
-<ul>
-    <li><strong>408 (Request Timeout):</strong> The server took too long to respond. Retrying may help.</li>
-    <li><strong>429 (Too Many Requests):</strong> Indicates rate-limiting. Retry after the delay specified in the Retry-After header.</li>
-    <li><strong>500 (Internal Server Error):</strong> A server-side issue that may resolve itself. Retrying is optional.</li>
-    <li><strong>502 (Bad Gateway):</strong> Suggests a temporary network issue or service stack disruption that may self-correct.</li>
-    <li><strong>503 (Service Unavailable):</strong> Likely due to temporary service outages or in-progress deployments.</li>
-    <li><strong>504 (Gateway Timeout):</strong> A downstream server (e.g., DNS) didn't respond in time. Retrying may resolve the issue.</li>
-</ul>
-<p>Implementing retries for these status codes (ideally with exponential back-off and retry limits) improves an application's ability to handle network hiccups and temporary server errors.</p>
-
-<h2>Status Codes That Should Not Trigger Retry</h2>
-<p>These HTTP status codes represent permanent errors or client-side issues that retries cannot resolve. In such cases, automatically retrying the request leads to unnecessary resource consumption or even worsen the situation. These include:</p>
-
-<ul>
-    <li><strong>400 (Bad Request):</strong> The client sent an invalid request. Retrying the same request will not resolve the issue.</li>
-    <li><strong>401 (Unauthorized):</strong> Authentication is required or failed. Retrying without fixing the authentication issue will not help.</li>
-    <li><strong>403 (Forbidden):</strong> The client lacks permission to access the resource. Retrying will not change the server's response.</li>
-    <li><strong>404 (Not Found):</strong> The requested resource does not exist. Retrying will not succeed <em>unless the resource becomes available later.</em></li>
-    <li><strong>405 (Method Not Allowed):</strong> The HTTP method used is not supported. Retrying with the same method will not resolve the issue.</li>
-    <li><strong>409 (Conflict):</strong> Indicates a conflict in the request. Retrying without addressing the conflict will fail.</li>
-    <li><strong>422 (Unprocessable Entity):</strong> The server understands the request but cannot process it due to semantic errors. Retrying without fixing the input will not help.</li>
-</ul>
-<p>For these status codes, client-side adjustments or corrections are required before reattempting the request.</p>
+See also: <a href="/advanced/responses/retries.html">HTTP Status Codes and Retry</a>
