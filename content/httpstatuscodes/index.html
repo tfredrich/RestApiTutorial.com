@@ -801,6 +801,7 @@ The 207 (Multi-Status) status code provides status for multiple independent oper
         </details>
     </status-article>
 </status-section>
+<hr>
 <status-section>
     <div>
         <p><i class="icon-star"></i> <strong>&quot;Top 10&quot;</strong> HTTP Status Code. More REST service-specific information is contained in the entry.</p>
@@ -808,3 +809,15 @@ The 207 (Multi-Status) status code provides status for multiple independent oper
 </status-section>
 <link rel="stylesheet" href="status-styles.css">
 
+<h2>Status Codes Triggering Retry</h2>
+<p>Some of these HTTP status codes indicate temporary issues that may resolve over time, making them ideal candidates for automatic retries by a calling client. Implementing these retries enhances the resilience and reliability of distributed API systems.</p>
+<p>The HTTP status codes that should trigger an automatic retry include:</p>
+<ul>
+    <li>408 (Request Timeout): The server took too long to respond. Retrying may help.</li>
+    <li>429 (Too Many Requests): Indicates rate-limiting. Retry after the delay specified in the Retry-After header.</li>
+    <li>500 (Internal Server Error): A server-side issue that may resolve itself. Retrying is optional.</li>
+    <li>502 (Bad Gateway): Suggests a temporary network issue or service stack disruption that may self-correct.</li>
+    <li>503 (Service Unavailable): Likely due to temporary service outages or in-progress deployments.</li>
+    <li>504 (Gateway Timeout): A downstream server (e.g., DNS) didn't respond in time. Retrying may resolve the issue.</li>
+</ul>
+<p>Implementing retries for these status codes (ideally with exponential back-off and retry limits) improves an application's ability to handle network hiccups and temporary server errors.</p>
