@@ -22,7 +22,7 @@ As humans are still involved in API consumption, well-structured URLs are the fo
 This pillar deals with the structure and format of the data being exchanged between clients and the API, including JSON data and nuances of the payload design.
 3. __Requests:__
 API requests define how clients interact with the API, including HTTP methods, query parameters, and working with collections of data.
-4. __Responses:__
+4. [__Responses:__](responses.html)
 Covers the structure and content of API responses, including asynchronous vs syncronous behavior, response codes, error handling and caching.
 5. __Content-Type Negotiation:__
 This pillar is about use of standard content-types like `application/json`, different data formats on single resources, and bulk operations.
