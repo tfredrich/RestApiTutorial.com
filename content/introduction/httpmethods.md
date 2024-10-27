@@ -18,7 +18,7 @@ Below is a table summarizing recommended return values of the primary HTTP metho
 
 Below is a more-detailed discussion of the main HTTP methods.
 ## POST
-The POST verb is most-often utilized to *create* new a resource. In particular, it's used to create subordinate resources. That is, subordinate to some other (e.g. parent) resource. In other words, when creating a new resource, POST to the parent and the service takes care of associating the new resource with the parent, assigning an ID (new resource URI), etc.
+The POST verb is most-often utilized to *create* a new resource. In particular, it's used to create subordinate resources. That is, subordinate to some other (e.g. parent) resource. In other words, when creating a new resource, POST to the parent and the service takes care of associating the new resource with the parent, assigning an ID (new resource URI), etc.
 
 On successful creation, return HTTP status 201, returning a Location header with a link to the newly-created resource with the 201 HTTP status.
 
