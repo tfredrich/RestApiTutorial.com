@@ -18,9 +18,9 @@ GenAI systems typically call APIs in one of three ways:
 - Actions. The model performs state-changing operations like creating tickets, placing orders, or updating profiles.
 - Orchestration. An agent chains multiple API calls to complete a goal, often across systems.
 
-This is not fundamentally different from traditional clients, but the client is probabilistic. That puts a premium on unambiguous APIs, clear error semantics, and good security.
+This is not fundamentally different from traditional clients, but now the client is probabilistic. This puts a premium on unambiguous APIs, clear error semantics, and good security.
 
-## API Design Choices that Help LLMs
+## API Design Choices That Help LLMs
 
 ### Clear, Stable Identifiers
 
@@ -64,3 +64,15 @@ Agents can fail in novel ways. Add instrumentation that lets you see:
 - How often the agent retries or abandons a flow.
 
 This feedback loop makes it possible to improve both the model prompts and the APIs they rely on.
+
+## Documentation is Critical (Especially for MCP Access)
+
+Clear documentation is no longer optional when LLMs or agents are involved. It is how tools like MCP gain reliable access to your APIs. An OpenAPI specification provides the "what" of each endpoint, but successful agent behavior depends just as much on the "when" and the "why."
+
+### Include Order of Precedence
+Document when to call an API by describing ordering and preconditions. If an agent must create a customer before creating an order, say so explicitly. If an endpoint should only be called after a verification step, document that sequence and the required state transitions.
+
+### Describe "Why" vs What it Does
+Document why to call an API by explaining the intent and expected outcomes. For example, clarify the business purpose of an "approve" action, what side effects occur, and how it differs from a "submit" action. This reduces confusion between similar endpoints and helps agents choose the right tool.
+
+OpenAPI descriptions should include practical guidance: required prerequisites, recommended call order, and the decision logic for picking one endpoint over another. That context is essential for MCP-based tool selection and safe automation.
