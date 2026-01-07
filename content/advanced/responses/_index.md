@@ -1,6 +1,5 @@
 ---
 title: "Responses"
-date: 2024-10-15T17:10:21-06:00
 draft: false
 ---
 

@@ -2,7 +2,6 @@
 archetype = "home"
 title = "Learn REST API Design"
 description = "Learn REST API Design"
-date = 2024-05-31T10:25:40-06:00
 +++
 REST (Representational State Transfer) APIs have revolutionized the way developers build and integrate web services, enabling seamless communication between systems and applications.
 

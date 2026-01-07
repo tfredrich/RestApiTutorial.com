@@ -1,7 +1,6 @@
 +++
 title = "Resources"
 weight = 50
-date = 2024-05-31T11:12:40-06:00
 +++
 ## Translations
 * [Russian](http://www.restapitutorial.ru/)

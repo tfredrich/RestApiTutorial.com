@@ -3,7 +3,6 @@ archetype="chapter"
 menuPre = "<b>2. </b>"
 title = "Advanced API Design"
 weight = 2
-date = 2024-05-31T10:25:40-06:00
 collapsibleMenu = true
 +++
 

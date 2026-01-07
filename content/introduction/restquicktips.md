@@ -1,6 +1,5 @@
 ---
 title: "REST Quick Tips"
-date: 2024-05-31T10:25:40-06:00
 weight: 20
 ---
 Whether it's technically RESTful or not (according to the six constraints mentioned previously), here are a few recommended REST-like concepts. These six quick tips will result in better, more usable services.

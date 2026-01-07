@@ -1,6 +1,5 @@
 ---
 title: "The Six Constraints"
-date: 2024-05-31T10:25:40-06:00
 weight: 15
 ---
 {{< youtube llpr5924N7E >}}

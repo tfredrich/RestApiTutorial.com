@@ -1,6 +1,5 @@
 ---
 title: "What is REST?"
-date: 2024-05-31T10:25:40-06:00
 weight: 10
 ---
 ## Overview

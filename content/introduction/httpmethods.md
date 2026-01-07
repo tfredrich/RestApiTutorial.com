@@ -1,6 +1,5 @@
 ---
 title: "HTTP Methods"
-date: 2024-05-31T10:25:40-06:00
 weight: 30
 ---
 The HTTP verbs (or methods, as they are formally called) comprise a major portion of our “uniform interface” constraint and provide us the action counterpart to the noun-based resource. The primary or most-commonly-used HTTP verbs are POST, GET, PUT, PATCH, and DELETE. These correspond to create, read, update, and delete (or CRUD) operations, respectively. There are a number of other verbs, too, but are utilized less frequently. Of those less-frequent methods, OPTIONS and HEAD are used more often than others.

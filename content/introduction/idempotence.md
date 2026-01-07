@@ -1,6 +1,5 @@
 ---
 title: "Idempotence"
-date: 2024-05-31T10:25:40-06:00
 weight: 50
 ---
 {{< youtube 6dVNdFwqeKs >}}

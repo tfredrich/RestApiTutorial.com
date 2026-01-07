@@ -3,7 +3,6 @@ archetype = "chapter"
 menuPre = "<b>1. </b>"
 title = "Introduction"
 weight = 1
-date = 2024-05-31T10:25:40-06:00
 +++
 Quickly learn the basics of what REST is and the core concepts behind it.
 

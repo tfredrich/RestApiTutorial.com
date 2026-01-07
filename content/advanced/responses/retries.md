@@ -1,6 +1,5 @@
 ---
 title: "HTTP Status Codes and Retry"
-date: 2024-10-15T10:25:40-06:00
 weight: 10
 ---
 ## Status Codes Triggering Retry</h2>
