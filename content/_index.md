@@ -4,9 +4,6 @@ title = "Learn REST API Design"
 description = "Learn REST API Design"
 date = 2024-05-31T10:25:40-06:00
 +++
-
-![Design Tools](images/design_tools.jpg "Design Tools")
-
 REST (Representational State Transfer) APIs have revolutionized the way developers build and integrate web services, enabling seamless communication between systems and applications.
 
 With the increasing demand for web-based solutions, understanding RESTful APIs has become a crucial skill for developers, engineers, and architects. Rest API Tutorial provides tutorials, examples, and resources to help you master the art (and science) of building and consuming REST APIs.

@@ -2,22 +2,18 @@ body.main-width-max #R-body .flex-block-wrapper {
 max-width: 1170px;
 width: 100%;
 }
-
 status-article {
   display: inline flex;
   flex-wrap: wrap;
   width: 370px;
   vertical-align:top;
 }
-
 status-section {
   width: 100%;
 }
-
 status-section > details {
   padding: 10px;
 }
-
 status-section > details > summary {
     font-size: 26px;
     font-weight: bold;
@@ -25,32 +21,25 @@ status-section > details > summary {
     text-decoration: underline;
     cursor: pointer;
 }
-
 status-section > details[open] > summary {
   padding-bottom: 10px;
 }
-
 status-section > status-article > details[open] {
   padding-bottom: 20px;
 }
-
 status-section > status-article > details > summary {
   color: #08c;
   text-decoration: underline;
   cursor: pointer;
 }
-
 i.icon-star:before { 
   color: #a00;
   font-size: 16px;
   font-style: normal;
   content: "\2605"; 
 }
-
 blockquote {
   border-left: 5px solid #eee;
 }
-
 ::marker{ display:none; } 
-
 summary{ list-style: none }

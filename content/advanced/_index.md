@@ -7,7 +7,7 @@ date = 2024-05-31T10:25:40-06:00
 collapsibleMenu = true
 +++
 
-![7 Pillars](images/seven_pillars.jpeg "Seven Pillars")
+![7 Pillars](images/seven_pillars.webp "Seven Pillars")
 
 Let's continue a deeper journey in designing exquisite RESTful APIs that consumers love and developers can maintain!
 
