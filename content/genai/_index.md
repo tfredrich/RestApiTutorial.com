@@ -70,9 +70,28 @@ This feedback loop makes it possible to improve both the model prompts and the A
 Clear documentation is no longer optional when LLMs or agents are involved. It is how tools like MCP gain reliable access to your APIs. An OpenAPI specification provides the "what" of each endpoint, but successful agent behavior depends just as much on the "when" and the "why."
 
 ### Include Order of Precedence
+
 Document when to call an API by describing ordering and preconditions. If an agent must create a customer before creating an order, say so explicitly. If an endpoint should only be called after a verification step, document that sequence and the required state transitions.
 
 ### Describe "Why" vs What it Does
+
 Document why to call an API by explaining the intent and expected outcomes. For example, clarify the business purpose of an "approve" action, what side effects occur, and how it differs from a "submit" action. This reduces confusion between similar endpoints and helps agents choose the right tool.
+
+### Include Precise Schemas
+
+OpenAPI specifications can include JSON schema for requests and responses for each API resource (or path). Treat those schemas as executable contracts, not just documentation. LLMs make fewer mistakes when every field is defined with type, format, and constraints.
+
+Include the details that humans often gloss over:
+
+- Pay attention to how payload requirements differ for the HTTP methods: `POST`, `PUT`, `PATCH`, `GET`, etc.
+- Required vs optional fields. Mark required properties explicitly and avoid "optional unless otherwise noted."
+- Read-only, write-only vs editable fields. Mark read-only (like system-generated identifiers) and write-only properties explicity with `"readOnly": true` and `"writeOnly": true`
+- Allowed values. Use enums for states, kinds, and types rather than free-form strings.
+- String constraints. Add `pattern`, `minLength`, and `maxLength` where relevant (emails, IDs, slugs).
+- Numeric constraints. Specify `minimum`, `maximum`, and units for quantities like prices and durations.
+- Object shape. Lock down `additionalProperties` when unknown keys are invalid.
+- Nullability. Be explicit about when `null` is allowed, not just missing.
+
+Provide at least one example payload per request and response, and align it exactly with the schema. If the payload differs by scenario (success vs validation error), include both examples and reference them in the schema section.
 
 OpenAPI descriptions should include practical guidance: required prerequisites, recommended call order, and the decision logic for picking one endpoint over another. That context is essential for MCP-based tool selection and safe automation.
