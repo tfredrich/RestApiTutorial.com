@@ -1,0 +1,62 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does HTTP 429 mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "429 Too Many Requests means the client is being rate limited. REST APIs should return a Retry-After header to indicate when to try again."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between 401 and 403?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "401 Unauthorized means authentication is missing or invalid. 403 Forbidden means authentication succeeded but the client lacks permission."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When should I use 400 vs 422?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "400 Bad Request is a generic client error for malformed or invalid requests. 422 Unprocessable Entity is more specific for semantic validation errors when the request is well-formed but fails business rules."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does HTTP 204 mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "204 No Content indicates the request succeeded and the response body is intentionally empty, common for DELETE or successful updates."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between 500 and 503?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "500 Internal Server Error is an unexpected server failure. 503 Service Unavailable means the service is temporarily unable to handle requests, often with a Retry-After header."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which status codes should trigger retries?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Common retry candidates are 408, 429, 500, 502, 503, and 504, usually with exponential backoff and respect for Retry-After headers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between 301 and 307 redirects?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "301 Moved Permanently can change POST to GET in practice, while 307 Temporary Redirect requires the client to repeat the same method and body."
+      }
+    }
+  ]
+}
