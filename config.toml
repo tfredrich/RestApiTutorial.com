@@ -1,7 +1,7 @@
-baseURL = 'http://restapitutorial.com/'
+baseURL = 'https://restapitutorial.com/'
 languageCode = 'en-us'
 title = 'REST API Tutorial'
-description = "Foo bar"
+description = "Learn REST API basics, HTTP methods, status codes, and best practices with clear tutorials and examples."
 uglyURLs = true
 #
 # Change the default theme to hugo-theme-relearn
