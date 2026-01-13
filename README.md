@@ -2,6 +2,10 @@
 
 Hugo source for www.RestApiTutorial.com. This repo also contains the downloadable formats (PDF/ePub/Mobi/ODT) for the RESTful Best Practices document.
 
+Key pages:
+- [REST API Tutorial](https://restapitutorial.com/)
+- [HTTP Status Codes](https://restapitutorial.com/httpstatuscodes.html)
+
 Project layout highlights:
 - `content/` holds Hugo pages and section indexes.
 - `layouts/` contains site-specific theme overrides.
