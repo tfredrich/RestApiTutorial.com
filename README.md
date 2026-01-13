@@ -21,6 +21,25 @@ Run the site locally:
 ./bin/hugo server -D
 ```
 
+Ad placement notes:
+- Top ads render in `layouts/partials/heading-pre.html`, which preserves `headingPre` front matter and inserts the ad unless disabled.
+- Bottom ads render in `layouts/partials/content.html` unless disabled.
+- Ad units read from `params.adsense` in `config.toml`:
+
+```toml
+[params.adsense]
+  client = "ca-pub-2093481943685202"
+  topSlot = "YOUR_TOP_SLOT_ID"
+  bottomSlot = "YOUR_BOTTOM_SLOT_ID"
+```
+- Disable ads per page with front matter:
+
+```yaml
+headingPre: "<span>Optional custom HTML before the title</span>"
+disableTopAd: true
+disableBottomAd: true
+```
+
 Download Hugo 0.147.7 into `tools/hugo` (macOS):
 
 ```bash

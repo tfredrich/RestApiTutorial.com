@@ -1,0 +1,5 @@
+{{- .Content }}
+
+{{- if not .Params.disableBottomAd }}
+  {{- partial "google/adsense-bottom.html" . -}}
+{{- end }}

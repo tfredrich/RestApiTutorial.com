@@ -1,0 +1,17 @@
+{{- $client := site.Params.adsense.client | default "" }}
+{{- $slot := site.Params.adsense.bottomSlot | default "" }}
+{{- if and $client $slot }}
+<div class="adsense adsense-bottom">
+  <ins class="adsbygoogle"
+    style="display:block"
+    data-ad-client="{{ $client }}"
+    data-ad-slot="{{ $slot }}"
+    data-ad-format="horizontal"
+    data-full-width-responsive="true"></ins>
+</div>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+{{- else }}
+  {{- warnf "AdSense bottom ad not rendered; set params.adsense.client and params.adsense.bottomSlot" }}
+{{- end }}

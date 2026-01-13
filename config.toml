@@ -32,6 +32,10 @@ weight = 40
   disableLandingPageButton = true
   disableBreadcrumb = false
   disableRootBreadcrumb = true
+  [params.adsense]
+    client = "ca-pub-2093481943685202"
+    topSlot = "4845828438"
+    bottomSlot = "2925243244"
 
 [outputFormats]
 [outputFormats.htaccess]

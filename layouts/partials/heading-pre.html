@@ -1,0 +1,7 @@
+{{- with .Params.headingPre }}
+  {{- . | safeHTML }}
+{{- end }}
+
+{{- if not .Params.disableTopAd }}
+  {{- partial "google/adsense-top.html" . -}}
+{{- end }}
