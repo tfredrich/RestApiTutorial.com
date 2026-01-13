@@ -42,9 +42,6 @@ status-section > details > summary {
     text-decoration: underline;
     cursor: pointer;
 }
-status-section > status-article > details[open] {
-  background-color: #f9f9f9;
-}
 status-section > status-article > details > summary {
   color: #08c;
   text-decoration: underline;
