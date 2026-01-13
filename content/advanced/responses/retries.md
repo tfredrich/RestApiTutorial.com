@@ -4,11 +4,11 @@ description: "Which HTTP status codes should trigger automatic retries in API cl
 summary: "Which HTTP status codes should trigger retries."
 weight: 10
 ---
-## Status Codes Triggering Retry</h2>
+## Status codes triggering retry
 
-Some HTTP status codes indicate temporary issues that may resolve over time, making them ideal candidates for automatic retries by a calling client. Implementing these retries enhances the resilience and reliability of distributed API systems.</p>
+Some HTTP status codes indicate temporary issues that may resolve over time, making them ideal candidates for automatic retries by a calling client. Implementing these retries enhances the resilience and reliability of distributed API systems.
 
-The HTTP status codes that should trigger an automatic retry include:</p>
+The HTTP status codes that should trigger an automatic retry include:
 
 - **408 (Request Timeout):** The server took too long to respond. Retrying may help.
 - **429 (Too Many Requests):** Indicates rate-limiting. Retry after the delay specified in the _Retry-After_ header.
@@ -19,9 +19,9 @@ The HTTP status codes that should trigger an automatic retry include:</p>
 
 Implementing retries for these status codes (ideally with exponential back-off and retry limits) improves an application's ability to handle network hiccups and temporary server errors. The trade-off is additional latency. API gateways and other elements of the stack may limit how long a client can wait.
 
-## Status Codes That Should Not Trigger Retry
+## Status codes that should not trigger retry
 
-Some HTTP status codes represent permanent errors or client-side issues that automatic retries cannot resolve. In such cases, automatically retrying the request leads to unnecessary resource consumption or even worsen the situation. These include:</p>
+Some HTTP status codes represent permanent errors or client-side issues that automatic retries cannot resolve. In such cases, automatically retrying the request leads to unnecessary resource consumption or even worsen the situation. These include:
 
 - **400 (Bad Request):** The client sent an invalid request. Fix the issue in the request before trying again.
 - **401 (Unauthorized):** Authentication is required or failed. Fix the authentication issue before trying again (e.g. get a fresh token).

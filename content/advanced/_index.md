@@ -10,7 +10,7 @@ images:
   - /images/logo.webp
 ---
 
-![7 Pillars](images/seven_pillars.webp "Seven Pillars")
+![7 Pillars](/images/seven_pillars.webp "Seven Pillars")
 
 Let's continue a deeper journey in designing exquisite RESTful APIs that consumers love and developers can maintain!
 
