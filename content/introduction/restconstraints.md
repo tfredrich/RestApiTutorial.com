@@ -1,6 +1,10 @@
 ---
 title: "The Six Constraints"
+description: "The six REST constraints explained with practical context for designing RESTful APIs."
+summary: "The six REST constraints in brief."
 weight: 15
+images:
+  - /images/logo.webp
 ---
 {{< youtube llpr5924N7E >}}
 

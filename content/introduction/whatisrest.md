@@ -1,6 +1,10 @@
 ---
 title: "What is REST?"
+description: "Plain-English explanation of REST and RESTful APIs, including the core ideas and how HTTP fits in."
+summary: "Intro to REST and RESTful APIs."
 weight: 10
+images:
+  - /images/logo.webp
 ---
 ## Overview
 The term RESTful APIs or RESTful services is a hot topic. So what is REST? And how do we create a so-called RESTful API? Good question! Let's talk about this often misunderstood phrase...

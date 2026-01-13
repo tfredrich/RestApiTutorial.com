@@ -1,8 +1,11 @@
-+++
-archetype = "home"
-title = "Learn REST API Design"
-description = "Learn REST API Design"
-+++
+---
+archetype: "home"
+title: "REST API Tutorial"
+description: "REST API tutorial covering design, HTTP methods, status codes, and best practices for building RESTful APIs."
+summary: "Learn REST API design with clear guidance on methods, status codes, and constraints."
+images:
+  - /images/logo.webp
+---
 REST (Representational State Transfer) APIs have revolutionized the way developers build and integrate web services, enabling seamless communication between systems and applications.
 
 {{% notice tip "Generative AI, Agentic AI, and APIs" %}}

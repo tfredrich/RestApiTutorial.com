@@ -1,5 +1,7 @@
 ---
 title: "Responses"
+description: "How REST APIs should structure responses, status codes, headers, and bodies."
+summary: "How REST APIs should structure responses and status codes."
 draft: false
 ---
 

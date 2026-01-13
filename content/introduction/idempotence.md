@@ -1,6 +1,10 @@
 ---
 title: "Idempotence"
+description: "What idempotence means for REST APIs and how it applies to HTTP methods."
+summary: "Idempotence explained for HTTP methods."
 weight: 50
+images:
+  - /images/logo.webp
 ---
 {{< youtube 6dVNdFwqeKs >}}
 

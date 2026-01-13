@@ -1,10 +1,14 @@
-+++
-archetype="chapter"
-menuPre = "<b>2. </b>"
-title = "Advanced API Design"
-weight = 2
-collapsibleMenu = true
-+++
+---
+archetype: "chapter"
+menuPre: "<b>2. </b>"
+title: "Advanced API Design"
+description: "Advanced REST API design topics including responses, caching, relationships, and security."
+summary: "Overview of advanced REST API design pillars."
+weight: 2
+collapsibleMenu: true
+images:
+  - /images/logo.webp
+---
 
 ![7 Pillars](images/seven_pillars.webp "Seven Pillars")
 

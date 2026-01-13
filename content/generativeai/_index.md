@@ -1,10 +1,14 @@
-+++
-archetype="chapter"
-menuPre = "<b>3. </b>"
-title = "Generative AI"
-weight = 3
-collapsibleMenu = true
-+++
+---
+archetype: "chapter"
+menuPre: "<b>3. </b>"
+title: "Generative AI"
+description: "How to design REST APIs that work well with LLMs and agentic workflows."
+summary: "Guidance on designing APIs for LLM and agent clients."
+weight: 3
+collapsibleMenu: true
+images:
+  - /images/logo.webp
+---
 
 You would have to be living under a rock (and never leave) these days to not hear about the "transformative impact" of generative AI (GenAI) on everything under the sun. APIs have long been the interfaces for business operations and data. That does not change with the advent of AI. They remain the conduit for large language models (LLMs) and agentic systems to access business data, systems, and operations in a secure, efficient manner.
 

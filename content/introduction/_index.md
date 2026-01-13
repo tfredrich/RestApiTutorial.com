@@ -1,9 +1,13 @@
-+++
-archetype = "chapter"
-menuPre = "<b>1. </b>"
-title = "Introduction"
-weight = 1
-+++
+---
+archetype: "chapter"
+menuPre: "<b>1. </b>"
+title: "Introduction"
+description: "Learn the REST API basics, including what REST is, HTTP methods, resource naming, idempotence, and safety."
+summary: "REST API basics and chapter overview."
+weight: 1
+images:
+  - /images/logo.webp
+---
 Quickly learn the basics of what REST is and the core concepts behind it.
 
 {{% notice tip "Here's a Quick Tip!" %}}

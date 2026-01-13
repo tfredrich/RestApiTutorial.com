@@ -1,6 +1,10 @@
 ---
 title: "Resource Naming"
+description: "Best practices for naming REST API resources and designing intuitive, predictable URIs."
+summary: "Tips for REST resource naming and URI design."
 weight: 40
+images:
+  - /images/logo.webp
 ---
 In addition to utilizing the HTTP verbs appropriately, resource naming is arguably the most debated and most important concept to grasp when creating an understandable, easily leveraged Web service API. When resources are named well, an API is intuitive and easy to use. Done poorly, that same API can feel klutzy and be difficult to use and understand. Below are a few tips to get you going when creating the resource URIs for your new API.
 

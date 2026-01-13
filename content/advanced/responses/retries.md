@@ -1,5 +1,7 @@
 ---
 title: "HTTP Status Codes and Retry"
+description: "Which HTTP status codes should trigger automatic retries in API clients."
+summary: "Which HTTP status codes should trigger retries."
 weight: 10
 ---
 ## Status Codes Triggering Retry</h2>

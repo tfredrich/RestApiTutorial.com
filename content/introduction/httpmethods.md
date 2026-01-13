@@ -1,6 +1,10 @@
 ---
 title: "HTTP Methods"
+description: "How REST APIs use HTTP methods (GET, POST, PUT, PATCH, DELETE) with recommended status codes."
+summary: "HTTP methods and recommended REST API usage."
 weight: 30
+images:
+  - /images/logo.webp
 ---
 The HTTP verbs (or methods, as they are formally called) comprise a major portion of our “uniform interface” constraint and provide us the action counterpart to the noun-based resource. The primary or most-commonly-used HTTP verbs are POST, GET, PUT, PATCH, and DELETE. These correspond to create, read, update, and delete (or CRUD) operations, respectively. There are a number of other verbs, too, but are utilized less frequently. Of those less-frequent methods, OPTIONS and HEAD are used more often than others.
 

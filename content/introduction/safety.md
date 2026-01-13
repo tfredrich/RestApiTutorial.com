@@ -1,6 +1,10 @@
 ---
 title: "Safety"
+description: "Safe HTTP methods in REST APIs and why GET/HEAD/OPTIONS/TRACE should not modify data."
+summary: "Safe HTTP methods and why they matter."
 weight: 60
+images:
+  - /images/logo.webp
 ---
 Safety is defined in the HTTP specification as a method that does not modify resources on the server. When a client makes a request using a safe method, it should not incur any side effects on the server.  The HTTP methods that are considered "safe" are GET, HEAD, OPTIONS, and TRACE.
 

@@ -1,7 +1,11 @@
-+++
-title = "Resources"
-weight = 50
-+++
+---
+title: "Resources"
+description: "REST API resources, best practices guides, cheat sheets, and related links."
+summary: "Links to REST API guides, cheat sheets, and translations."
+weight: 50
+images:
+  - /images/logo.webp
+---
 ## Translations
 * [Russian](http://www.restapitutorial.ru/)
 * [Persian](http://www.restapitutorial.ir/)
