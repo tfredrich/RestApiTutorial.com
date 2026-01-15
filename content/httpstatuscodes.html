@@ -1,24 +1,31 @@
 ---
 title: "HTTP Status Codes"
-description: "Complete HTTP status codes list with REST API guidance, meanings, and examples for 1xx to 5xx responses."
-summary: "REST-focused HTTP status code reference with practical usage tips."
+description: "Complete HTTP status codes list (1xx to 5xx) with REST API guidance, and meanings."
+summary: "HTTP response codes reference for REST APIs with practical usage tips."
 weight: 40
 images:
   - /images/logo.webp
 ---
 <link rel="stylesheet" href="/status-styles.css">
 <status-section>
-    <p>This page is created from HTTP status code information found at <a href="https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml" target="_blank">ietf.org</a> and <a href="https://en.wikipedia.org/wiki/HTTP_status_code" target="_blank">Wikipedia</a>.</p>
     <p>Click on the <strong>category heading</strong> or the <strong>status code</strong> link to read more.</p>
 </status-section>
 <status-section>
     <details>
-        <summary>1xx Informational</summary>
-        <div>
-            <p>This class of status code indicates a provisional response, consisting only of the Status-Line and optional headers, and is terminated by an empty line. There are no required headers for this class of status code. Since `HTTP/1.0` did not define any `1xx` status codes, servers MUST NOT send a `1xx` response to an `HTTP/1.0` client except under experimental conditions.</p>
-            <p>A client MUST be prepared to accept one or more <code>1xx</code> status responses prior to a regular response, even if the client does not expect a <code>100 (Continue)</code> status message. Unexpected <code>1xx</code> status responses MAY be ignored by a user agent.</p>
-            <p>Proxies MUST forward <code>1xx</code> responses, unless the connection between the proxy and its client has been closed, or unless the proxy itself requested the generation of the <code>1xx</code> response. (For example, if a proxy adds a <code>Expect: 100-continue</code> field when it forwards a request, then it need not forward the corresponding <code>100 (Continue)</code> response(s).)</p>
-        </div>
+        <summary>1xx - Informational</summary>
+        <p>
+            <strong>1xx (Informational)</strong> status codes represent temporary,
+            non-final responses in a REST API. They indicate that the request has been
+            received and is being processed, but that no outcome has been determined yet.
+        </p>
+
+        <p>
+            In practice, <code>1xx</code> status codes are uncommon in REST APIs and are
+            typically used only for transport-level flow control rather than application
+            semantics. REST API clients should rely on the final <code>2xx</code>,
+            <code>4xx</code>, or <code>5xx</code> response to determine the outcome of a
+            request.
+        </p>
     </details>
 </status-section>
 <status-section>
@@ -60,9 +67,31 @@ images:
 </status-section>
 <status-section>
     <details>
-        <summary>2xx Success</summary>
-        <p>This class of status codes indicates the action requested by the client was received, understood, accepted, and processed successfully.</p>
-    </details>
+        <summary>2xx - Success</summary>
+        <p>
+            <strong>2xx (Success)</strong> status codes indicate that a REST API request
+            was successfully received, validated, and processed by the server.
+        </p>
+
+        <p>
+            A <code>2xx</code> response represents a completed request and conveys the
+            outcome of the operation. Depending on the specific status code, the
+            response may include a representation of a resource, metadata about the
+            operation, or no response body at all.
+        </p>
+
+        <p>
+            REST APIs should use the most specific <code>2xx</code> status code available
+            to clearly communicate the result of the request (for example,
+            <code>200 OK</code>, <code>201 Created</code>, or <code>204 No Content</code>).
+        </p>
+
+        <p>
+            API clients can rely on <code>2xx</code> responses to indicate successful
+            completion of an operation and should interpret the response body, if
+            present, according to the resource’s media type and schema.
+        </p>
+   </details>
 </status-section>
 <status-section>
     <status-article>
@@ -182,14 +211,49 @@ images:
 </status-section>
 <status-section>
     <details>
-        <summary>3xx Redirection</summary>
-        <div>
-            <p>This class of status code indicates that further action needs to be taken by the user agent in order to fulfill the request. The action required MAY be carried out by the user agent without interaction with the user if and only if the method used in the second request is GET or HEAD. A client SHOULD detect infinite redirection loops, since such loops generate network traffic for each redirection.</p>
-            <blockquote><strong>Note:</strong> previous versions of this specification recommended a maximum of five redirections. Content developers should be aware that there might be clients that implement such a fixed limitation.</blockquote>
-            <h3>Wikipedia</h3>
-            <p>The client must take additional action to complete the request.</p>
-            <p>This class of status code indicates that further action needs to be taken by the user agent in order to fulfil the request. The action required may be carried out by the user agent without interaction with the user if and only if the method used in the second request is GET or HEAD. A user agent should not automatically redirect a request more than five times, since such redirections usually indicate an infinite loop.</p>
-        </div>
+        <summary>3xx - Redirection</summary>
+        <p>
+            <strong>3xx (Redirection)</strong> status codes indicate that the client must
+            take additional action to complete a REST API request, typically by issuing
+            a new request to a different URI provided by the server.
+        </p>
+
+        <p>
+            A <code>3xx</code> response usually includes a <code>Location</code> header
+            that identifies where the client should redirect the request. Depending on
+            the specific status code, the client may be expected to repeat the request
+            using the same HTTP method or switch to <code>GET</code>.
+        </p>
+
+        <p>
+            REST API clients <strong>SHOULD</strong> detect and prevent infinite
+            redirection loops, as repeated redirects generate unnecessary network
+            traffic and indicate a server-side configuration or design issue.
+        </p>
+
+        <p>
+            In REST APIs, <code>3xx</code> status codes are most commonly used for:
+        </p>
+
+        <ul>
+            <li>Indicating that a resource has moved permanently or temporarily</li>
+            <li>Redirecting clients to a canonical or versioned URI</li>
+            <li>Delegating requests to another service or endpoint</li>
+        </ul>
+
+        <p>
+            Automatic redirection without user interaction is generally safe only for
+            idempotent requests such as <code>GET</code> and <code>HEAD</code>. Clients
+            should take care when following redirects for non-idempotent methods like
+            <code>POST</code> or <code>PUT</code>.
+        </p>
+
+        <p>
+            In practice, many REST APIs avoid heavy reliance on <code>3xx</code> status
+            codes in favor of returning the final resource representation directly, as
+            API clients often prefer explicit, predictable responses over implicit
+            redirection.
+        </p>
     </details>
 </status-section>
 <status-section>
@@ -312,13 +376,44 @@ images:
 </status-section>
 <status-section>
     <details>
-        <summary>4xx Client Error</summary>
-        <div>
-            <p>The 4xx class of status code is intended for cases in which the client seems to have erred. Except when responding to a HEAD request, the server SHOULD include an entity containing an explanation of the error situation, and whether it is a temporary or permanent condition. These status codes are applicable to any request method. User agents SHOULD display any included entity to the user.</p>
-            <p>If the client is sending data, a server implementation using TCP SHOULD be careful to ensure that the client acknowledges receipt of the packet(s) containing the response, before the server closes the input connection. If the client continues sending data to the server after the close, the server's TCP stack will send a reset packet to the client, which may erase the client's unacknowledged input buffers before they can be read and interpreted by the HTTP application.</p>
-            <h3>Wikipedia</h3>
-            <p>The 4xx class of status code is intended for cases in which the client seems to have erred. Except when responding to a HEAD request, the server should include an entity containing an explanation of the error situation, and whether it is a temporary or permanent condition. These status codes are applicable to any request method. User agents should display any included entity to the user.</p>
-        </div>
+        <summary>4xx - Client Error</summary>
+        <p>
+            <strong>4xx (Client Error)</strong> status codes indicate that a REST API
+            request failed because the client sent invalid, incomplete, or
+            unauthorized input. The server understood the request but cannot process it
+            as submitted.
+        </p>
+
+        <p>
+            A <code>4xx</code> response represents a completed request with a client-side
+            error. Except for <code>HEAD</code> requests, the response
+            <strong>SHOULD</strong> include a response body describing what went wrong
+            and how the client can correct the request.
+        </p>
+
+        <p>
+            In REST APIs, error responses should be treated as part of the API contract.
+            They should be predictable, structured, and machine-readable, allowing
+            clients to reliably detect and handle error conditions.
+        </p>
+
+        <p>
+            Common uses of <code>4xx</code> status codes in REST APIs include:
+        </p>
+
+        <ul>
+            <li>Invalid request syntax or failed validation (<code>400 Bad Request</code>)</li>
+            <li>Missing or invalid authentication (<code>401 Unauthorized</code>)</li>
+            <li>Insufficient permissions (<code>403 Forbidden</code>)</li>
+            <li>Nonexistent resources (<code>404 Not Found</code>)</li>
+            <li>Conflicts with current resource state (<code>409 Conflict</code>)</li>
+        </ul>
+
+        <p>
+            REST API clients should not retry requests that result in <code>4xx</code>
+            responses without modifying the request, as these errors indicate problems
+            that must be resolved on the client side.
+        </p>
     </details>
 </status-section>
 <status-section>
@@ -668,13 +763,42 @@ images:
 </status-section>
 <status-section>
     <details>
-        <summary>5xx Server Error</summary>
-        <div>
-            <p>Response status codes beginning with the digit &quot;5&quot; indicate cases in which the server is aware that it has erred or is incapable of performing the request. Except when responding to a HEAD request, the server SHOULD include an entity containing an explanation of the error situation, and whether it is a temporary or permanent condition. User agents SHOULD display any included entity to the user. These response codes are applicable to any request method.</p>
-            <h3>Wikipedia</h3>
-            <p>The server failed to fulfill an apparently valid request.</p>
-            <p>Response status codes beginning with the digit &quot;5&quot; indicate cases in which the server is aware that it has encountered an error or is otherwise incapable of performing the request. Except when responding to a HEAD request, the server should include an entity containing an explanation of the error situation, and indicate whether it is a temporary or permanent condition. Likewise, user agents should display any included entity to the user. These response codes are applicable to any request method.</p>
-        </div>
+        <summary>5xx — Server Error</summary>
+        <p>
+            <strong>5xx (Server Error)</strong> status codes indicate that a REST API
+            request failed due to an error on the server, even though the request itself
+            may have been valid.
+        </p>
+
+        <p>
+            A <code>5xx</code> response represents a completed request where the server
+            was unable to successfully process the operation. Except for
+            <code>HEAD</code> requests, the response <strong>SHOULD</strong> include a
+            response body describing the failure at a high level.
+        </p>
+
+        <p>
+            REST APIs should avoid exposing internal implementation details in
+            <code>5xx</code> responses. Error messages should be concise, stable, and
+            safe to expose, while detailed diagnostics should be captured in server-side
+            logs and monitoring systems.
+        </p>
+
+        <p>
+            Common uses of <code>5xx</code> status codes in REST APIs include:
+        </p>
+
+        <ul>
+            <li>Unhandled server failures (<code>500 Internal Server Error</code>). REST APIs should avoid returning 500 errors.</li>
+            <li>Temporary unavailability or overload (<code>503 Service Unavailable</code>)</li>
+            <li>Timeouts when calling upstream dependencies (<code>504 Gateway Timeout</code>)</li>
+        </ul>
+
+        <p>
+            Unlike <code>4xx</code> errors, <code>5xx</code> responses may be transient.
+            REST API clients <strong>MAY</strong> retry requests that result in
+            <code>5xx</code> errors, using appropriate backoff and retry limits.
+        </p>
     </details>
 </status-section>
 <status-section>
