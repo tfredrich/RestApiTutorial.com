@@ -6,6 +6,13 @@ description: "How to design REST APIs that work well with LLMs and agentic workf
 summary: "Guidance on designing APIs for LLM and agent clients."
 weight: 3
 collapsibleMenu: true
+tags:
+  - generative-ai
+  - llm
+  - agentic-ai
+  - mcp
+categories:
+  - generative-ai
 images:
   - /images/logo.webp
 ---

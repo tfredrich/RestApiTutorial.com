@@ -3,6 +3,12 @@ title: "HTTP Methods"
 description: "How REST APIs use HTTP methods (GET, POST, PUT, PATCH, DELETE) with recommended status codes."
 summary: "HTTP methods and recommended REST API usage."
 weight: 30
+tags:
+  - collections
+  - http
+  - http-methods
+  - http-status-codes
+  - url-design
 images:
   - /images/logo.webp
 ---

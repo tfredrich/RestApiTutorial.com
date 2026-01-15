@@ -3,6 +3,15 @@ title: "HTTP Status Codes and Retry"
 description: "Which HTTP status codes should trigger automatic retries in API clients."
 summary: "Which HTTP status codes should trigger retries."
 weight: 10
+tags:
+  - responses
+  - retries
+  - error-handling
+  - http-status-codes
+  - resilience
+  - rate-limits
+categories:
+  - responses
 ---
 ## Status codes triggering retry
 

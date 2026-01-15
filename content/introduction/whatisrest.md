@@ -3,6 +3,12 @@ title: "What is REST?"
 description: "Plain-English explanation of REST and RESTful APIs, including the core ideas and how HTTP fits in."
 summary: "Intro to REST and RESTful APIs."
 weight: 10
+tags:
+  - rest-architecture
+  - http
+  - overview
+categories:
+  - introduction
 images:
   - /images/logo.webp
 ---

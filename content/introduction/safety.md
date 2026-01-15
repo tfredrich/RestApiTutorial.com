@@ -3,6 +3,10 @@ title: "Safety"
 description: "Safe HTTP methods in REST APIs and why GET/HEAD/OPTIONS/TRACE should not modify data."
 summary: "Safe HTTP methods and why they matter."
 weight: 60
+tags:
+  - http-methods
+  - safety
+  - idempotence
 images:
   - /images/logo.webp
 ---

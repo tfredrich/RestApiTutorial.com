@@ -2,6 +2,14 @@
 title: "Responses"
 description: "How REST APIs should structure responses, status codes, headers, and bodies."
 summary: "How REST APIs should structure responses and status codes."
+tags:
+  - responses
+  - http-status-codes
+  - headers
+  - responses
+  - error-handling
+categories:
+  - responses
 draft: false
 ---
 

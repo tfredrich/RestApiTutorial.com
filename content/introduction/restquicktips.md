@@ -3,6 +3,13 @@ title: "REST Quick Tips"
 description: "Practical tips for building more usable RESTful APIs."
 summary: "Quick tips for better RESTful API design."
 weight: 20
+tags:
+  - http-methods
+  - resource-naming
+  - http-status-codes
+  - url-design
+categories:
+  - introduction
 ---
 Whether it's technically RESTful or not (according to the six constraints mentioned previously), here are a few recommended REST-like concepts. These six quick tips will result in better, more usable services.
 

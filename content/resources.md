@@ -1,8 +1,16 @@
 ---
-title: "Resources"
-description: "REST API resources, best practices guides, cheat sheets, and related links."
+title: "Links and Downloads"
+description: "REST API guides, best practices, cheat sheets, and related links."
 summary: "Links to REST API guides, cheat sheets, and translations."
 weight: 50
+tags:
+  - cheat-sheets
+  - best-practices
+  - translations
+  - tools
+categories:
+  - external-links
+  - reference
 images:
   - /images/logo.webp
 ---

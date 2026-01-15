@@ -3,6 +3,17 @@ title: "The Six Constraints"
 description: "The six REST constraints explained with practical context for designing RESTful APIs."
 summary: "The six REST constraints in brief."
 weight: 15
+tags:
+  - constraints
+  - uniform-interface
+  - statelessness
+  - cacheable
+  - client-server
+  - layered-system
+  - code-on-demand
+  - hateoas
+categories:
+  - video
 images:
   - /images/logo.webp
 ---
