@@ -22,11 +22,16 @@ name = "<i class='fas fa-fw fa-tags'></i> Tags"
 url = "tags/"
 weight = 40
 
+[[menu.shortcuts]]
+name = "<i class='fas fa-fw fa-tags'></i> Categories"
+url = "categories/"
+weight = 50
+
 [params]
   editURL = "https://github.com/tfredrich/RestApiTutorial.com/edit/master/content/"
   author.name = "Todd Fredrich"
   collapsibleMenu = true
-  titleSeparator = " - "
+  titleSeparator = "-"
   themeVariant = [ "auto", "zen-light", "zen-dark" ]
   showVisitedLinks = true
   disableLandingPageButton = true
