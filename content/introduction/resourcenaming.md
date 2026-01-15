@@ -1,7 +1,7 @@
 ---
 title: "Resource Naming"
 description: "Best practices for naming REST API resources and designing intuitive, predictable URIs."
-summary: "Tips for REST resource naming and URI design."
+summary: "Tips for REST resource naming and URI design an HTTP API."
 weight: 40
 images:
   - /images/logo.webp
