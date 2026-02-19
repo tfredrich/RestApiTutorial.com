@@ -56,7 +56,7 @@ Here are some quick-hit rules for URL path (resource name) design:
 * Keep URLs as short as possible, with as few segments as makes sense.
 
 ## Use HTTP Response Codes to Indicate Status
-Response status codes are part of the HTTP specification. There are quite a number of them to address the most common situations. In the spirit of having our RESTful services embrace the HTTP specification, our Web APIs should return relevant HTTP status codes. For example, when a resource is successfully created (e.g. from a POST request), the API should return HTTP status code 201. A list of valid HTTP status codes is available here which lists detailed descriptions of each.
+Response status codes are part of the HTTP specification. There are quite a number of them to address the most common situations. In the spirit of having our RESTful services embrace the HTTP specification, our Web APIs should return relevant HTTP status codes. For example, when a resource is successfully created (e.g. from a POST request), the API should return HTTP status code 201. A list of valid HTTP status codes is available [here](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml) which lists detailed descriptions of each.
 
 Suggested usages for the "Top 10" HTTP Response Status Codes are as follows:
 
